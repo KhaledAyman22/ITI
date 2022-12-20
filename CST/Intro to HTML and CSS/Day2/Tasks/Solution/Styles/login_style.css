@@ -1,0 +1,12 @@
+body{
+    background-color: blanchedalmond;
+}
+
+form{
+    width: 500px;
+    margin: auto;
+}
+
+select optgroup{
+    font-style:italic;
+}

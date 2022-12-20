@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<?xml-stylesheet type="text/xsl" href="mobile_demo1.xsl"?>
+<tutorials>
+	<tutorial>
+		
+		<name>XML Tutorial</name>
+		
+		<url>https://www.quackit.com/xml/tutorial</url>
+		
+	</tutorial>
+	<tutorial>
+	
+		<name>HTML Tutorial</name>
+	
+		<url>https://www.quackit.com/html/tutorial</url>
+	
+	</tutorial>
+	<name>
+		<tutorial>
+			<name>HTML Tutorial</name>
+	
+			<url>https://www.quackit.com/html/tutorial</url>
+		</tutorial>
+		<name>abc</name>
+		<xyz>data</xyz>
+	</name>
+</tutorials>

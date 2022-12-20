@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="mobile-demo3.xsl"?>
+<food_list>
+  <food_item type="vegetable" >
+    <name>agar</name>
+    <carbs_per_serving>81</carbs_per_serving>
+    <fiber_per_serving>8</fiber_per_serving>
+    <fat_per_serving>0.5</fat_per_serving>
+    <kj_per_serving>1280</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Asparagus</name>
+    <carbs_per_serving>1</carbs_per_serving>
+    <fiber_per_serving>1</fiber_per_serving>
+    <fat_per_serving>0</fat_per_serving>
+    <kj_per_serving>40</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Cabbage</name>
+    <carbs_per_serving>0</carbs_per_serving>
+    <fiber_per_serving>1</fiber_per_serving>
+    <fat_per_serving>0</fat_per_serving>
+    <kj_per_serving>14</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Potato</name>
+    <carbs_per_serving>21.5</carbs_per_serving>
+    <fiber_per_serving>2</fiber_per_serving>
+    <fat_per_serving>1</fat_per_serving>
+    <kj_per_serving>460</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Pumpkin</name>
+    <carbs_per_serving>6</carbs_per_serving>
+    <fiber_per_serving>1</fiber_per_serving>
+    <fat_per_serving>0.5</fat_per_serving>
+    <kj_per_serving>150</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Yam</name>
+    <carbs_per_serving>30.5</carbs_per_serving>
+    <fiber_per_serving>2</fiber_per_serving>
+    <fat_per_serving>0.5</fat_per_serving>
+    <kj_per_serving>550</kj_per_serving>
+  </food_item>
+  <food_item type="vegetable">
+    <name>Zucchini</name>
+    <carbs_per_serving>1.5</carbs_per_serving>
+    <fiber_per_serving>1.5</fiber_per_serving>
+    <fat_per_serving>0.5</fat_per_serving>
+    <kj_per_serving>55</kj_per_serving>
+  </food_item>
+  <food_item type="seafood">
+    <name>Abalone</name>
+    <carbs_per_serving>0</carbs_per_serving>
+    <fiber_per_serving>0</fiber_per_serving>
+    <fat_per_serving>1</fat_per_serving>
+    <kj_per_serving>400</kj_per_serving>
+  </food_item>
+  <food_item type="seafood">
+    <name>Barramundi</name>
+    <carbs_per_serving>0</carbs_per_serving>
+    <fiber_per_serving>0</fiber_per_serving>
+    <fat_per_serving>2</fat_per_serving>
+    <kj_per_serving>390</kj_per_serving>
+  </food_item>
+  <food_item type="fruit">
+    <name>Apple</name>
+    <carbs_per_serving>15</carbs_per_serving>
+    <fiber_per_serving>2.5</fiber_per_serving>
+    <fat_per_serving>0</fat_per_serving>
+    <kj_per_serving>250</kj_per_serving>
+  </food_item>
+  <food_item type="fruit">
+    <name>Kiwi Fruit</name>
+    <carbs_per_serving>7.5</carbs_per_serving>
+    <fiber_per_serving>2.5</fiber_per_serving>
+    <fat_per_serving>0</fat_per_serving>
+    <kj_per_serving>150</kj_per_serving>
+  </food_item>
+  <food_item type="grain">
+    <name>Oatbran</name>
+    <carbs_per_serving>62</carbs_per_serving>
+    <fiber_per_serving>14</fiber_per_serving>
+    <fat_per_serving>7</fat_per_serving>
+    <kj_per_serving>1400</kj_per_serving>
+  </food_item>
+  <food_item type="grain">
+    <name>Wheatgerm</name>
+    <carbs_per_serving>1.5</carbs_per_serving>
+    <fiber_per_serving>1</fiber_per_serving>
+    <fat_per_serving>0.5</fat_per_serving>
+    <kj_per_serving>70</kj_per_serving>
+  </food_item>
+</food_list>

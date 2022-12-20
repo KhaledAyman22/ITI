@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE family SYSTEM "family3.dtd">
+<family>
+	<grandfather>ibrahim
+            <father job="Engineer" name="Ali">
+			<mother>
+				<name> mona</name>
+			</mother>
+			<daughter age="23 years old" job="ITI 		       student">ghada</daughter>
+			<daughter job="IT Specialist" age="30 years old">
+			     <name> Ola</name>
+			     <child>karim</child>
+			</daughter>
+			<son age="21" sport="football">mohamed</son>
+		</father>
+		<uncle>abd el fatah</uncle>
+		<uncle>reda</uncle>
+		<aunt sons="2">labiba</aunt>
+	</grandfather>
+</family>

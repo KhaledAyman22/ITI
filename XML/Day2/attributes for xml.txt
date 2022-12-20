@@ -1,0 +1,18 @@
+-put the attributes in the root element
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="ComplexType.xsd"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+online editor for xslt
+https://www.w3schools.com/xml/tryxslt.asp?xmlfile=cdcatalog&xsltfile=cdcatalog

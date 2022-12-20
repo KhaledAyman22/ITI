@@ -1,0 +1,13 @@
+#main{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+    width: 800px;
+    height: auto;
+    background-color: darkblue;
+}
+
+img{
+    margin: 20px;
+}

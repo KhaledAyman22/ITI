@@ -1,0 +1,15 @@
+#enter {
+    text-align: center;
+}
+
+#welcome {
+    text-align: right;
+    font-family: cursive;
+    font-size: 25;
+    font-weight: 500;
+}
+
+body{
+    background-color: blanchedalmond;
+}
+

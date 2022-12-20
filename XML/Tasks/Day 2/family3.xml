@@ -1,0 +1,15 @@
+<?xml-stylesheet type="text/css" href="display.css"?>
+<family name="myfamilytree"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="family3.xsd">
+	<!--<!DOCTYPE family SYSTEM "family.dtd">-->
+	<grandfather>Ibrahim
+		<father job="Engineer">ali
+			<mother name="Hoda"></mother>
+			<daughter age="medium" job="ITIstudent">Kareema</daughter>
+			<son age="21" sport="football">mohamed</son>
+		</father>
+		<uncle>abd el fatah</uncle>
+		<uncle>reda</uncle>
+		<aunt sons="2">layla</aunt>
+	</grandfather>
+</family>

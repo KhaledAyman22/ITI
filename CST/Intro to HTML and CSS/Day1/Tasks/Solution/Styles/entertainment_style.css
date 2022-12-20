@@ -1,0 +1,22 @@
+body{
+    background-color: blanchedalmond;
+}
+
+#sites_image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mail {
+    text-align: center;
+}
+
+#google {
+    display: block;
+    text-align: center;
+}
+
+#copyrights{
+    text-align: center;
+}

@@ -1,0 +1,16 @@
+#main{
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 150px;
+    width: 500px;
+    padding: 20px;
+    background-color: bisque;
+    border-radius: 30px;
+}
+
+img{
+    border-color: black;
+    border-style: solid;
+    border-radius: 15px;
+}

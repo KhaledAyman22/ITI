@@ -1,0 +1,587 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0075)http://www.sqlteam.com/article/implementing-table-inheritance-in-sql-server -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML 
+dir="ltr" xmlns="http://www.w3.org/1999/xhtml"><HEAD 
+id="ctl00_ctl00_Head1"><META content="IE=10.000" http-equiv="X-UA-Compatible">
+<LINK href="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/csharp.css" 
+rel="stylesheet" type="text/css"><LINK href="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/sqlteam2.css" 
+rel="stylesheet" type="text/css">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"><LINK href="http://static2.sqlteamx.com/images/favicon.ico" 
+rel="SHORTCUT ICON"><LINK href="http://static2.sqlteamx.com/images/sqlteam-touch-icon.png" 
+rel="apple-touch-icon"><LINK title="SQLTeam.com -- SQL Server Information" href="http://feeds.sqlteam.com/sqlteam" 
+rel="alternate" type="application/rss+xml"><TITLE>	Implementing Table 
+Inheritance in SQL Server - SQLTeam.com </TITLE> 
+<META name="verify-v1" content="7i8SPJZFQb3hJ6+PgkEIIZ52tig8nuSuDW5/nhISIt4=">
+<META name="robots" content="noarchive">
+<META content="181788198509369" property="fb:page_id"> 
+<SCRIPT type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-222470-2']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
+
+</SCRIPT>
+ 
+<META name="DESCRIPTION" content="When designing a database, we sometimes come across situations where there are multiple types of entities that we are modeling, but we'd like them to all have certain attributes or relations in common.  Using &quot;sub-type&quot; tables is a simple way to implement table inheritance in SQL Server.">
+<META name="MS.LOCALE" content="en-US">
+<META name="Author" content="Jeff Smith">
+<META name="Search.PublishDate" content="20 Feb 2008 05:00:00 GMT">
+<META name="Search.TopicType" content="kbArticle"><LINK href="http://www.sqlteam.com/article/implementing-table-inheritance-in-sql-server" 
+rel="canonical">
+<META name="GENERATOR" content="MSHTML 10.00.9200.16660"></HEAD> 
+<BODY><!-- ================================  Site Header ========================================= --> 
+<DIV id="site_header"><!-- Logo and banner --> 
+<TABLE>
+  <TBODY>
+  <TR style="height: 100px;">
+    <TD class="site_header_cell"><A id="ctl00_ctl00_TopHomePage" href="http://www.sqlteam.com/"><IMG 
+      width="123" height="80" alt="SQLTeam.com Logo" src="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/SqlTeamHDR2.jpg">
+      		    </A>		  		 </TD>
+    <TD class="site_header_cell"><!-- Begin -  Site: SQLTeam.com Zone: SiteBanner --> 
+<SCRIPT language="javascript" type="text/javascript">
+<!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 1;
+var browDateTime = (new Date()).getTime();
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=30521&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=30521&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> 
+</SCRIPT>
+       <NOSCRIPT>    &lt;a 
+      href="http://bulldog.sqlteam.com/a.aspx?ZoneID=1&amp;amp;Task=Click&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=30521" 
+      target="_blank"&gt;    &lt;img 
+      src="http://bulldog.sqlteam.com/a.aspx?ZoneID=1&amp;amp;Task=Get&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=30521" 
+      width="468" height="60" border="0"  alt=""&gt;&lt;/a&gt; </NOSCRIPT> <!-- End -  Site: SQLTeam.com Zone: SiteBanner --> 
+             	   				 </TD></TR></TBODY></TABLE><!-- End Logo and Banner --> 
+<DIV class="site_header_menu1">
+<TABLE width="100%" class="site_header_menu1">
+  <TBODY>
+  <TR>
+    <TD><A id="ctl00_ctl00_hypHome" 
+      href="http://www.sqlteam.com/">&nbsp;Home&nbsp;</A> |                     
+      <A id="ctl00_ctl00_hypWeblogs" 
+      href="http://weblogs.sqlteam.com/">&nbsp;Weblogs&nbsp;</A> |              
+      <A id="ctl00_ctl00_hypForums" 
+      href="http://www.sqlteam.com/forums/">&nbsp;Forums&nbsp;</A> |             
+                  <!-- <a href="newsletter.aspx">&nbsp;Newsletter&nbsp;</a> |  --> 
+                              <A id="ctl00_ctl00_hypLinks" href="http://www.sqlteam.com/sql-server-links.aspx">&nbsp;SQL 
+      Server Links&nbsp;</A>                </TD>
+    <TD style="text-align: right; padding-right: 15px;"><!-- Google CSE Search Box Begins  --> 
+      <FORM id="searchbox_011171816663894899992:aow51lf_dim" style="margin: 0px; padding: 0px;" 
+      action="/search.aspx">    Search:    <INPUT name="cx" type="hidden" value="011171816663894899992:aow51lf_dim"> 
+        <INPUT name="cof" type="hidden" value="FORID:9">   <INPUT name="q" type="text" 
+      size="25">   <INPUT name="sa" type="submit" value="&nbsp;Go&nbsp;"> 
+</FORM><!-- Google CSE Search Box Ends -->        
+</TD></TR></TBODY></TABLE></DIV>
+<DIV id="site_header_menu2"><A id="ctl00_ctl00_HyperLink4" href="http://www.sqlteam.com/forums/active.asp">&nbsp;Active 
+Forum Topics&nbsp;</A> |       <A href="http://www.sqlteam.com/popular-articles.aspx">&nbsp;Popular 
+Articles&nbsp;</A> |    <A href="http://www.sqlteam.com/tag.aspx">&nbsp;All 
+Articles by Tag&nbsp;</A> | 		 <A id="ctl00_ctl00_HyperLink5" href="http://www.sqlteam.com/store.aspx">&nbsp;SQL 
+Server Books&nbsp;</A> |  	 <!-- &nbsp;Resources&nbsp; | 
+	&nbsp;Books&nbsp; | -->
+	 <A id="ctl00_ctl00_HyperLink2" 
+href="http://www.sqlteam.com/about.aspx">&nbsp;About&nbsp;</A>	 </DIV><!-- Site Sponsorship -->	 
+   <!-- Begin -  Site: SQLTeam.com Zone: SiteSponsor --> 
+<SCRIPT language="javascript" type="text/javascript">
+<!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 7;
+var browDateTime = (new Date()).getTime();
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=42851&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=42851&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> 
+</SCRIPT>
+ <NOSCRIPT>    &lt;a 
+href="http://bulldog.sqlteam.com/a.aspx?ZoneID=7&amp;amp;Task=Click&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=42851" 
+target="_blank"&gt;    &lt;img 
+src="http://bulldog.sqlteam.com/a.aspx?ZoneID=7&amp;amp;Task=Get&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=42851" 
+width="100" height="20" border="0"  alt=""&gt;&lt;/a&gt; </NOSCRIPT> <!-- End -  Site: SQLTeam.com Zone: SiteSponsor --> 
+ 	    </DIV><!-- ================================  End Site Header ========================================= --> 
+<FORM name="aspnetForm" id="aspnetForm" action="article.aspx?implementing-table-inheritance-in-sql-server" 
+method="post">
+<DIV><INPUT name="__VIEWSTATE" id="__VIEWSTATE" type="hidden" value="/wEPDwUKMTAxMzgyMzIxMmRkEw1TPq4XlIONSxPouG73AS0rpI8="> 
+</DIV>
+<DIV><INPUT name="__EVENTVALIDATION" id="__EVENTVALIDATION" type="hidden" value="/wEWBQKy+ZexBQKTvbqfCAKc0O/RBQLG5aPEBQKatazxCO4VSDXjNyAsMnYnhE6QiSIYsbU9"> 
+</DIV>
+<DIV id="site_body">
+<TABLE id="content">
+  <TBODY>
+  <TR>
+    <TD id="leftcolumn">
+      <DIV id="page_content"><!-- google_ad_section_start -->		 
+      <DIV style="vertical-align: middle; float: right;"><g:plusone 
+      size="tall"></g:plusone></DIV>
+      <DIV id="article_header">
+      <H1>Implementing Table Inheritance in SQL Server</H1>
+      <P class="new-tag-line">By <STRONG><A href="http://www.sqlteam.com/author/jeff-smith">Jeff 
+      Smith</A></STRONG>  on <STRONG>20 February 2008</STRONG> | <A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=97618" 
+      rel="nofollow">36 Comments</A>    | Tags: <A href="http://www.sqlteam.com/tag/sql-server-database-design">Database 
+      Design</A>, <A 
+      href="http://www.sqlteam.com/tag/sql-server-table-design">Table 
+      Design</A></P>
+      <P>
+      <HR width="100%" style="text-align: center;">
+
+      <P></P>
+      <P>
+      <P>When designing a database, we sometimes come across situations where 
+      there are multiple types of entities that we are modeling, but we'd like 
+      them to all have certain attributes or relations in common.  Using 
+      "sub-type" tables is a simple way to implement table inheritance in SQL 
+      Server.</P>
+      <P></P></DIV><!-- <hr  /> --> 
+      <DIV id="article_body">
+      <P>For example, a question came up recently about modeling the following 
+      entities in a "School" database:</P>
+      <UL>
+        <LI>Students</LI>
+        <LI>Teachers</LI>
+        <LI>Parents</LI></UL>
+      <P>Each of those entities has many of the same attributes, such as first 
+      name, last name, middle name, and birth date. Yet, we must separate them 
+      into multiple tables because we need to store and track different data for 
+      students, teachers and parents: students have grades and classes and 
+      parents; teachers have classes taught, skills, employment information, and 
+      so on. </P>
+      <P>In addition to sharing common attributes, these entities also have 
+      common relations. For example, for each of those entities we might also 
+      like to store addresses, phone numbers, correspondence history, etc.  To 
+      do this in a nicely normalized database, we would model that data by 
+      creating additional tables: </P>
+      <UL>
+        <LI>StudentsAddresses</LI>
+        <LI>TeachersAddresses</LI>
+        <LI>ParentsAddresses</LI>
+        <LI>StudentPhoneNumbers</LI>
+        <LI>TeacherPhoneNumbers</LI>
+        <LI>ParentPhoneNumbers</LI>
+        <LI>StudentCorrespondance</LI>
+        <LI>TeacherCorrespondance</LI>
+        <LI>ParentCorrespondance</LI>
+        <LI>...etc...</LI></UL>
+      <P>On top of the redundant, similar tables, we would need a whole mess of 
+      redundant, similar stored procedures to add/update/delete/select items 
+      from these tables. Yet, again, we need different tables for these 
+      different entities because they each have their own set of relations and 
+      attributes to track. </P>
+      <P>Is there an easier way to model this in a relational database? 
+      Absolutely -- let's take a look. </P>
+      <H2>Creating A "Base Table"</H2>
+      <P>We can start by recognizing that Students, Teachers, and Parents are 
+      all "People", and we can note that it makes sense to say that all People 
+      can have addresses and phone numbers and correspondence history: </P>
+      <UL>
+        <LI>People</LI>
+        <LI>PeopleAddresses</LI>
+        <LI>PeoplePhoneNumbers</LI>
+        <LI>PeopleCorrespondence</LI></UL>
+      <P>In the People table, we'd store all of the common attributes of 
+      Students, Teachers and Parents that we discussed earlier: name, birth 
+      date, and so on. We remove all of these common columns from the Students, 
+      Teachers and Parents tables and put them all in one place. Now, 
+      maintaining phone numbers, addresses, names, birthdays, and correspondence 
+      can all be done with one set of generic stored procedures. The redundancy
+       of those activities has now been reduced, and any changes in phone number 
+      or address formats can all be done in place.  We can refer to the People 
+      table as a <EM>"base table"</EM>. </P>
+      <H2>Deriving Sub-Tables from the Base Table</H2>
+      <P>Of course, we still need our Students, Teachers and Parents tables -- 
+      but now the primary key of these tables also becomes a foreign key to the 
+      People table. </P>
+      <P>Because any row in the Students, Teachers or Parents tables require a 
+      related row in the People table, and it also shares the same primary key 
+      as the People table (i.e., it is a 1:1 relation), I'll refer to the 
+      Students, Teachers and Parents tables as <EM>sub-tables</EM> of the People 
+      table. Think of these sub-tables as tables that extend the basic 
+      information that the People table provides; this is similar to how 
+      <EM>inheritance</EM> works in <A href="http://en.wikipedia.org/wiki/Object-oriented_programming" 
+      target="_blank">Object-Oriented Programming</A> (OOP). Essentially, we are 
+      performing <EM>"table inheritance"</EM> by doing this; since every 
+      student, teacher and parent is by definition also a "person" and we are 
+      guaranteed that we can work with all of those entities the same way by
+       treating them as People if we want, or we can work with them using their 
+      specific attributes and relations. </P>
+      <P>That gives us a schema like this: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> People(PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, Name <SPAN class="kwrd">varchar</SPAN> ... etc ...)
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Students(PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN> <SPAN class="kwrd">references</SPAN> People(PersonID), ...)
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Teachers(PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN> <SPAN class="kwrd">references</SPAN> People(PersonID), ...)
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Parents(PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN> <SPAN class="kwrd">references</SPAN> People(PersonID), ...)</PRE>
+      <P>With that particular schema, notice a few things: </P>
+      <OL>
+        <LI>You cannot create a Student/Teacher/Parent until you first set up 
+        the "Person".    Once the person is created, you can now add a related 
+        row to the appropriate table,    depending what type they are. </LI>
+        <LI>We still have our common data all in one place, but now we have 
+        tables set up to    store specific attributes and relations for these 
+        different types of People. A simple    JOIN from Students to People 
+        gives us the student's name, contact information, and    so on.</LI>
+        <LI>This schema allows a person to be a student, teacher and parent -- 
+        all at once!    It also allows a person to be none of these -- you 
+        simply don't add a related row    in any of the sub-tables.</LI>
+        <LI>If we want to output a "Type" column (Student, Teacher, Parent) when 
+        querying the    People table, we must outer join to all the 3 
+        "sub-tables" and determine if any    matching rows exist.</LI></OL>
+      <P>That 3rd point is important, as it may not be what you want; we'll get 
+      back to that in a moment. But for our purposes, I think it makes sense: 
+      suppose a person is initially a student, comes back to work for the school 
+      as a teacher, and then eventually has kids of their own. This schema 
+      allows us to handle that. </P>
+      <P>The 4th point is important to consider as well. We could add a 
+      "PersonType" column to the table, and create a table of PersonTypes -- but 
+      then we introduce redundancies and the possibility of conflicting data. 
+      Also, as mentioned, a person can be more than one "type" at a time, so the 
+      existence of this column doesn't really make sense in this table without 
+      changing our logical model. </P>
+      <P>Using this schema is easy; we can quickly get all of the information 
+      for all of the students with a simple join: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">select</SPAN> s.*, p.*
+<SPAN class="kwrd">from</SPAN> students s 
+<SPAN class="kwrd">inner</SPAN> <SPAN class="kwrd">join</SPAN> people p <SPAN class="kwrd">on</SPAN> s.personID = p.personID</PRE>
+      <P>(you'd replace * with actual columns that you need, of course.) </P>
+      <P>So, everything works beautifully. We have our base table, we have our 
+      sub-tables, and the inheritance allows us to work with the different 
+      entities all the same way, but to also treat each of them specifically on 
+      their own as necessary. </P>
+      <H2>Modeling One-to-Either Constraints</H2>
+      <P>However, what if we want to set up our model so that a Person can have 
+      only one type; i.e., either a Student, OR a teacher, OR a parent? This is 
+      a more accurate database implementation of inheritance, since in OOP you 
+      cannot create an instance of something that is more than one sub-class at 
+      a time -- you must pick one or the other (or potentially the base class 
+      itself, if that's what you need). </P>
+      <P>Modeling this can be tricky, and it can be done a couple of ways. 
+      Here’s a technique I like to use, it doesn’t require a trigger, it is easy 
+      to implement, and it uses standard referential integrity without 
+      complicated check constraints. </P>
+      <P>First, create a table of PersonTypes: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> PersonType (PersonTypeID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, PersonType <SPAN class="kwrd">varchar</SPAN>(10))
+</PRE>
+      <P>And let’s insert the following values, one per “sub-table”: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">insert</SPAN> <SPAN class="kwrd">into</SPAN> PersonType
+<SPAN class="kwrd">select</SPAN> 1,<SPAN class="str">'Student'</SPAN> <SPAN class="kwrd">union</SPAN> <SPAN class="kwrd">all</SPAN>
+<SPAN class="kwrd">select</SPAN> 2,<SPAN class="str">'Teacher'</SPAN> <SPAN class="kwrd">union</SPAN> <SPAN class="kwrd">all</SPAN>
+<SPAN class="kwrd">select</SPAN> 3,<SPAN class="str">'Parent'</SPAN></PRE>
+      <P>This is the table that defines the different types our system will 
+      allow. There will be one entry in this table per "sub-table" that we 
+      create. If we want to allow for a Person to be just a generic "Person" 
+      without any specify sub-type, we could add a row for "Other". </P>
+      <P>With that table in place, we will now add a PersonType column to our 
+      People table. For this example, let’s only define a generic Name column 
+      for our People table: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> People
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">references</SPAN> PersonType(PersonTypeID) <SPAN class="kwrd">not</SPAN> <SPAN class="kwrd">null</SPAN>, 
+  Name <SPAN class="kwrd">varchar</SPAN>(10) <SPAN class="kwrd">not</SPAN> <SPAN class="kwrd">null</SPAN>
+)</PRE>
+      <P>Pretty standard stuff so far – we have different types of People we are 
+      modeling, and each Person must be assigned a type. </P>
+      <P>And now comes the trick: We will add an extra PersonType column to each 
+      of our sub-tables, and force the value in that column to be equal to the 
+      PersonTypeID for that table. In SQL 2000, we can just add a default and a 
+      check constraint, but in SQL 2005 we can use a persisted computed column. 
+      So, our Students table will have a constant PersonType value of 1, the 
+      Teachers table a value of 2, and the Parents table a value of 3. </P>
+      <P>Then, we simply create a foreign key relation back to the People table 
+      – but instead of just on the PersonID column, we create the constraint on 
+      both the PersonID and the PersonTypeID columns. With these constraints in 
+      place, we are guaranteed that Person will only have one type, and that 
+      they can only have data in the matching sub-table for that type. </P>
+      <P>There is a catch, however: we cannot create our sub-tables just yet; if 
+      we try it, we’ll get the following error: </P>
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Students 
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">as</SPAN> 1 <SPAN class="kwrd">persisted</SPAN>, <SPAN class="rem">-- student</SPAN>
+  EnrollmentDate <SPAN class="kwrd">datetime</SPAN>, 
+  <SPAN class="kwrd">foreign</SPAN> <SPAN class="kwrd">key</SPAN> (PersonID, PersonTypeID) <SPAN class="kwrd">references</SPAN> People(PersonID, PersonTypeID)
+)
+
+<SPAN class="str">Msg 1776, Level 16, State 0, Line 1
+There are no primary or candidate keys in the referenced table 'People' that 
+match the referencing column list in the foreign key 'FK__Students__1F98B2C1'.
+Msg 1750, Level 16, State 0, Line 1
+Could not create constraint. See previous errors.</SPAN>
+</PRE>
+      <P>This is because the unique constraint on the People table is just on 
+      the PersonID column, but we are trying to set up a foreign key constraint 
+      on the combination of PersonID/PersonTypeID. To handle this, we simply add 
+      an additional unique constraint to the People table, covering both 
+      PersonID and PersonTypeID: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">drop</SPAN> <SPAN class="kwrd">table</SPAN> People
+<SPAN class="kwrd">go</SPAN>
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> People
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">references</SPAN> PersonType(PersonTypeID), 
+  Name <SPAN class="kwrd">varchar</SPAN>(10)
+  <SPAN class="kwrd">constraint</SPAN> People_AltPK <SPAN class="kwrd">unique</SPAN> (PersonID,PersonTypeID)
+)</PRE>
+      <P>With that in place, we are good to go: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Students 
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">as</SPAN> 1 persisted, <SPAN class="rem">-- student</SPAN>
+  EnrollmentDate datetime, 
+  <SPAN class="kwrd">foreign</SPAN> <SPAN class="kwrd">key</SPAN> (PersonID, PersonTypeID) <SPAN class="kwrd">references</SPAN> People(PersonID, PersonTypeID)
+)
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Teachers 
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">as</SPAN> 2 persisted, <SPAN class="rem">-- teacher</SPAN>
+  HireDate datetime, 
+  <SPAN class="kwrd">foreign</SPAN> <SPAN class="kwrd">key</SPAN> (PersonID, PersonTypeID) <SPAN class="kwrd">references</SPAN> People(PersonID, PersonTypeID)
+)
+
+<SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Parents
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">as</SPAN> 3 persisted, <SPAN class="rem">-- parents</SPAN>
+  DifficultyScore <SPAN class="kwrd">int</SPAN>,
+  <SPAN class="kwrd">foreign</SPAN> <SPAN class="kwrd">key</SPAN> (PersonID, PersonTypeID) <SPAN class="kwrd">references</SPAN> People(PersonID, PersonTypeID)
+)
+
+Command(s) completed successfully.</PRE>
+      <P>Note: If you are using SQL Server 2000, instead of computed columns for 
+      the PersonTypeID constants, you would instead use a default value and a 
+      check constraint, since it does not allow computed columns to be used in 
+      foreign key constraints: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">create</SPAN> <SPAN class="kwrd">table</SPAN> Teachers <SPAN class="rem">-- SQL 2000 Version </SPAN>
+(
+  PersonID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">primary</SPAN> <SPAN class="kwrd">key</SPAN>, 
+  PersonTypeID <SPAN class="kwrd">int</SPAN> <SPAN class="kwrd">not</SPAN> <SPAN class="kwrd">null</SPAN> <SPAN class="kwrd">default</SPAN> 2 <SPAN class="kwrd">check</SPAN> (PersonTypeID = 2), <SPAN class="rem">-- teachers type</SPAN>
+  HireDate datetime, 
+  <SPAN class="kwrd">foreign</SPAN> <SPAN class="kwrd">key</SPAN> (PersonID, PersonTypeID) <SPAN class="kwrd">references</SPAN> People(PersonID, PersonTypeID)
+)</PRE>
+      <P>Now to test it. Let’s create a new Person, called "Bob", and make him a 
+      student. First, we add a row to the People table, and then a matching row 
+      to the Student table: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">insert</SPAN> <SPAN class="kwrd">into</SPAN> People (PersonID, PersonTypeID, Name)
+<SPAN class="kwrd">values</SPAN> (1,1,<SPAN class="str">'Bob'</SPAN>)
+
+(1 row(s) affected)
+
+<SPAN class="kwrd">insert</SPAN> <SPAN class="kwrd">into</SPAN> Students (PersonID, EnrollmentDate)
+<SPAN class="kwrd">values</SPAN> (1,<SPAN class="str">'2007-01-01'</SPAN>)
+
+(1 row(s) affected)</PRE>
+      <P>Notice that we cannot add teacher information for Bob, since he is a 
+      student: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">insert</SPAN> <SPAN class="kwrd">into</SPAN> Teachers (PersonID, HireDate)
+<SPAN class="kwrd">values</SPAN> (1,<SPAN class="str">'2007-01-01'</SPAN>)
+
+<SPAN class="str">Msg 547, Level 16, State 0, Line 1
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK__Teachers__31B762FC". 
+The conflict occurred in database "PlayGround", table "dbo.People".
+The statement has been terminated.</SPAN></PRE>
+      <P>And, of course, we cannot change Bob’s type from a student to a 
+      teacher, since there is already a row in the Students table for him: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="kwrd">update</SPAN> People <SPAN class="kwrd">set</SPAN> PersonTypeID=2 <SPAN class="kwrd">where</SPAN> PersonID = 1
+
+<SPAN class="str">Msg 547, Level 16, State 0, Line 1
+The UPDATE statement conflicted with the REFERENCE constraint "FK__Students__2645B050". 
+The conflict occurred in database "PlayGround", table "dbo.Students".
+The statement has been terminated.</SPAN></PRE>
+      <P>The only way to change Bob’s type is to remove the row from the 
+      Students table first: </P><!-- code formatted by http://manoli.net/csharpformat/ --> 
+<PRE class="csharpcode"><SPAN class="rem">-- delete student attributes:</SPAN>
+<SPAN class="kwrd">delete</SPAN> <SPAN class="kwrd">from</SPAN> Students <SPAN class="kwrd">where</SPAN> PersonID=1
+
+<SPAN class="rem">-- change the type from a student to to a teacher</SPAN>
+<SPAN class="kwrd">update</SPAN> People <SPAN class="kwrd">set</SPAN> PersonTypeID=2 <SPAN class="kwrd">where</SPAN> PersonID = 1
+
+<SPAN class="rem">-- add teacher attributes:</SPAN>
+<SPAN class="kwrd">insert</SPAN> <SPAN class="kwrd">into</SPAN> Teachers (PersonID, HireDate)
+<SPAN class="kwrd">values</SPAN> (1,<SPAN class="str">'2007-01-01'</SPAN>)
+
+(1 row(s) affected)
+
+(1 row(s) affected)
+
+(1 row(s) affected)
+</PRE>
+      <P>And there you have it! A "one-to-either" constraint, where each row in 
+      one table has a related row in only one of several possible tables, 
+      without the need for any triggers or any complicated T-SQL programming to 
+      maintain data integrity. </P>
+      <H2>Conclusion</H2>
+      <P>Once things are in place, we have a simpler data model with fewer 
+      tables and stored procedures, and we are guaranteed consistency when 
+      dealing with common attributes and relations of "People" in the database. 
+      We can easily create new types of People simply by adding a row to the 
+      PersonTypes table and then creating a new "sub-table". As soon as the new 
+      sub-table is created, that new type immediately has all of the attributes 
+      and relations of a Person – without coding up anything or making any other 
+      changes to the database!</P></DIV>
+      <DIV id="article-footer">
+<SCRIPT type="text/javascript">    
+var switchTo5x = true;</SCRIPT>
+       
+<SCRIPT src="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/buttons.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">stLight.options({ publisher: '7b89fc1c-9734-4c09-b90c-197dc5f591dd' });</SCRIPT>
+       
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD valign="top">
+            <P style="font-size: 125%;">Discuss this article: <STRONG><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=97618" 
+            rel="nofollow">36 Comments</A></STRONG> so far.  <A href="http://www.sqlteam.com/print/implementing-table-inheritance-in-sql-server" 
+            rel="nofollow">Print this Article</A>.</P>
+            <P>If you like this article you can sign up for our <STRONG>weekly 
+            newsletter</STRONG>.   There's an opt-out link at the bottom of each 
+            newsletter so it's easy to unsubscribe at any time.</P>
+            <P>Email Address: <INPUT name="ctl00$ctl00$SiteContent$PageBody$articleRepeater$ctl00$Email2" 
+            id="ctl00_ctl00_SiteContent_PageBody_articleRepeater_ctl00_Email2" 
+            style="width: 225px;" type="text"> <INPUT name="ctl00$ctl00$SiteContent$PageBody$articleRepeater$ctl00$ctl00" type="submit" value="Subscribe"> 
+            </P></TD>
+          <TD valign="top" style="width: 125px; padding-left: 10px;">
+            <P><g:plusone size="medium"></g:plusone></P>
+            <P><SPAN class="st_twitter_hcount" displaytext="Tweet"></SPAN></P>
+            <P><SPAN class="st_delicious_hcount" 
+            displaytext="Delicious"></SPAN></P>
+            <P></P><SPAN class="st_facebook_hcount" 
+            displaytext="Facebook"></SPAN>
+            <P></P>
+            <P></P><SPAN class="st_email_hcount" displaytext="Email"></SPAN>
+            <P></P></TD></TR></TBODY></TABLE></DIV>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD style="padding-right: 10px; vertical-align: top;">
+            <H2>Related Articles</H2>
+            <P><A href="http://www.sqlteam.com/article/using-set-null-and-set-default-with-foreign-key-constraints">Using 
+            SET NULL and SET DEFAULT with Foreign Key Constraints</A>   (12 
+            August 2008)</P>
+            <P><A href="http://www.sqlteam.com/article/implementing-table-interfaces">Implementing 
+            Table Interfaces</A>   (19 May 2008)</P>
+            <P><A href="http://www.sqlteam.com/article/custom-auto-generated-sequences-with-sql-server">Custom 
+            Auto-Generated Sequences with SQL Server</A>   (24 April 2007)</P>
+            <P><A 
+            href="http://www.sqlteam.com/article/the-daily-database-build">The 
+            Daily Database Build</A>   (23 August 2004)</P>
+            <P><A href="http://www.sqlteam.com/article/how-to-move-a-database-diagram">HOW 
+            TO: Move a Database Diagram</A>   (12 December 2003)</P>
+            <P><A href="http://www.sqlteam.com/article/database-design-thoughts-for-packaged-applications">Database 
+            Design Thoughts  for Packaged Applications</A>   (26 October 
+            2003)</P>
+            <P><A href="http://www.sqlteam.com/article/the-current-state-of-database-research">The 
+            current state of database research</A>   (16 September 2003)</P>
+            <P><A href="http://www.sqlteam.com/article/using-metadata">Using 
+            Metadata</A>   (24 March 2003)</P></TD>
+          <TD style="padding-left: 10px; vertical-align: top; border-left-color: black; border-left-width: 1px; border-left-style: dotted;">
+            <H2>Other Recent Forum Posts</H2>
+            <P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188206" 
+            rel="nofollow">subquery vs join results are different</A> 
+            (5&nbsp;Replies)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188236" 
+            rel="nofollow">joining tables</A> (1&nbsp;Reply)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188207" 
+            rel="nofollow">Need help on sqlquery instead of cursor</A> 
+            (1&nbsp;Reply)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188232" 
+            rel="nofollow">database replication</A> (2&nbsp;Replies)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188234" 
+            rel="nofollow">Configure SQL server to send message to activemq</A> 
+            (0&nbsp;Replies)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188182" 
+            rel="nofollow">Sql Query</A> (3&nbsp;Replies)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188199" 
+            rel="nofollow">Check sum of Qty sold against the available Qty</A> 
+            (7&nbsp;Replies)</P>
+            <P style="padding-bottom: 6pt; margin-bottom: 0pt;"><A href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=188231" 
+            rel="nofollow">where issue.</A> (4&nbsp;Replies)</P>
+            <P></P></TD></TR></TBODY></TABLE>
+<SCRIPT src="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/plusone.js" type="text/javascript"></SCRIPT>
+      	 <!-- google_ad_section_end -->	 </DIV></TD>
+    <TD id="rightcolumn">
+      <DIV class="right-box">
+      <H2>Subscribe to SQLTeam.com</H2>
+      <P>Weekly <A href="http://www.sqlteam.com/newsletter.aspx">SQL Server 
+      newsletter</A> with articles,  forum posts, and blog posts via email.  
+      Subscribers receive our <STRONG>white paper with performance tips for 
+      developers</STRONG>.</P><!-- <p style="text-align: center; font-size: 75%;">Enter your email address:<br/> --> 
+      <P style="text-align: center;"><INPUT name="ctl00$ctl00$SiteContent$RightColumn1$NS$Email" 
+      id="ctl00_ctl00_SiteContent_RightColumn1_NS_Email" style="width: 165px;" 
+      type="text"> <INPUT name="ctl00$ctl00$SiteContent$RightColumn1$NS$btnSubscribe" id="ctl00_ctl00_SiteContent_RightColumn1_NS_btnSubscribe" type="submit" value="Subscribe"> 
+      </P>
+      <P style="text-align: center;"><A style='background: url("http://static2.sqlteamx.com/images/feed-icon-14x14.png") no-repeat 0px 50%; padding: 0px 0px 0px 19px; margin-left: 3px;' 
+      href="http://feeds.sqlteam.com/Sqlteam">SQLTeam.com Articles via 
+      RSS</A></P>
+      <P style="text-align: center;"><A style='background: url("http://static2.sqlteamx.com/images/feed-icon-14x14.png") no-repeat 0px 50%; padding: 0px 0px 0px 19px; margin-left: 3px;' 
+      href="http://feeds.sqlteam.com/SqlteamcomWeblogs">SQLTeam.com Weblog via 
+      RSS</A></P></DIV><!-- <p style="text-align:center; border-bottom: dotted 1px silver; border-top: solid 1px silver; color:silver; padding-bottom: 3px; padding-top:3px; margin-top: 10px;">Advertisement</p> --> <!-- <p style="text-align: center;"> --> 
+      <DIV class="right-box" style="padding-bottom: 15px; margin-top: 15px;">
+      <P style="text-align: center; font-size: 9px;">- Advertisement -</P><!-- Begin -  Site: SQLTeam.com Zone: Site300x250 --> 
+<SCRIPT language="javascript" type="text/javascript">
+<!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 12;
+var browDateTime = (new Date()).getTime();
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=47369&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=47369&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> 
+</SCRIPT>
+       <NOSCRIPT>    &lt;a 
+      href="http://bulldog.sqlteam.com/a.aspx?ZoneID=12&amp;amp;Task=Click&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=47369" 
+      target="_blank"&gt;    &lt;img 
+      src="http://bulldog.sqlteam.com/a.aspx?ZoneID=12&amp;amp;Task=Get&amp;amp;Mode=HTML&amp;amp;SiteID=1&amp;amp;PageID=47369" 
+      width="300" height="250" border="0"  alt=""&gt;&lt;/a&gt; </NOSCRIPT> <!-- End -  Site: SQLTeam.com Zone: Site300x250 --> 
+         	   		 <!-- </p> --> </DIV>
+      <DIV class="right-box" style="margin-top: 15px;">
+      <H2>Resources</H2>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperResources" href="http://www.sqlteam.com/sql-server-resources.aspx">SQL 
+      Server Resources</A></P>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperLink1" href="http://www.sqlteam.com/advertise.aspx">Advertise 
+      on SQLTeam.com</A></P>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperLink4" href="http://www.sqlteam.com/store.aspx">SQL 
+      Server Books</A></P>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperLink5" href="http://www.sqlteam.com/newsletter.aspx">SQLTeam.com 
+      Newsletter</A></P>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperLink2" href="http://www.sqlteam.com/contactus.aspx">Contact 
+      Us</A></P>
+      <P><A id="ctl00_ctl00_SiteContent_RightColumn1_rs1_HyperLink3" href="http://www.sqlteam.com/about.aspx">About 
+      the Site</A></P>
+      <P><SPAN 
+      id="ctl00_ctl00_SiteContent_RightColumn1_rs1_lblUserName"></SPAN></P></DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV id="site-footer">
+<HR>
+© 2000-2013     SQLTeam Publishing, LLC |     <A id="ctl00_ctl00_privacyHyperlink" 
+href="http://www.sqlteam.com/privacy.aspx">Privacy Policy</A>         
+</DIV></FORM>
+<SCRIPT src="Implementing%20Table%20Inheritance%20in%20SQL%20Server%20-%20SQLTeam_com_files/brand.js" type="text/javascript"></SCRIPT>
+ </BODY></HTML>

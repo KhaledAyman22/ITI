@@ -1,0 +1,3 @@
+﻿  Session 2.c
+C:\Users\Khaled\source\repos\Session 2\Session 2\Session 2.c(14,9): warning C4013: 'getch' undefined; assuming extern returning int
+  Session 2.vcxproj -> C:\Users\Khaled\source\repos\Session 2\x64\Debug\Session 2.exe

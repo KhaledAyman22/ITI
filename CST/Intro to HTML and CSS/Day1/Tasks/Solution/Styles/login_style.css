@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+#content{
+    font-weight: 600;
+}
+
+#diff_fonts{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#diff_colors{
+    color: red;
+}
+
+#diff_sizes{
+    display: inline-block;
+    font-size: x-small;
+}
+
+#welcome{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 3cm;
+}
+
+#top{
+    display: block;
+}
+
+#next{
+    display: block;
+    text-align: right;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <title>Register</title>
+</head>
+
+<body onload="checkBrowser()">
+    <form id="regForm" action="welcome.html" method="get">
+
+        <div class="inputItem">
+            <label class="mainLabel" for="name">Name</label>
+            <input id="name" type="text" name="name" required>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" id="gender">Gender</label>
+
+            <input id="genderM" type="radio" name="gender" value="M" checked required>
+            <label class="genderLabel" for="genderM">Male</label>
+
+            <input id="genderF" type="radio" name="gender" value="F" required>
+            <label class="genderLabel" for="genderF">Female</label>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" for="address">Address</label>
+            <input id="address" type="text" name="address" required>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" for="jobTitle">Job Title</label>
+            <input id="jobTitle" type="text" name="jobTitle" required>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" for="email">Email</label>
+            <input id="email" type="email" name="email" required>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" for="password">Password</label>
+            <input id="password" type="password" name="password" required>
+        </div>
+
+        <div class="inputItem">
+            <label class="mainLabel" for="mobile">Mobile</label>
+            <input id="mobile" type="text" name="mobile" required>
+        </div>
+
+        <input id="submitBtn" type="submit" value="Register">
+    </form>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

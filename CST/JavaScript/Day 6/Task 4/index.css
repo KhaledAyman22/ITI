@@ -1,0 +1,38 @@
+#playground{
+    width: 600px;
+    height: 400px;
+    border-style: solid;
+    border-color: red;
+}
+
+img{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+#i1{
+    left: 570px;
+    top: 160px;
+
+}
+
+#i2{ background-color: red;
+    left: 10px;
+    top: 160px;
+}
+
+#i3{
+    left: 280px;
+    top: 360px;
+}
+
+#btns{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.header{
+    color: darkcyan;
+    font-size: 25px;
+}

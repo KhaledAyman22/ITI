@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="bookscount.xslt"?>
+
+<books>
+<book>
+  <name link="http://www.amazon.com/exec/obidos/ASIN/0789722429/vbxml">XML by Example</name> 
+  <author>Benoit Marchal</author> 
+  <listprice>24.99</listprice> 
+  <price>17.49</price> 
+  <review>4.5</review> 
+  <publish>QUE</publish> 
+</book>
+<book>
+  <name link="http://www.amazon.com/exec/obidos/ASIN/1861003110/vbxml">Professional XML</name> 
+  <author>Mark Birbeck, Michael Kay, stev Livingstone, Stephen F. Mohr, Didier Martin, Dino Esposito, Steven Livingston, Brian Loesgen, Nikola Ozu, Mark Seabourne</author> 
+  <listprice>49.99</listprice> 
+  <price>34.99</price> 
+  <review>4</review> 
+  <publish>Wrox</publish> 
+  </book>
+<book>
+  <name link="http://www.amazon.com/exec/obidos/ASIN/0735605629/vbxml">Xml in Action</name> 
+  <author>William J. Pardi</author> 
+  <listprice>39.99</listprice> 
+  <price>31.99</price> 
+  <review>3.5</review> 
+  <publish>Microsoft Press</publish> 
+</book>
+<book>
+  <name link="http://www.amazon.com/exec/obidos/ASIN/1861002289/vbxml">Xml Design and Implementation</name> 
+  <author>Paul Spencer</author> 
+  <listprice>399.99</listprice> 
+  <price>31.99</price> 
+  <review>4</review> 
+  <publish>Wrox Press Inc</publish> 
+</book>
+<book>
+  <name link="http://www.amazon.com/exec/obidos/ASIN/0201433354/vbxml">XML: A Managers Guide</name> 
+  <author>Kevin Dick</author> 
+  <listprice>34.95</listprice> 
+  <price>29.95</price> 
+  <review>4.5</review> 
+  <publish>Addison-Wesley Pub Co</publish> 
+</book>
+</books>

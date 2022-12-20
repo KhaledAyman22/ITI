@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE booklist[
+<!ELEMENT book (author|date|title|publisher|website|rating)*>
+<!ELEMENT author (#PCDATA|name|initial)*>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT website EMPTY>
+<!ELEMENT rating EMPTY>
+<!ELEMENT booklist (book)>
+<!ATTLIST booklist 
+title CDATA #REQUIRED
+test CDATA #IMPLIED
+>
+
+<!ATTLIST title
+edition (First | Second | Third) "First"
+>
+
+<!ENTITY XML "Extensible Markup Language">
+]>
+<booklist title="Some XML Books" test="val">
+ <book>
+	
+   <author>abc
+	<name>St. Laurent</name>abc
+	<initial>S</initial>abc
+   </author>
+   
+   <date>1998</date>
+   <date>1998</date>
+   <date>1998</date>
+	<title edition="Second">XML: A Primer &XML;</title>
+   <publisher>MIS Press</publisher>
+   <website href="http://www.simonstl.com/xmlprim/" />
+   <rating stars="4"/>
+ </book>
+</booklist>

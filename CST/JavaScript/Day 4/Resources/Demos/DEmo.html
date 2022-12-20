@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <script>
+        onload = function() {
+            document.getElementById("displaybtn").onclick = function() {
+                console.log("clickEvent");
+
+
+
+            }
+
+            document.getElementsByTagName("a")[0].onclick = function() {
+                this.innerHTML = "abc"
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <input type="text" name="usrnm">
+        <input type="submit" value="send" onclick="alert('stop submission');return false;">
+
+    </form>
+
+
+
+
+
+
+
+    <a href="http://www.google.com" onclick="">google</a>
+
+    <input type="button" value="  1  " onclick="addText(this)">
+    <input type="button" value="  2  " onclick="addText(this)">
+    <input type="button" value="  3  " onclick="addText(this)">
+    <input type="button" value="  4  " onclick="addText(this)">
+    <input type="button" value="  5  " onclick="addText(this)">
+    <input type="text" id="txtdata">
+    <input type="button" value="  C  ">
+    <br>
+    <select id="menu" multiple size="5">
+        <option value="o1">option#1</option>
+        <option value="o2">option#2</option>
+        <option value="o3">option#3</option>
+        <option value="o4">option#4</option>
+        <option value="o5">option#5</option>
+        <option value="o6">option#6</option>
+        <option value="o7">option#7</option>
+
+    </select>
+    <input type="button" value="display" id="displaybtn">
+    <!--<img src="images/marshall_bw.jpg" width="150" height="200" name="zienab" onmouseover="changeImg(this)" onmouseout="returnImgsrc(this)">
+    <img src="images/marshall_bw.jpg" width="150" height="200" onmouseover="changeImg(this)" onmouseout="returnImgsrc(this)">
+    -->
+    <h1>heading#1</h1>
+    <input type="text" id="txt1" onfocus="select()" value="enter your name" oninput="displayContent(this)">
+    <input type="button" value="click here" onclick="accessElem()">
+    <div id="div1id"></div>
+    <script>
+        function addText(txtObj) {
+            var val = txtObj.value.trim();
+            document.querySelector("#txtdata").value += val;
+
+
+
+
+        }
+
+        function displayList() {
+            var sel = document.querySelector("#menu");
+            var txt = ""
+            for (var i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].selected)
+                    txt += sel.options[i].value + " ";
+            }
+            console.log(txt);
+
+
+
+            /*
+            var sel=document.querySelector("#menu");
+            var idx=sel.selectedIndex;
+            var opt=sel.options[idx];
+            console.log(opt.value);
+            console.log(opt.text);
+            */
+
+
+
+
+        }
+
+
+        function displayContent(txtElem) {
+            var txt = txtElem.value;
+            document.getElementById("div1id").innerText = txt
+
+
+        }
+
+
+        function accessElem() {
+            document.getElementById("txt1").focus();
+
+        }
+
+
+
+
+
+        function returnImgsrc(imgObj) {
+            //imgObj="x.jpg"
+            // console.log(imgObj.name);
+            console.log(imgObj);
+            // console.log(document.images[imgObj])
+
+            // imgObj.src = "images/marshall_bw.jpg"
+        }
+
+        function changeImg(imgObj) {
+            //document.getElementsByTagName("img")[0]
+            // imgObj.src = "images/marshall_c.jpg"
+            console.log(imgObj);
+
+        }
+
+
+
+        var elem = document.getElementById("txt1");
+
+    </script>
+
+</body>
+
+</html>

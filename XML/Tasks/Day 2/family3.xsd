@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="family">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="grandfather"/>
+            </xs:sequence>
+
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="grandfather">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="father"/>
+                <xs:element ref="uncle" maxOccurs="2"/>
+                <xs:element ref="aunt"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="father">
+        <xs:complexType mixed="true">
+
+            <xs:sequence>
+                <xs:element ref="mother"/>
+                <xs:element ref="daughter"/>
+                <xs:element ref="son"/>
+            </xs:sequence>
+
+            <xs:attribute name="job" type="xs:string"/>
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="mother">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="daughter">
+        <xs:complexType mixed="true">
+            <xs:attribute name="age" type="xs:string"/>
+            <xs:attribute name="job" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="son">
+        <xs:complexType mixed="true">
+
+            <xs:attribute name="age" type="xs:string"/>
+            <xs:attribute name="sport" type="xs:string"/>
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="uncle" type="xs:string">
+    </xs:element>
+
+    <xs:element name="aunt">
+        <xs:complexType mixed="true">
+
+            <xs:attribute name="sons" type="xs:integer"/>
+
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

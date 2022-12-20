@@ -1,0 +1,37 @@
+body{
+    text-align: center;
+    background-color: bisque;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+textarea{
+    width: 400px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+button{
+    margin-top: 15px;
+}
+
+#last{
+    margin-top: 30px;
+}
+
+#header{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: darkcyan;
+}
+
+#lbl{
+    color: darkcyan;
+    font-size: 30px;
+    font-weight: bold;
+}

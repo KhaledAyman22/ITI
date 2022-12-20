@@ -1,0 +1,38 @@
+#main{
+    position: relative;
+    text-align: center;
+    border-color: darkblue;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: azure;
+    margin: auto;
+    padding-top: 70px;
+    width: 800px;
+    height: 640px;
+}
+
+#buttons{
+    background-color: darkblue;
+    padding-top: 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+}
+
+#stop{
+    margin-top: 15px;
+}
+
+button{
+    width: 100px;
+}
+
+#imageView{
+    width: auto;
+    height: auto;
+    max-width: 700px;
+    max-height: 500px;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ITI SYSTEM "demo1.dtd">
+<ITI>
+	<ITI-manager>Dr.Heba Saleh</ITI-manager>
+	<ITI.vice-manager>
+	<ITI.SpecializedTracks name="Specialized Tracks">
+	<ProgramManager>Eng.Bahaa</ProgramManager>
+			<Track mgr="Eng.Dalia Rasmy">Short Training 
+			</Track>
+			<Track>Community Development Program
+			</Track>
+		</ITI.SpecializedTracks>
+		Eng.Amr El Shafey
+  <ITI.ScientificDept  mgr="Eng.Sherif Sharaf">
+      <platform>System Development</platform>
+			<platform mgr="Eng. Asmaa">Java</platform>
+			<platform mgr="Eng. Shahinaz">ERP</platform>
+			<platform mgr="Eng. Rania">UNIX</platform>
+		</ITI.ScientificDept>
+	</ITI.vice-manager>
+<copyrightsign></copyrightsign>
+</ITI>

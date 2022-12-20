@@ -1,0 +1,30 @@
+body{
+    background-color: blanchedalmond;
+}
+
+table{
+    column-width: 200;
+    margin: auto;
+    margin-top: 80px;
+    padding: 5px;
+    border-top:10px solid rgb(255, 79, 79) ;
+    border-left:10px solid rgb(255, 79, 79) ;
+    border-right:10px solid rgb(216, 116, 116) ;
+    border-bottom:10px solid rgb(216, 116, 116) ;
+}
+
+td {
+    border: 1px solid black;
+}
+
+input[type="text"]{
+    width: 200px;
+}
+
+#day,#year{
+    width: 50px;
+}
+
+td[colspan="2"] {
+    text-align: center;
+}

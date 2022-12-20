@@ -1,0 +1,1702 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+    <link rel="canonical" 
+href="http://msdn.microsoft.com/en-us/library/ms187752.aspx">
+        <title>Data Types (Transact-SQL)</title>
+
+
+
+
+<meta name="DCS.dcsuri" 
+content="/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx">
+
+<meta name="NormalizedUrl" 
+content="http://msdn.microsoft.com/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx">
+
+<meta name="ms.normalizedurl" 
+content="http://msdn.microsoft.com/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx">
+
+<meta name="VotingContextUrl" 
+content="http://msdn.microsoft.com/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx">
+
+<meta name="MN" content="BF1CA939-4:01:32 AM">
+
+<meta name="Search.ShortId" content="ms187752">
+
+<meta name="ms.shortidmsdn" content="ms187752">
+
+<meta name="Ms.Locale" content="en-us">
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" 
+href="ms187752.aspx_files/Combined.css"><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "http://i.msdn.microsoft.com", 
+	"js": "http://i2.msdn.microsoft.com", 
+	"css": "http://i3.msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script src="ms187752.aspx_files/jquery-1.js" class="mtps-injected"></script><script class="mtps-injected">try {
+//
+    window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+    //
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = '_msdn_library_sqlserver_';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script src="ms187752.aspx_files/wtid.js"></script><script class="mtps-injected">try {
+/**/
+  var omni_guid = "49433b1a-2784-4871-9d8f-ceec6cf943f3";
+/**/
+} finally { MTPS._injectNextScript_4 && MTPS._injectNextScript_4(); }</script><script src="ms187752.aspx_files/Combined_003.js" class="mtps-injected"></script><script src="ms187752.aspx_files/SearchBox.js" class="mtps-injected"></script><script src="ms187752.aspx_files/Combined_002.js" class="mtps-injected"></script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = 'Click to expand. Double-click to expand all.'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = 'Click to collapse. Double-click to collapse all.'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = 'Expand All'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = 'Collapse All';
+} finally { MTPS._injectNextScript_8 && MTPS._injectNextScript_8(); }</script><script src="ms187752.aspx_files/jquery.js" class="mtps-injected"></script><script src="ms187752.aspx_files/Combined.js" class="mtps-injected"></script><script src="ms187752.aspx_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_11 && MTPS._injectNextScript_11(); }</script></head><body
+ class="library">
+        <div id="page">
+            
+            
+  
+            
+        <input id="isHeaderBleeding" value="true" type="hidden">
+    <div id="ux-header" dir="ltr" class="ltr">
+        
+
+        <header>
+            <div class="row">
+                <div class="top mobile"></div>
+                <div class="left">
+                    <div class="siteLogo">                    
+                            <a class="msdnLogo" 
+href="http://msdn.microsoft.com/">
+                                <img 
+src="ms187752.aspx_files/microsoftLogoForHeader.png">
+                            </a>
+                        <div data-fragmentname="SiteLogo" 
+id="Fragment_SiteLogo" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="LinkWithImage topImage">
+    <a href="http://msdn.microsoft.com/" id="SiteLogo_2152_1" 
+xmlns="http://www.w3.org/1999/xhtml">Developer Network</a>
+  </div>
+</div>    
+                    </div>
+                    <div id="grip"></div>
+                </div>
+                
+                <div class="right desktop">
+                    <div class="auxNav">
+                        <div data-fragmentname="Subscriptions" 
+id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/dn369243" id="Subscriptions_2153_1"
+ xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>   
+                        <div data-fragmentname="GetTools" 
+id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a 
+href="http://go.microsoft.com/fwlink/?LinkId=309297&amp;clcid=0x409&amp;slcid=0x409"
+ id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>   
+                        
+
+    <div class="signIn"><a class="scarabLink" 
+href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1395658892&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fms187752.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US"
+ title="Sign in">Sign in</a></div>
+
+                    </div>
+                    <div data-fragmentname="SearchBox" 
+id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" 
+onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+      <input autocomplete="off" id="HeaderSearchTextBox" name="query" 
+maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, 
+this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, 
+this.title)" type="text">
+      <button title="Search MSDN" id="HeaderSearchButton" value="" 
+type="submit" class="header-search-button"></button>
+    <div style="display: none; text-align: left; border: 1px solid 
+buttonshadow; position: absolute; z-index: 1000; padding: 2px; 
+background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); 
+font-family: 'Segoe UI',Tahoma,Helvetica,Sans-Serif; font-size: 
+13.3333px;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul
+ style="list-style: none outside none; padding: 4px 2px 0px 1px; cursor:
+ pointer; margin: 1px; white-space: nowrap;"></ul></div></div></form>
+    
+    
+  </div>
+</div> 
+                </div>
+            </div>
+       
+            <div class="row" id="droor">
+                <div class="left">
+                            <nav>
+            <ul>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn308572" 
+title="Home">Home</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271881" 
+title="Opportunity">Opportunity</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn338450" title=".NET">.NET</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn338159" title="Cloud">Cloud</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn469160" title="Desktop">Desktop</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn338268" title="Phone">Phone</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn308583" title="Tablet &amp; PC">Tablet
+ &amp; PC</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn338449" title="Web">Web</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271880" 
+title="Platform">Platform</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn338064" 
+title="Connect">Connect</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a 
+href="http://tech-advisors.msdn.microsoft.com/en-us" title="Tech 
+Advisors">Tech Advisors</a></li>
+                                                 <li><a 
+href="http://events.msdn.microsoft.com/en-us" title="Events">Events</a></li>
+                                                 <li><a 
+href="http://social.msdn.microsoft.com/forums/" title="Forums">Forums</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn292944" 
+title="Downloads">Downloads</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn369242" title="Developer tools">Developer
+ tools</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn369240" title="SDKs">SDKs</a></li>
+                                                 <li><a 
+href="http://msdn.microsoft.com/dn369243" title="MSDN subscriptions">MSDN
+ subscriptions</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="active current">
+
+                         <a href="http://msdn.microsoft.com/library" 
+title="Library">Library</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://code.msdn.microsoft.com/" 
+title="Samples">Samples</a>
+
+                     </li>
+            </ul>
+          
+        </nav>        
+       
+                </div>
+                <div class="right mobile"></div>
+                <div class="right">
+                    <div data-fragmentname="SocialLinks" 
+id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Follow us</div>
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://www.facebook.com/microsoftdeveloper" 
+target="_blank" id="SocialLinks_2152_4" class="facebook" 
+xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/msdev" target="_blank" 
+id="SocialLinks_2152_5" class="twitter" 
+xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev</a>
+        </li>
+        <li>
+          <a href="http://plus.google.com/111221966647232053570/" 
+target="_blank" id="SocialLinks_2152_6" class="googlePlus" 
+xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 
+                </div>
+                <span id="singleCol"></span>
+                <span id="doubleCol"></span>
+            </div>
+        </header>
+    </div>
+    
+    
+
+        
+    <div class="printExportMenus ltr">
+        <a id="isd_printABook" 
+href="http://msdn.microsoft.com/en-us/library/export/help/?returnUrl=%2fen-us%2flibrary%2fms187752.aspx">
+            Export (<span class="count">0</span>)
+        </a>
+        <a id="isd_print" 
+href="http://msdn.microsoft.com/en-us/library/ms187752%28d=printer%29.aspx"
+ rel="nofollow">
+            Print 
+        </a>
+    </div>
+    
+
+        <div class="printExportMenus ltr">
+        <a id="expandCollapseAll" href="javascript:void(0)">Expand All</a>
+    </div>
+
+    
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+
+    <div style="width: 280px; max-width: 480px; min-height: 2381px;" 
+id="leftNav">
+
+
+
+<div id="tocnav">
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ms123401.aspx" 
+id="ms310241_MSDN.10_en-us" mtpsaliasid="" 
+mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_en-us" 
+mtpsshortid="ms123401_MSDN.10_en-us" title="MSDN Library">MSDN Library</a>
+            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/aa155072.aspx" 
+id="aa155072_MSDN.10_en-us" mtpsaliasid="" 
+mtpsassetid="MSDN|serverentdev|$\serverentdev.hxt@0,0_MSDN.10_en-us" 
+mtpsshortid="aa155072_MSDN.10_en-us" title="Servers and Enterprise 
+Development">Servers and Enterprise Development</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/bb545450.aspx" 
+id="bb418431_SQL.10_en-us" mtpsaliasid="" 
+mtpsassetid="9e4042ee-b3a7-4d92-92de-595c87e2eaf2_SQL.10_en-us" 
+mtpsshortid="bb545450_MSDN.10_en-us" title="SQL Server">SQL Server</a>  
+          </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/dd692930%28v=sql.10%29.aspx"
+ id="dd692930_SQL.10_en-us" mtpsaliasid="" 
+mtpsassetid="SQL|sqltoc|$\sqltoc.hxt@0,0,4_SQL.10_en-us" 
+mtpsshortid="dd692930_SQL.10_en-us" title="SQL Server 2012">SQL Server 
+2012</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ee229584%28v=sql.10%29.aspx"
+ id="ee229584_SQL.10_en-us" mtpsaliasid="" 
+mtpsassetid="SQL|SQLTOC|$\sqltoc.hxt@0,0,4,0_SQL.10_en-us" 
+mtpsshortid="ee229584_SQL.10_en-us" title="Product Documentation">Product
+ Documentation</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ms130214.aspx" 
+id="ee679654_SQL.110_en-us" mtpsaliasid="" 
+mtpsassetid="674933a8-e423-4d44-a39b-2a997e2c2333_SQL.110_en-us" 
+mtpsshortid="ms130214_SQL.110_en-us" title="Books Online for SQL Server 
+2012">Books Online for SQL Server 2012</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ms187875.aspx" 
+id="hh921403_SQL.110_en-us" mtpsaliasid="" 
+mtpsassetid="65e2f424-1386-45a6-8912-bd053f434073_SQL.110_en-us" 
+mtpsshortid="ms187875_SQL.110_en-us" title="Database Engine">Database 
+Engine</a>            </div>
+            <div style="padding-left: 0px;" class="toclevel0" 
+data-toclevel="0">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/bb510741.aspx" 
+id="hh921391_SQL.110_en-us" mtpsaliasid="" 
+mtpsassetid="dbba47d7-e08e-4435-b876-35dced1f325d_SQL.110_en-us" 
+mtpsshortid="bb510741_SQL.110_en-us" title="Transact-SQL Reference 
+(Database Engine)">Transact-SQL Reference (Database Engine)</a>         
+   </div>
+            <div style="padding-left: 17px;" data-childrenloaded="true" 
+class="toclevel1 current" data-toclevel="1">
+<a class="toc_expanded" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ms187752.aspx" 
+id="hh909861_SQL.110_en-us" mtpsaliasid="" 
+mtpsassetid="a54f7373-b247-4d61-8fb8-7f2ec7a8d0a4_SQL.110_en-us" 
+mtpsshortid="ms187752_SQL.110_en-us" title="Data Types (Transact-SQL)">Data
+ Types (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms179899.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Constants 
+(Transact-SQL)">Constants (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms191530.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Data Type Conversion
+ (Database Engine)">Data Type Conversion (Database Engine)</a>          
+  </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms190309.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Data Type Precedence
+ (Transact-SQL)">Data Type Precedence (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms177566.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Data Type Synonyms 
+(Transact-SQL)">Data Type Synonyms (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms190476.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Precision, Scale, 
+and Length (Transact-SQL)">Precision, Scale, and Length (Transact-SQL)</a>
+            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms177603.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="bit (Transact-SQL)">bit
+ (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms190498.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="cursor 
+(Transact-SQL)">cursor (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ff848733.aspx" 
+id="hh909883_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="Date and Time Types">Date and Time Types</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/bb677290.aspx" 
+id="hh909841_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="hierarchyid (Transact-SQL)">hierarchyid (Transact-SQL)</a>      
+      </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ff848794.aspx" 
+id="hh909797_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="Numeric Types">Numeric Types</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms182776.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="rowversion 
+(Transact-SQL)">rowversion (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ff848797.aspx" 
+id="hh909895_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="Spatial Types">Spatial Types</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ff848814.aspx" 
+id="hh909968_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="String and Binary Types">String and Binary Types</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms173829.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="sql_variant 
+(Transact-SQL)">sql_variant (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms175010.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="table 
+(Transact-SQL)">table (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<span class="toc_empty"></span><a 
+href="http://msdn.microsoft.com/en-us/library/ms187942.aspx" 
+mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="uniqueidentifier 
+(Transact-SQL)">uniqueidentifier (Transact-SQL)</a>            </div>
+            <div style="padding-left: 34px;" class="toclevel2" 
+data-toclevel="2">
+<a class="toc_collapsed" href="#"></a><a data-tochassubtree="true" 
+href="http://msdn.microsoft.com/en-us/library/ms187339.aspx" 
+id="hh909887_SQL.110_en-us" mtpsaliasid="" mtpsassetid="" mtpsshortid=""
+ title="xml (Transact-SQL)">xml (Transact-SQL)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a style="left: 280px; display: inline-block;" id="NavigationResize" 
+href="javascript:void(0)">
+    <img style="" class="cl_nav_resize_open" 
+src="ms187752.aspx_files/ImageSprite.png" title="Expand" alt="Expand">
+    <img style="display: none;" class="cl_nav_resize_close" 
+src="ms187752.aspx_files/ImageSprite.png" title="Minimize" 
+alt="Minimize">
+</a>
+
+
+
+    </div>
+<div style="margin-left: 280px; width: auto;" id="content" 
+class="content">
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+        
+<div xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="topic" xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:mtps="http://msdn2.microsoft.com/mtps" 
+xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
+xmlns:cs="http://msdn.microsoft.com/en-us/">
+    <h1 class="title">Data Types (Transact-SQL)</h1>
+    
+    <div class="lw_vs">
+      <div id="curversion">
+        <strong>
+            SQL Server 2012
+        </strong>
+      </div>
+      <div id="versionclick">
+        <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+        <div>
+          <div>
+            <a id="vsLink" href="javascript:;">
+                        Other Versions
+                    </a>
+          </div>
+          <div class="cl_vs_arrow clip10x10">
+            <img class="cl_lw_vs_arrow" id="vsArrow" alt="" 
+src="ms187752.aspx_files/ImageSprite.png">
+          </div>
+        </div>
+        <ul id="vsPanel">
+          <li>
+            <a 
+href="http://msdn.microsoft.com/en-us/library/ms187752%28v=sql.105%29.aspx"
+ title="">SQL Server 2008 R2</a>
+          </li>
+          <li>
+            <a 
+href="http://msdn.microsoft.com/en-us/library/ms187752%28v=sql.100%29.aspx"
+ title="">SQL Server 2008</a>
+          </li>
+          <li>
+            <a 
+href="http://msdn.microsoft.com/en-us/library/ms187752%28v=sql.90%29.aspx"
+ title="">SQL Server 2005</a>
+          </li>
+        </ul>
+      </div>
+    <div id="ratingCounterSeperator" class="cl_lw_vs_seperator" 
+style="display: block;"></div><div style="margin: 0px 0px 0px 13px; 
+display: block;" id="ratingCounter">
+        <span id="rcA" class="ratingText">
+            104 out of 154 rated this helpful <span id="rateThisPrefix">-
+ </span><a id="rateThisTopic" href="#feedback" title="Rate this topic">Rate
+ this topic</a>
+            
+        </span>
+    </div></div>
+    <div style="clear: both;"></div>
+    
+    <div id="mainSection">
+      <div id="mainBody">
+        <div class="introduction">
+          <p>In SQL Server, each column, local variable, expression, and
+ parameter has a related data type. A data type is an attribute that 
+specifies the type of data that the object can hold: integer data, 
+character data, monetary data, date and time data, binary strings, and 
+so on.  </p>
+          <p>SQL Server supplies a set of system data types that define 
+all the types of data that can be used with SQL Server. You can also 
+define your own data types in Transact-SQL or the Microsoft&nbsp;.NET 
+Framework. Alias data types are based on the system-supplied data types.
+ For more information about alias data types, see <span><a 
+href="http://msdn.microsoft.com/en-us/library/ms175007.aspx">CREATE TYPE
+ (Transact-SQL)</a></span>. User-defined types obtain their 
+characteristics from the methods and operators of a class that you 
+create by using one of the programming languages support by the .NET 
+Framework. </p>
+          <p>When two expressions that have different data types, 
+collations, precision, scale, or length are combined by an operator, the
+ characteristics of result are determined by the following:  </p>
+          <ul>
+            <li>
+              <p>The data type of the result is determined by applying 
+the rules of data type precedence to the data types of the input 
+expressions. For more information, see <span><a 
+href="http://msdn.microsoft.com/en-us/library/ms190309.aspx">Data Type 
+Precedence (Transact-SQL)</a></span>.</p>
+            </li>
+            <li>
+              <p>The collation of the result is determined by the rules 
+of collation precedence when the result data type is <span><span 
+class="input">char</span></span>, <span><span class="input">varchar</span></span>,
+ <span><span class="input">text</span></span>, <span><span class="input">nchar</span></span>,
+ <span><span class="input">nvarchar</span></span>, or <span><span 
+class="input">ntext</span></span>. For more information, see <span><a 
+href="http://msdn.microsoft.com/en-us/library/ms179886.aspx">Collation 
+Precedence (Transact-SQL)</a></span>.</p>
+            </li>
+            <li>
+              <p>The precision, scale, and length of the result depend 
+on the precision, scale, and length of the input expressions. For more 
+information, see <span><a 
+href="http://msdn.microsoft.com/en-us/library/ms190476.aspx">Precision, 
+Scale, and Length (Transact-SQL)</a></span>.</p>
+            </li>
+          </ul>
+          <p>SQL Server&nbsp;provides data type synonyms for ISO 
+compatibility. For more information, see <span><a 
+href="http://msdn.microsoft.com/en-us/library/ms177566.aspx">Data Type 
+Synonyms (Transact-SQL)</a></span>.</p>
+        </div>
+        <div>
+          
+          <div class="LW_CollapsibleArea_TitleDiv">
+            <div>
+              <a href="javascript:void(0)" 
+class="LW_CollapsibleArea_TitleAhref" title="Collapse">
+                <span class="cl_CollapsibleArea_expanding 
+LW_CollapsibleArea_Img"></span>
+                <span class="LW_CollapsibleArea_Title">Data Type 
+Categories</span>
+              </a>
+              <div class="LW_CollapsibleArea_HrDiv">
+                <hr class="LW_CollapsibleArea_Hr">
+              </div>
+            </div>
+          </div>
+          <div class="sectionblock">
+            <a id="sectionToggle0">
+              
+            </a>
+            <p>Data types in SQL Server&nbsp;are organized into the 
+following categories:</p>
+            <div class="caption">
+              
+            </div>
+            <div class="tableSection">
+              <table>
+                <tbody><tr>
+                  <td>
+                    <p>Exact numerics</p>
+                  </td>
+                  <td>
+                    <p>Unicode character strings</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Approximate numerics</p>
+                  </td>
+                  <td>
+                    <p>Binary strings</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Date and time</p>
+                  </td>
+                  <td>
+                    <p>Other data types</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Character strings</p>
+                  </td>
+                  <td>
+                    <p>&nbsp;</p>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+            <p>In SQL Server, based on their storage characteristics, 
+some data types are designated as belonging to the following groups:</p>
+            <ul>
+              <li>
+                <p>Large value data types: <span><span class="input">varchar(max)</span></span>,
+ <span><span class="input">nvarchar(max)</span></span>, and <span><span 
+class="input">varbinary(max)</span></span></p>
+              </li>
+              <li>
+                <p>Large object data types: <span><span class="input">text</span></span>,
+ <span><span class="input">ntext</span></span>, <span><span 
+class="input">image</span></span>, <span><span class="input">varchar(max)</span></span>,
+ <span><span class="input">nvarchar(max)</span></span>, <span><span 
+class="input">varbinary(max)</span></span>, and <span><span 
+class="input">xml</span></span></p>
+                <div class="alert">
+                  <table>
+                    <tbody><tr>
+                      <th align="left">
+                        <img id="alert_note" alt="Note" 
+src="ms187752.aspx_files/clear.gif" title="Note" xmlns="" 
+class="cl_IC101471">
+                        <strong>Note</strong>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>sp_help returns -1 as the length for the 
+large-value and <span><span class="input">xml</span></span> data types.</p>
+                      </td>
+                    </tr>
+                  </tbody></table>
+                </div>
+              </li>
+            </ul>
+            <h3 class="subHeading">Exact Numerics</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187745.aspx">bigint</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187746.aspx">numeric</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms177603.aspx">bit</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187745.aspx">smallint</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187746.aspx">decimal</a>
+ </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms179882.aspx">smallmoney</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187745.aspx">int</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187745.aspx">tinyint</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms179882.aspx">money</a> </p>
+                    </td>
+                    <td>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Approximate Numerics</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms173773.aspx">float</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms173773.aspx">real</a> </p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Date and Time</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/bb630352.aspx">date</a>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/bb630289.aspx">datetimeoffset</a>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/bb677335.aspx">datetime2</a>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms182418.aspx">smalldatetime</a>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187819.aspx">datetime</a>
+ </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/bb677243.aspx">time</a>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Character Strings</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms176089.aspx">char</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms176089.aspx">varchar</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187993.aspx">text</a> </p>
+                    </td>
+                    <td>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Unicode Character Strings</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms186939.aspx">nchar</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms186939.aspx">nvarchar</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187993.aspx">ntext</a> </p>
+                    </td>
+                    <td>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Binary Strings</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms188362.aspx">binary</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms188362.aspx">varbinary</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187993.aspx">image</a> </p>
+                    </td>
+                    <td>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+            <h3 class="subHeading">Other Data Types</h3>
+            <div class="subsection">
+              <div class="caption">
+                
+              </div>
+              <div class="tableSection">
+                <table>
+                  <tbody><tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms190498.aspx">cursor</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms182776.aspx">timestamp</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/bb677290.aspx">hierarchyid</a>
+ </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187942.aspx">uniqueidentifier</a>
+ </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms173829.aspx">sql_variant</a>
+ </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms187339.aspx">xml</a> </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <a 
+href="http://msdn.microsoft.com/en-us/library/ms175010.aspx">table</a> </p>
+                    </td>
+                    <td>
+                      <p>
+                        <span>
+                          <a 
+href="http://msdn.microsoft.com/en-us/library/ff848797.aspx">Spatial 
+Types</a>
+                        </span>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="LW_CollapsibleArea_TitleDiv">
+            <div>
+              <a href="javascript:void(0)" 
+class="LW_CollapsibleArea_TitleAhref" title="Collapse">
+                <span class="cl_CollapsibleArea_expanding 
+LW_CollapsibleArea_Img"></span>
+                <span class="LW_CollapsibleArea_Title">See Also</span>
+              </a>
+              <div class="LW_CollapsibleArea_HrDiv">
+                <hr class="LW_CollapsibleArea_Hr">
+              </div>
+            </div>
+          </div>
+          <div class="sectionblock">
+            <a id="seeAlsoToggle">
+              
+            </a>
+            <h4 class="subHeading">Reference</h4>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms187926.aspx">CREATE 
+PROCEDURE (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms174979.aspx">CREATE 
+TABLE (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms188927.aspx">DECLARE 
+@local_variable (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms188332.aspx">EXECUTE 
+(Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms190286.aspx">Expressions
+ (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms174318.aspx">Built-in 
+Functions (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms179859.aspx">LIKE 
+(Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms189765.aspx">sp_droptype
+ (Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms187335.aspx">sp_help 
+(Transact-SQL)</a>
+              </span>
+            </div>
+            <div class="seeAlsoStyle">
+              <span>
+                <a 
+href="http://msdn.microsoft.com/en-us/library/ms188351.aspx">sp_rename 
+(Transact-SQL)</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="feedbackContainer">
+        <div id="feedbackSection1" class="clear">
+            <div class="left">Did you find this helpful?</div>
+            <div class="left">
+                <div class="left">
+                    <input name="feedback" id="feedbackYes" value="1" 
+class="feedbackYesClick" data-enhance="false" type="radio"><label 
+class="feedbackYesClick" for="feedbackYes"> Yes</label>
+                </div>
+                <div class="left">
+                    <input name="feedback" id="feedbackNo" value="0" 
+class="feedbackNoClick" data-enhance="false" type="radio"><label 
+class="feedbackNoClick" for="feedbackNo"> No</label>
+                </div>
+            </div>
+            <a class="rateThisAnchor" name="feedback"></a>
+        </div>
+        <div id="feedbackSection2" class="clear">
+        </div>
+        <div id="feedbackSection3" class="clear">
+                    <div>
+                        <input id="checkboxNo201" name="chkbxNo" 
+value="201" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo201">Not accurate</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo202" name="chkbxNo" 
+value="202" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo202">Not enough depth</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo203" name="chkbxNo" 
+value="203" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo203">Need more code 
+examples</label>
+                    </div>
+        </div>
+        <div id="feedbackSection4" class="clear">
+            <div>
+                <textarea id="feedbackTextArea" name="feedbackText" 
+class="TellUsMoreTextBoxSearchLoaded" data-enhance="false">Tell us 
+more...</textarea>
+            </div>
+            <div class="left"><span class="counter">(<span 
+id="feedbackTextCounter">1500</span> characters remaining)</span></div>
+            <div class="right">
+                <button type="button" id="feedbackSubmit" title="Click 
+to Submit Feedback" data-enhance="false">Submit</button>
+            </div>
+        </div>
+        <div id="feedbackSection5">Thank you for your feedback</div>
+        <input id="feedbackValue" value="" type="hidden">
+        <input id="tellUsMoreText" value="Tell us more..." type="hidden">
+        <input id="maxTextBoxCharacters" value="1500" type="hidden">
+        <input id="submitUrl" 
+value="/en-us/library/feedback/add/ms187752.aspx" type="hidden">
+        <input id="feedbackSiteName" name="feedbackSiteName" value="" 
+type="hidden">
+        <input id="feedbackPriority" name="feedbackPriority" value="" 
+type="hidden">
+        <input id="feedbackSourceUrl" name="feedbackSourceUrl" value="" 
+type="hidden">
+        <input id="ClientIP" name="ClientIP" value="" type="hidden">
+        <input id="ClientOS" name="ClientOS" value="" type="hidden">
+        <input id="ClientBrowser" name="ClientBrowser" value="" 
+type="hidden">
+        <input id="ClientTime" name="ClientTime" value="" type="hidden">
+        <input id="ClientDate" name="ClientDate" value="" type="hidden">
+    </div>
+    
+    
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" 
+href="http://msdn.microsoft.com/en-us/library/community/add/ms187752.aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" 
+data-url="/en-us/library/community/comments/ms187752.aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input class="libraryFilterInherited" checked="checked" 
+value="Inherit" type="checkbox">Inherited
+        </label>
+        <label>
+            <input class="libraryFilterProtected" checked="checked" 
+value="Protected" type="checkbox">Protected
+        </label>
+    </div>
+</div>
+    
+<input id="libraryMemberFilterEmptyWarning" value="There are no members 
+available with your current filter settings." type="hidden">
+
+
+ 
+</div>
+
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" 
+value="7oXwfjaxyEfgYyC54GwEZoxVN43jXdbtQuXIeaUkGpZl2CcoYUjGwjbKk9iOqZctFGWo6YFAO6MQUKmptmNyeJtXafI_ANmSpK6KcYxx2XA9QHhb5uZMOoJVyeK2LDwb_-x4fg2"
+ type="hidden">
+<input id="ratingSubmitUrl" 
+value="http://msdn.microsoft.com/en-us/library/feedback/add/ms187752.aspx"
+ type="hidden">
+<input id="isTopicRated" value="false" type="hidden">
+
+
+
+
+    <div id="ux-footer" class="" style="" dir="ltr">
+    <footer class="top">
+        <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" 
+xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Dev centers</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%;">
+        <li>
+          <a href="http://msdn.microsoft.com/windows" 
+id="LeftLinks_2148_1" class="windowsBlue" 
+xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+        </li>
+        <li>
+          <a href="http://dev.windowsphone.com/" id="LeftLinks_2148_2" 
+class="windowsPurple" xmlns="http://www.w3.org/1999/xhtml">Windows Phone</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/office" 
+id="LeftLinks_2148_3" class="office" 
+xmlns="http://www.w3.org/1999/xhtml">Office</a>
+        </li>
+        <li>
+          <a href="http://www.windowsazure.com/en-us/documentation/" 
+id="LeftLinks_2148_12" class="windowsBlue" 
+xmlns="http://www.w3.org/1999/xhtml">Windows Azure</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/vstudio" 
+id="LeftLinks_2148_4" class="visualStudio" 
+xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/aa937802" 
+id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <div id="rightLinks">
+            <div data-fragmentname="CenterLinks1" 
+id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Learning resources</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%;">
+        <li>
+          <a href="http://www.microsoftvirtualacademy.com/" 
+id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft 
+Virtual Academy</a>
+        </li>
+        <li>
+          <a href="http://channel9.msdn.com/" id="CenterLinks1_2151_5" 
+xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+        </li>
+        <li>
+          <a href="http://www.interoperabilitybridges.com/" 
+id="CenterLinks1_2151_6" xmlns="http://www.w3.org/1999/xhtml">Interoperability
+ Bridges</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/magazine/" 
+id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN 
+Magazine</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks2" 
+id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Community</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%;">
+        <li>
+          <a href="http://social.msdn.microsoft.com/forums/en-us/home" 
+id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+        </li>
+        <li>
+          <a href="http://blogs.msdn.com/b/developer-tools/" 
+id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+        </li>
+        <li>
+          <a href="http://www.codeplex.com/" id="CenterLinks2_2151_10" 
+xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks3" 
+id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Support</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%;">
+        <li>
+          <a href="http://msdn.microsoft.com/hh361695" 
+id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self 
+support</a>
+        </li>
+        <li>
+          <a href="http://support.microsoft.com/" 
+id="CenterLinks3_2151_12" xmlns="http://www.w3.org/1999/xhtml">Other 
+support options</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks4" 
+id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Programs</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%;">
+        <li>
+          <a href="http://www.microsoft.com/bizspark/" 
+id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark 
+(for startups)</a>
+        </li>
+        <li>
+          <a href="https://www.dreamspark.com/" 
+id="CenterLinks4_2151_14" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+        </li>
+        <li>
+          <a href="https://www.microsoft.com/faculty" 
+id="CenterLinks4_2151_15" xmlns="http://www.w3.org/1999/xhtml">Faculty 
+Connection</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/student/" 
+id="CenterLinks4_2151_16" xmlns="http://www.w3.org/1999/xhtml">Microsoft
+ Student</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    <div class="feedbackContainer">
+        <div id="feedbackSection1" class="clear">
+            <div class="left">Did you find this helpful?</div>
+            <div class="left">
+                <div class="left">
+                    <input name="feedback" id="feedbackYes" value="1" 
+class="feedbackYesClick" data-enhance="false" type="radio"><label 
+class="feedbackYesClick" for="feedbackYes"> Yes</label>
+                </div>
+                <div class="left">
+                    <input name="feedback" id="feedbackNo" value="0" 
+class="feedbackNoClick" data-enhance="false" type="radio"><label 
+class="feedbackNoClick" for="feedbackNo"> No</label>
+                </div>
+            </div>
+            <a class="rateThisAnchor" name="feedback"></a>
+        </div>
+        <div id="feedbackSection2" class="clear">
+        </div>
+        <div id="feedbackSection3" class="clear">
+                    <div>
+                        <input id="checkboxNo201" name="chkbxNo" 
+value="201" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo201">Not accurate</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo202" name="chkbxNo" 
+value="202" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo202">Not enough depth</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo203" name="chkbxNo" 
+value="203" data-enhance="false" type="checkbox">
+                        <label for="checkboxNo203">Need more code 
+examples</label>
+                    </div>
+        </div>
+        <div id="feedbackSection4" class="clear">
+            <div>
+                <textarea id="feedbackTextArea" name="feedbackText" 
+class="TellUsMoreTextBoxSearchLoaded" data-enhance="false">Tell us 
+more...</textarea>
+            </div>
+            <div class="left"><span class="counter">(<span 
+id="feedbackTextCounter">1500</span> characters remaining)</span></div>
+            <div class="right">
+                <button type="button" id="feedbackSubmit" title="Click 
+to Submit Feedback" data-enhance="false">Submit</button>
+            </div>
+        </div>
+        <div id="feedbackSection5">Thank you for your feedback</div>
+        <input id="feedbackValue" value="" type="hidden">
+        <input id="tellUsMoreText" value="Tell us more..." type="hidden">
+        <input id="maxTextBoxCharacters" value="1500" type="hidden">
+        <input id="submitUrl" 
+value="/en-us/msdn/ux/uxservices/feedback/add/footer" type="hidden">
+        <input id="feedbackSiteName" name="feedbackSiteName" value="" 
+type="hidden">
+        <input id="feedbackPriority" name="feedbackPriority" value="" 
+type="hidden">
+        <input id="feedbackSourceUrl" name="feedbackSourceUrl" value="" 
+type="hidden">
+        <input id="ClientIP" name="ClientIP" value="" type="hidden">
+        <input id="ClientOS" name="ClientOS" value="" type="hidden">
+        <input id="ClientBrowser" name="ClientBrowser" value="" 
+type="hidden">
+        <input id="ClientTime" name="ClientTime" value="" type="hidden">
+        <input id="ClientDate" name="ClientDate" value="" type="hidden">
+    </div>
+    
+    
+        </div>
+    </footer>
+    
+    <footer class="bottom">
+        <span class="localeContainer">
+                <form class="selectLocale" id="selectLocaleForm" 
+action="http://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input name="fromPage" 
+value="http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fms187752.aspx"
+ type="hidden">
+        <a href="#" onclick="$('#selectLocaleForm').submit();return 
+false;" title="Change your language">United States (English)</a>
+    </form>    
+
+
+        </span>
+        
+        <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" 
+xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://msdn.microsoft.com/newsletter.aspx" 
+id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/dn529288" 
+id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy 
+&amp; cookies</a>
+        </li>
+        <li>
+          <a 
+href="http://msdncp.redmond.corp.microsoft.com/cc300389.aspx" 
+id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of 
+use</a>
+        </li>
+        <li>
+          <a 
+href="http://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx"
+ id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <span class="logoLegal">
+            <span class="logo"></span>
+            <span class="copyright">© 2014 Microsoft</span>
+        </span>
+    </footer>
+</div>
+    
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2014 Microsoft. 
+All rights reserved.</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" value="17" type="hidden">
+
+
+        
+            <input id="MtpsDevice" value="Default" type="hidden">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" 
+value="GqmZBFwuWUsCKg9WR866sAmnwnyB7InzzolhRoySj4qEWmHkBzHidDh96UIz-1-xIqXjaX94DBRobVuSxU_xj8kYjmTkqZD5MKXoxzn4cglCTAPX3KQeJrZ2xPZRi4xO_kHMiw2"
+ type="hidden">
+</div>
+
+
+        </div>
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n    window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n    //" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/ms187752(d=default,l=en-us,v=sql.110).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdn_library_sqlserver_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"49433b1a-2784-4871-9d8f-ceec6cf943f3\";\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,0:AppInsightsPerf,2:Footer,3:Feedback,0:Topic,4:webtrendsscript,5:omni_rsid_MSDN,6:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Centers/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Epx/Shared/Content:3,/Areas/Global/Content/Webtrends/resources:4,/Areas/Global/Content/Omniture/resources/MSDN:5,/Areas/Epx/Themes/Base/Content:6\u0026amp;hashKey=FA23DAE5847615BCA829FA269597FE5A" },
+	{ url: "http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:PrintExportButton,1:Toc,1:NavigationResize,2:FeedbackCounter;/Areas/Library/Themes/Base/Content:0,/Areas/Library/Content:1,/Areas/Epx/Shared/Content:2\u0026amp;hashKey=66872A62A3ED5011793DE8DC80B4968C" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027Click to expand. Double-click to expand all.\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027Click to collapse. Double-click to collapse all.\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027Expand All\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027Collapse All\u0027;" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=E02CB0B284D4DFDC08A8BCCE147B1659" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script><script src="ms187752.aspx_files/broker-config.js"></script></body></html>

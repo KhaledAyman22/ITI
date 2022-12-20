@@ -1,0 +1,105 @@
+/* p{
+    background-color: aqua !important;
+    color: red !important;
+} */
+
+/* simple Selector */
+/* p{
+    background-color: red;
+    color: aqua;
+} */
+
+/* ID Selector */
+/* #myh{
+    text-align: center;
+    background-color: bisque;
+} */
+
+/* Class Selector */
+/* .myhh{
+    background-color: blue;
+} */
+
+
+/* div.myhh{
+    background-color: brown;
+} */
+
+/* .elem1{
+    background-color: chartreuse;
+}
+
+
+h4.elem1{
+    background-color: brown;
+} */
+
+
+/* Direct Child Selector */
+/* div>h4{
+    background-color: aquamarine;
+} */
+/* 
+div h4{
+    background-color: aquamarine;
+} */
+
+
+/*Direct Adjacent Selector*/
+/* h4+p{
+    background-color: aqua;
+} */
+
+h4~p{
+    background-color: aqua;
+}
+
+
+#e1{
+    /* background-color: aquamarine; */
+    color: black;
+}
+#e2{
+    /* background-color: aquamarine; */
+    color: blueviolet;
+}
+
+#e3{
+    /* background-color: red; */
+    color: yellow;
+}
+
+#e1,#e2,#e3{
+    background-color: aquamarine;
+}
+
+p,h5,h6{
+
+}
+
+input[type="password"]{
+    background-color: beige;
+}
+
+p[id="ggg"]{
+    background-color: aqua;
+}
+
+/* a[href="http://www.google.com"]{ //Exact Equal
+    background-color: aquamarine;
+} */
+
+/* 
+a[href^="http"]{//Starts Withs
+    background-color: aquamarine;
+} */
+
+/* a[href$=".com"]{//Ends With
+    background-color: aquamarine;
+} */
+
+
+
+/* a[href*="google"]{
+    background-color: aquamarine;
+} */
