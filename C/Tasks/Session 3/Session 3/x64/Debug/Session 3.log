@@ -1,9 +1,0 @@
-﻿  Session 3.c
-C:\Users\Khaled\source\repos\Session 3\Session 3\Session 3.c(20,8): warning C4013: 'getch' undefined; assuming extern returning int
-C:\Users\Khaled\source\repos\Session 3\Session 3\io_array_2_loops.h(18): warning C4716: 'IOArray2Loops': must return a value
-C:\Users\Khaled\source\repos\Session 3\Session 3\column_average.h(22): warning C4716: 'ColumnAverage': must return a value
-C:\Users\Khaled\source\repos\Session 3\Session 3\min_max_of_array.h(15): warning C4716: 'MinMaxofArray': must return a value
-C:\Users\Khaled\source\repos\Session 3\Session 3\sum_of_rows.h(22): warning C4716: 'SumofRows': must return a value
-C:\Users\Khaled\source\repos\Session 3\Session 3\static_matrix_multiply.h(38): warning C4716: 'StaticMatrixMultiply': must return a value
-C:\Users\Khaled\source\repos\Session 3\Session 3\dynamic_matrix_multiply.h(68): warning C4716: 'DynamicMatrixMultiply': must return a value
-  Session 3.vcxproj -> C:\Users\Khaled\source\repos\Session 3\x64\Debug\Session 3.exe

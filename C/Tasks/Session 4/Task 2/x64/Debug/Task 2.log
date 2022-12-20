@@ -1,3 +1,0 @@
-﻿  Task 2.c
-C:\Users\Khaled\source\repos\Session 4\Task 2\Task 2.c(18,7): warning C4013: 'getche' undefined; assuming extern returning int
-  Task 2.vcxproj -> C:\Users\Khaled\source\repos\Session 4\x64\Debug\Task 2.exe
