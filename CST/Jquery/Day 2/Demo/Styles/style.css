@@ -1,0 +1,36 @@
+.myClass{
+    text-align: center;
+    border: 1px solid red;
+    background-color: yellow;
+}
+
+/* h1+h2{
+    color: red;
+    text-align: center;
+    background-color: aqua;
+} */
+
+
+/* h1~h2{
+    color: red;
+    text-align: center;
+    background-color: aqua;
+} */
+
+
+div{
+    border: 1px solid black;
+    min-height: 100px;
+}
+img{
+    position: absolute;
+    width: 75px;
+    left: 10px;
+}
+
+#img2{
+    top: 80px;
+}
+#img3{
+    top: 150px;
+}
