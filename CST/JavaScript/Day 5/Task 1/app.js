@@ -2,20 +2,24 @@ document.getElementById("submitBtn").onclick = register;
 
 checkCookies();
 
-function register(){
+function register() {
     var name = document.getElementById('name').value;
-    var gender = document.getElementById('genderM').checked === true? 1:2;
+    var gender = document.getElementById('genderM').checked === true ? 1 : 2;
     var color = document.getElementById('color').value;
 
-    setCookie('name',name);
-    setCookie('gender', gender);
-    setCookie('visits', 0);
-    setCookie('color', color);
+    var d = new Date();
+    d.setDate(d.getDate() + 10);
+
+
+    setCookie('name', name, d.toUTCString());
+    setCookie('gender', gender, d.toUTCString());
+    setCookie('visits', 0, d.toUTCString());
+    setCookie('color', color, d.toUTCString());
     checkCookies();
 }
 
 function checkCookies() {
-    if(hasCookie('name') && hasCookie('visits')){
+    if (hasCookie('name') && hasCookie('visits')) {
         location.replace('home.html');
     }
 }
