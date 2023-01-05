@@ -1,0 +1,13 @@
+img{
+    width: auto;
+    height: auto;
+    max-height: 500px;
+
+    opacity: 1;
+    transition: opacity 5s linear 1s;
+}
+
+img:hover{
+    opacity: 0;
+    transition: opacity 5s linear 1s;
+}

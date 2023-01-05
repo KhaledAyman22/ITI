@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+}
+
+button{
+    position: relative;
+    width: 300px;
+    height: 30px;
+    top: 300px;
+    font-family: "Segoe UI Black";
+    font-size: 15px;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 15px;
+
+    box-shadow: 0 0 0 white;
+    background: lightblue;
+
+    transition-property: box-shadow, background;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+button:hover{
+    box-shadow: 0 0 15px blue;
+    background: lightpink;
+
+    transition-property: box-shadow, background;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}

@@ -1,0 +1,24 @@
+div{
+    margin: 20px;
+}
+
+p{
+    margin: 5px;
+    color: grey;
+}
+
+input:invalid{
+    outline: darkred solid 2px;
+}
+
+input:valid{
+    outline: darkred none 2px;
+}
+
+input:valid+p{
+    color: white;
+}
+
+input:invalid+p{
+    color: grey;
+}

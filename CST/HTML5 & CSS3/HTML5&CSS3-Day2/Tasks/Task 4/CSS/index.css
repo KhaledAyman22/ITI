@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'cardsFont';
+    src: url(../assets/cards.TTF);
+}
+
+*{
+    font-family: cardsFont;
+    font-size: 30px;
+}
+
+#heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+#heart:before,
+#heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: black;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+#heart{
+    position: relative;
+    rotate: 180deg;
+    margin: auto;
+}
+
+#triangle{
+    position: relative;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid black;
+    top: -12px;
+
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+#card{
+    padding: 20px;
+    display: flex;
+    height: 400px;
+    width: 200px;
+    text-align: center;
+    border: 5px solid red;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#top label{
+    float: left;
+}
+
+#bottom label{
+    float: right;
+}

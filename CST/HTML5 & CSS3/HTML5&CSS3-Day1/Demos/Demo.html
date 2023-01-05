@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Untitled Document</title>
+    
+
+</head>
+
+<body>
+ <input type="text" id="txt1" list="colorInfo">
+ <datalist id="colorInfo">
+     <option value="red" label="r1"></option>
+     <option value="green" label="g1"></option>
+     <option value="yellow" label="y1"></option>
+ </datalist>
+  <input type="range" min="0" max="100" value="50" step="10" list="rangeVal">
+  <datalist id="rangeVal">
+      <option value="10"></option>
+      <option value="20"></option>
+      <option value="30"></option>
+  </datalist>
+   <input type="number" min="16" max="60" step="10">
+    <form>
+       <input type="text"  required>
+        <input type="date">
+        <input type="color">
+        <input type="email">
+        <input type="submit">
+
+    </form>
+    <details>
+        <summary>HTML</summary>
+        <p>HyperTextMarkupLang</p>
+
+
+    </details>
+    <meter min="0" low="20" optimum="30" high="80" value="15" max="100"></meter>
+    <progress value="20" max="100"></progress>
+    <pre>
+           <code>
+           for(var <var>i</var>=0;<var>i</var>&lt;5;<var>i</var>++){
+               <mark>console.log</mark>(<var>i</var>)
+               i
+           }
+           </code>
+           </pre>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <script>
+        document.getElementsByTagName("details")[0].addEventListener("toggle", function() {
+            console.log(this.open);
+
+        })
+        document.getElementById("txt1").addEventListener("input",function(){
+            console.log(this.value);
+        })
+        
+        
+    </script>
+
+</body></html>

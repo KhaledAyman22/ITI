@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+}
+
+video{
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 550px;
+}
+
+div{
+    margin: 20px;
+}
+
+#playback{
+    width: 1050px;
+}

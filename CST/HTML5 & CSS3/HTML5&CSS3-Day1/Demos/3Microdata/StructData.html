@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Microdata</title>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "ITI",
+            "url": "https://www.iti.gov.eg/"
+        }
+    </script>
+</head>
+
+<body>
+    <div itemscope itemtype="https://schema.org/Organization">
+        <h2 itemprop="legalName">SD &amp; Gaming CoE , ITI.</h2>
+        <p>This text will be displayed on the web page but won’t be machine processed because its parent tag doesn’t have a specific itemprop.</p>
+        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">km 28 Cairo-Alexandria Desert Road</span>
+            <span>,</span>
+            <span itemprop="addressLocality">Smart Village</span>
+            <span>,</span><span itemprop="addressRegion">Giza</span>
+            <span>,</span>
+            <span itemprop="addressCountry">Egypt</span>
+            <span itemprop="postalCode">11371</span>
+        </div>
+
+        <span>Call us at:</span> <span itemprop="telephone">35355695</span>
+        <br />
+        <br />
+        <div>
+            <a href="http://www.iti.gov.eg" itemprop="url">
+                <mark>http://www.iti.gov.eg</mark>
+            </a>
+        </div>
+    </div>
+</body></html>

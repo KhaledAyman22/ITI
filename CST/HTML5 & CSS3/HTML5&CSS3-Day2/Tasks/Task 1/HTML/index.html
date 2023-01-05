@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <script src="../JS/index.js"></script>
+</head>
+<body>
+
+    <h1>Change Email Address</h1>
+
+    <form>
+        <div>
+            <input type="text" required placeholder="Username" pattern="^([a-z]|[A-Z])*$">
+            <p>The username may consist of alphabetical characters only</p>
+        </div>
+
+        <div>
+            <input type="email" required placeholder="Email" pattern="^([a-z]|[A-Z])([a-z]|[A-Z]|[0-9])*@([a-z]|[A-Z])+\.([a-z]|[A-Z])+$">
+            <p>The email must start by an alphabetical characters only, they may be followed by any combination of numbers and alphabetical characters followed by @</p>
+        </div>
+
+        <div>
+            <input type="submit" value="Change">
+        </div>
+    </form>
+
+</body>
+</html>

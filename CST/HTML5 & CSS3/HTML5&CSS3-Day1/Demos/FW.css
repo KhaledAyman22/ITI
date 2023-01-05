@@ -1,0 +1,11 @@
+[data-myAttr]{
+    text-align:center;
+}
+
+[data-myAttr="r"]{
+    color:red;
+}
+
+[data-myAttr="g"]{
+    color:green;
+}
