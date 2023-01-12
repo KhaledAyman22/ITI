@@ -1,0 +1,80 @@
+Some ideas for different systems:
+=================================
+- School system
+
+- Hospital system
+
+- Library system
+
+- Restaurant system
+
+- Hotel reservation system
+
+- Stocks Management System
+
+- Examination System
+
+- Online Shopping System
+
+- Online Ticket Reservation System
+
+
+Project Details:
+=================
+- System Idea
+- Describe your system with Diagrams
+- Choose New Diagram, describe it, and apply it to your system
+- Tool (Features & History & Adv. - Dis. ):
+	"Free, UX, Documentation, Reverse Engineering, Code Generation, Num of Supported Diagrams" )
+- UML Diagrams to Describe your system
+- System Implementation (any language)
+- Presentation forproject
+
+
+For Each Group (Leader Send):
+- Names
+- Project Topic, Features
+- Tool 
+- New Diagram 
+- Each Group should be 5 members
+
+
+DeadLine: 5-1-2023
+
+
+------------------------------------------------------------------
+
+Some Tools:
+===========
+Star-UML
+
+Visual Paradigm
+
+Software Ideas Modeler
+
+Altova-uModel
+
+ArgoUML
+
+Modelio
+
+BoUML
+
+Gliffy
+
+
+Diagrams:
+==========
+State diagram
+
+Interaction Overview diagram
+
+Collaboration / Communication diagram
+
+Object diagram
+
+Component diagram
+
+Deployment diagram
+
+Timing diagram
