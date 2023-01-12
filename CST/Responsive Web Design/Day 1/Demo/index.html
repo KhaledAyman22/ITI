@@ -1,0 +1,169 @@
+<!--* latest verision html5 -->
+<!DOCTYPE html>
+<!-- * root eleme ==> language -->
+<html lang="en">
+  <head>
+    <!-- * encoding  -->
+    <meta charset="UTF-8" />
+    <!-- * latest version -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- * responsive  -->
+    <!-- ? " Absolute units " cm - mm- in - px - pt -pc  -->
+    <!-- ? "relative units" ==> % , rem , em  , vh , vw  , vmin , vmax , ch , ex  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        background-color: aqua;
+        display: flex;
+        /* flex-direction: row-reverse; */
+        /* flex-wrap: wrap-reverse; */
+        /* flex-flow: row-reverse wrap; */
+        /* flex-direction: column; */
+        /* height: 700px; */
+        /* align-items: baseline; */
+        /* justify-content: center; */
+        /* justify-content: space-around; */
+        /* height: 700px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end; */
+        /* height: 700px; */
+        /* flex-wrap: wrap; */
+        /* gap: 10px 50px; */
+        /* flex-direction: column;
+        height: 1000px; */
+/*         
+        width: 150px;
+        height: 50px; */
+        height: 1000px;
+        align-items: flex-end;
+        justify-content: flex-start;
+        /* width: 1000px; */
+
+      }
+      /* combinator selectors  */
+      /* > -- direct child 
+           direct + subchild 
+        + --> first element after closed tag
+        ~ --> every element after closed tag
+      */
+      .container > div {
+        background-color: bisque;
+        margin: 10px;
+        font-size: 30px;
+        /* width: 150px;
+        height: 150px; */
+        padding: 10px;
+      }
+      .child1{
+        /* order: 1; */
+        /* flex-shrink: 1; */
+        /* flex-grow: 1; */
+        /* font-size: 50px; */
+        order: 2;
+
+
+      }
+      .child2{
+        /* flex-basis: 500px; */
+        /* width: 200px; */
+        /* align-self: center; */
+        /* justify-self: self-end; */
+        order: 3;
+        /* flex-grow: 1;
+        width: 100px; */
+      }
+      .child3{
+        /* flex-grow: 1; */
+        /* font-size: 70px; */
+      }
+      @media (max-width:500px){
+        .container{
+          background-color: blue;
+        }
+        body{
+          background-color: green;
+        }
+      }
+      @media (min-width:501px) and (max-width:900px){
+        .container{
+          background-color: red;
+        }
+      }
+      @media (min-width:501px) and (max-width:1200px){
+        .container{
+          background-color: rgb(213, 24, 144);
+        }
+      }
+      @media (min-width:1201px){
+        .container{
+          background-color: orange;
+        }
+      }
+      *{
+        border:2px solid red
+      }
+      button{
+        width: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child2">2</div>
+      <div class="child1">1</div>
+      <div class="child3">3</div>
+      <!-- <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div>
+      <div class="child1">1</div>
+      <div class="child2">2</div>
+      <div class="child3">3</div> -->
+    </div>
+    <span
+      >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores fugit
+      eos accusantium fuga vel obcaecati nostrum deserunt, labore, reprehenderit
+      nemo commodi! Illo porro, exercitationem adipisci nihil eos quia
+      laudantium obcaecati?</span
+    >
+    <!-- <p></p> + -->
+    <p></p>
+    <p></p>
+    <button>hello</button>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error est labore atque quo facilis? Cum amet itaque aspernatur dignissimos odio assumenda. Nesciunt veritatis, optio eius laborum commodi suscipit illo odio.</div>
+  </body>
+</html>

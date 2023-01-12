@@ -1,0 +1,48 @@
+#nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    background: lightgrey;
+}
+
+button{
+    border-style: none;
+    background: transparent;
+    font-size: 27px;
+    width: 200px;
+}
+
+button:hover{
+    opacity: 70%;
+}
+
+.div{
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+
+    width: 48%;
+
+    padding: 10px;
+}
+
+section{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.footer{
+    background-color: lightgrey;
+}

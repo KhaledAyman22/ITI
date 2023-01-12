@@ -1,0 +1,30 @@
+body{
+    min-height: 200px;
+}
+header, footer{
+    text-align: center;
+    background-color: royalblue;
+}
+
+#sideBar, #sideNav{
+    background-color: darkorange;
+    width: 25%;
+}
+#mainContent{
+    background-color: yellowgreen;
+    width: 50%;
+}
+
+
+div{
+    text-align: center;
+
+    height: 150px;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+}
