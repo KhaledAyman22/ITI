@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Settings</title>
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+
+<div class="settings_wrapper" id="settingWrapper">
+    <p id="main_title">SUDÖKU</p>
+    <div id="wrapper">
+        <div class="option">
+            <p class="left">Timer<br><span>Show or hide the timer when playing.</span></p>
+            <button value="Timer" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Mistake Limit<br><span>Limit the number of possible mistakes according to the difficulty.</span></p>
+            <button value="Mistake Limit" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Mistakes Checker<br><span>Mark numbers which fail to match the sudoku solution.</span></p>
+            <button value="Mistakes Checker" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Hide Numbers<br><span>Hide numbers that are used 9 times.</span></p>
+            <button value="Hide Numbers" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Highlight Duplicates<br><span>Highlight repeated numbers in each row, column, and box.</span></p>
+            <button value="Highlight Duplicates" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Highlight Area<br><span>Highlight the row, column, and box that the selected cell belong to.</span></p>
+            <button value="Highlight Area" class="setting_btn">ON</button>
+        </div>
+        <div class="option">
+            <p class="left">Highlight Identical<br><span>Highlight every occurrence of the selected number on the sudoku</span></p>
+            <button value="Highlight Identical" class="setting_btn">ON</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/cookie_lib.js"></script>
+<script src="../js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+body{
+    text-align: center;
+    background-image: url("../assets/BG.jpg");
+    background-size: cover;
+    /*background-repeat: no-repeat;
+    background-position: center center;*/
+}
+
+button:hover {
+    opacity: 75%;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+@font-face{
+    font-family: BlackFont;
+    src: url(../assets/seguibl.ttf);
+}
+
+@font-face{
+    font-family: NormalFont;
+    src: url(../assets/segoeui.ttf);
+}
+
+span{
+    color: #838383;
+    font-family: NormalFont, serif;
+    font-size: 15px;
+}
+
+
+
+#main_title {
+    color: #207bff;
+    text-align: center;
+    font-size: 80px;
+    font-family: BlackFont, serif;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+}
+
+#settingWrapper {
+    background-color: white;
+    display: inline-block;
+    width: 800px;
+    padding-bottom: 20px;
+}
+
+.option p{
+    text-align: left;
+    color: black;
+    font-family: NormalFont, serif;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.wrapper {
+    display: inline-block;
+
+    border-radius: 15px;
+}
+
+.setting_btn{
+    width: 70px;
+    height: 40px;
+
+    background-color: #207bff;
+    color: white;
+
+    font-size: 18px;
+    font-family: BlackFont, serif;
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 1px #207bff;
+}
+
+.option {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.left{
+    flex-basis: 50%;
+}
+
+
+

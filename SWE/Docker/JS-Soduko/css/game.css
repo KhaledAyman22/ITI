@@ -1,0 +1,217 @@
+body {
+    text-align: center;
+    background-image: url("../assets/BG.jpg");
+    background-size: cover;
+    /*background-repeat: no-repeat;
+    background-position: center center;*/
+}
+
+table {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+td {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+tr {
+    display: block;
+    padding-bottom: 5px;
+}
+
+@font-face{
+    font-family: BlackFont;
+    src: url(../assets/seguibl.ttf);
+}
+
+@font-face{
+    font-family: BlackIFont;
+    src: url(../assets/seguibli.ttf);
+}
+
+/*****************************************************************************/
+button:enabled:hover {
+    opacity: 70%;
+}
+
+button:enabled:active {
+    transform: translateY(4px);
+}
+
+/*****************************************************************************/
+#infoDiv, #infoDiv div{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#infoDiv div *{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#infoDiv div{
+    width: 200px;
+}
+
+#infoDiv{
+    margin-left: 10px;
+    margin-right: 10px;
+
+    justify-content: space-between;
+}
+
+.infoImg{
+    width: 35px;
+    height: 35px;
+}
+
+p{
+    display: inline-block;
+    margin: 0;
+
+    font-family: BlackFont, serif;
+    font-size: 25px;
+    color: #AFC0C8;
+}
+
+#play_btn, #pause_btn{
+    background: transparent;
+    border-style: none;
+}
+
+#playPauseDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*****************************************************************************/
+#r3,
+#r6 {
+    padding-bottom: 20px;
+}
+
+/*****************************************************************************/
+.num_block {
+
+    width: 50px;
+    height: 50px;
+
+    vertical-align: middle;
+
+    margin-left: 2px;
+    margin-right: 2px;
+
+    display: inline-block;
+    text-align: center;
+
+    color: white;
+    background-color: #207bff;
+    border-radius: 15px;
+    border-style: none;
+
+    font-size: 30px;
+    font-family: BlackFont, serif;
+}
+
+.numControl {
+
+    width: 50px;
+    height: 50px;
+
+    vertical-align: middle;
+
+    margin-left: 2px;
+    margin-right: 2px;
+
+    display: inline-block;
+    text-align: center;
+
+    color: white;
+    background-color: #FFA420;
+    border-radius: 15px;
+    border-style: none;
+
+    font-size: 30px;
+    font-family: BlackFont, serif;
+}
+
+/*****************************************************************************/
+#controlsDiv {
+
+    width: 740px;
+    height: 150px;
+
+    border-radius: 15px;
+    background-color: #eee;
+    box-shadow: 0 8px 8px 4px lightblue;
+
+    margin: 20px auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#numbersDiv {
+    display: inline-block;
+    width: 700px;
+}
+
+/*****************************************************************************/
+.helpersDiv {
+    display: inline-block;
+    width: 15%;
+}
+
+.helper_btn {
+    width: 50px;
+    height: 50px;
+
+    vertical-align: middle;
+    line-height: 50px;
+
+    margin: 5px;
+
+    display: inline-block;
+    text-align: center;
+
+    background-color: rgb(135, 18, 91);
+    border-radius: 5px;
+    border-style: none;
+}
+
+/*****************************************************************************/
+svg {
+    width: 80%;
+    height: 100%;
+}
+
+path {
+    fill: #ffffff;
+}
+
+/*****************************************************************************/
+#end{
+    display: none;
+    background: white;
+    height: 600px;
+    width: 600px;
+    position: absolute;
+
+    top: 65px;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    border-radius: 15px;
+}
+
+#end_img{
+    height: 500px;
+}
