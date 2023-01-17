@@ -1,0 +1,45 @@
+.icon {
+  font-size: 200px;
+  margin-top: -150px;
+}
+
+.icon1 {
+  font-size: 150px;
+  margin-top: -50px;
+}
+
+.text-para {
+  font-size: 14px;
+  margin: 75px 0 0 30px;
+}
+
+@media (min-width: 1201px) {
+  .ms-xl-10 {
+    margin-left: 120px;
+  }
+}
+
+.lorem {
+  margin-top: 150px;
+  padding: 0 30px;
+}
+
+.icon-sec {
+  color: rgb(255, 0, 98);
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid rgb(117, 117, 117);
+  top: -19px;
+  left: 50%;
+}
+
+@media (min-width:768px) and (max-width:1201px) {
+  .main-icon {
+    margin-left: -450px;
+  }
+}

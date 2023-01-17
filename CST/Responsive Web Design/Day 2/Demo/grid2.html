@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            background-color: aqua;
+            display: grid;
+            height: 250px;
+            grid-template-areas:
+             "nav nav nav nav "
+             "as . ar ar"
+             "as . ar ar"
+           
+             "foot foot foot foot";
+        }
+        nav{
+            background-color: red;
+            grid-area: nav;
+        }
+        aside{
+            background-color: orange;
+            grid-area: as;
+        }
+        article{
+            background-color: yellow;
+            grid-area: ar;
+        }
+        footer{
+            background-color: blue;
+            grid-area: foot;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <nav>nav</nav>
+        <aside>aside</aside>
+        <article>article</article>
+        <footer>footer</footer>
+    </section>
+</body>
+</html>

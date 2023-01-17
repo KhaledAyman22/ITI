@@ -1,0 +1,14 @@
+$primary:pink;
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+@each $color , $value in $colors{
+    .btn-#{$color}{
+        background-color: $value !important;
+    }
+}
+
+@each $color , $value in $teals{
+    .btn-#{$color}{
+        background-color: $value !important;
+    }
+}
