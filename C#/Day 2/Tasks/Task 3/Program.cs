@@ -15,11 +15,15 @@ namespace Task_3
 
                 for (int i = 0; i < x; i++)
                 {
-                    count += i.ToString().Count((c)=>c=='1');
+                    string s = i.ToString();
+                    for (int j = 0; j < s.Length; j++)
+                    {
+                        if (s[j] == '1') count++;
+                    }
                 }
                 sw.Stop();
 
-                Console.WriteLine($"Time elapsed using strings is: {sw.Elapsed}, Count is: {count}");
+                Console.WriteLine($"Time elapsed using strings is: {sw.ElapsedMilliseconds}, Count is: {count}");
             }
             #endregion
 
@@ -41,7 +45,7 @@ namespace Task_3
                 }
                 sw.Stop();
 
-                Console.WriteLine($"Time elapsed using mod is: {sw.Elapsed}, Count is: {count}");
+                Console.WriteLine($"Time elapsed using mod is: {sw.ElapsedMilliseconds}, Count is: {count}");
             }
             #endregion
 
@@ -55,7 +59,7 @@ namespace Task_3
 
                 sw.Stop();
 
-                Console.WriteLine($"Time elapsed using mathematical equation is: {sw.Elapsed}, Count is: {count}");
+                Console.WriteLine($"Time elapsed using mathematical equation is: {sw.ElapsedMilliseconds}, Count is: {count}");
             }
             #endregion
         }
