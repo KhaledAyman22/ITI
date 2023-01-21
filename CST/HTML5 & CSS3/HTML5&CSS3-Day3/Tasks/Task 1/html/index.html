@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="../conditionizr-4.4.0/conditionizr-4.4.0/dist/conditionizr.js"></script>
+    <script>
+        conditionizr.add("prop", function () {
+            return window.LocalStorage === undefined;
+        })
+
+        conditionizr.polyfill("../js/cookie_lib.js", ["prop"]);
+    </script>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+<div id="regForm">
+
+    <div class="inputItem">
+        <label class="mainLabel" for="name">Name</label>
+        <input id="name" type="text" name="name" value="Khaled" required>
+    </div>
+
+    <div class="inputItem">
+        <label class="mainLabel" id="gender">Gender</label>
+
+        <input id="genderM" type="radio" name="gender" value="M" checked required>
+        <label class="genderLabel" for="genderM"><img src="../assets/1.jpg"></label>
+
+        <input id="genderF" type="radio" name="gender" value="F" required>
+        <label class="genderLabel" for="genderF"><img src="../assets/2.jpg"></label>
+    </div>
+
+    <div class="inputItem">
+        <label class="mainLabel" for="age">Age</label>
+        <input id="age" type="text" name="age" value="22" required>
+    </div>
+
+    <div class="inputItem">
+        <label class="mainLabel" for="color">Color</label>
+        <select id="color" name="color" required>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+    </div>
+
+    <button id="submitBtn">Register</button>
+</div>
+
+<script src="../js/app.js"></script>
+
+</body>
+
+</html>

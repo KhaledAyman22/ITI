@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Untitled Document</title>
+ 
+    <script src="conditionizr-4.4.0/conditionizr-4.4.0/dist/conditionizr.js"></script>
+    <script>
+        if(window.api)
+        conditionizer.add("prop", function() {
+            return window.localStorage === undefined;
+        })
+
+
+        conditionizer.polyfill("js/cookie_lib.js", ["prop"]);
+    </script>
+</head>
+
+<body>
+    <mark>abc</mark>
+    <input type="text" id="txt1">
+    <button id="btn1">Save Info</button>
+    <script>
+        //markups--->shim|shiv file---> .js
+        //APIs-->polyfills--> .js
+        document.getElementById("btn1").addEventListener("click", function() {
+            var val = document.querySelector("#txt1").value;
+
+            newLocalStorage.setItem("usernm", val);
+            localStorage.setItem("userAge", 15); //'15'--->stringify
+
+
+            localStorage.setItem("addr", "123 st.");
+
+
+            sessionStorage.setItem("count", 150);
+
+        })
+    </script>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Untitled Document</title>
+    <style>
+        canvas {
+            border: solid red 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c1" width="500" height="350"></canvas>
+    <script>
+        var canvas = document.getElementById("c1");
+        var ctx = canvas.getContext("2d");
+        var grad1 = ctx.createLinearGradient(50, 50, 100, 100);
+        grad1.addColorStop(0, "blue")
+        grad1.addColorStop(0.5, "white")
+        grad1.addColorStop(1, "green");
+
+        ctx.fillStyle = grad1;
+        ctx.strokeStyle = grad1;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeRect(0, 0, 100, 100);
+
+
+        var grad2 = ctx.createRadialGradient(100, 100, 50, 100, 100, 100);
+        grad2.addColorStop(0, "white")
+        grad2.addColorStop(0.5, "yellow")
+        grad2.addColorStop(1, "red");
+        
+        ctx.fillStyle=grad2;
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 100, 0, 2 * Math.PI);
+        ctx.fill();
+
+
+
+        /*
+        var img= new Image();
+        img.src="images/img.jpg";
+        
+        
+        img.onload=function(){
+            ctx.save();///////
+            ctx.translate(100,100);
+            ctx.lineWidth=5;
+            ctx.strokeStyle="blue"
+            ctx.drawImage(img,0,0,100,100);
+            ctx.restore();    
+            
+            ctx.strokeStyle="blue"
+            
+            ctx.drawImage(img,0,0,100,100);
+            ctx.save();
+            ctx.scale(0.5,0.5)
+            ctx.drawImage(img,0,0,100,100);
+            ctx.restore();
+            
+        }
+        
+        */
+    </script>
+</body></html>

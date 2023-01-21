@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="../conditionizr-4.4.0/conditionizr-4.4.0/dist/conditionizr.js"></script>
+    <script>
+        conditionizr.add("prop", function () {
+            return window.LocalStorage === undefined;
+        })
+
+        conditionizr.polyfill("../js/cookie_lib.js", ["prop"]);
+    </script>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+<div id="home">
+    <img id="cookie_gender" src="">
+    <span>
+        <b>Welcome</b> <span class="highlight" id="cookie_name"></span> you have visited the site <span
+            id="cookie_visits" class="highlight"></span> times :)
+    </span>
+</div>
+<script src="../js/home.js"></script>
+
+</body>
+</html>

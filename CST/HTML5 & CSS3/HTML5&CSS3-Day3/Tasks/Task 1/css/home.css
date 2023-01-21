@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+}
+
+#home{
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50px;
+    margin-top: 130px;
+}
+
+.highlight{
+    color: red;
+    font-size: 22px;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 50px;
+    max-height: 50px;
+}
