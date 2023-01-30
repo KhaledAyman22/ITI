@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D08", "D08\D08.csproj", "{77CFE914-98CA-4E58-A370-D14719685DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingDll", "SortingDll\SortingDll.csproj", "{180F0542-C934-4F15-8BEC-C7A4A47BA8B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D08 PII", "D08 PII\D08 PII.csproj", "{B780609C-A429-46F9-9EA1-7ED828E0CCCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77CFE914-98CA-4E58-A370-D14719685DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CFE914-98CA-4E58-A370-D14719685DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CFE914-98CA-4E58-A370-D14719685DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CFE914-98CA-4E58-A370-D14719685DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180F0542-C934-4F15-8BEC-C7A4A47BA8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180F0542-C934-4F15-8BEC-C7A4A47BA8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180F0542-C934-4F15-8BEC-C7A4A47BA8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180F0542-C934-4F15-8BEC-C7A4A47BA8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B780609C-A429-46F9-9EA1-7ED828E0CCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B780609C-A429-46F9-9EA1-7ED828E0CCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B780609C-A429-46F9-9EA1-7ED828E0CCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B780609C-A429-46F9-9EA1-7ED828E0CCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E50EEC2F-0DA6-4500-AAA9-64D0D886C356}
+	EndGlobalSection
+EndGlobal
