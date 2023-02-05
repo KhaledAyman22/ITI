@@ -1,0 +1,81 @@
+﻿<Window x:Class="Task_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="300" ResizeMode="NoResize" Background="#454545">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            
+
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+            x:Name="screen" Margin="5" 
+            Background="LightGray" FontSize="40"
+            Foreground="Black" Padding="8"
+            FontFamily="Digital-7"
+            VerticalAlignment="Center"
+            FlowDirection="LeftToRight"
+            Text="0"
+        />
+
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <UniformGrid Grid.Column="0" Columns="3" Rows="4">
+                <Button Click="NumClick" Name="seven">7</Button>
+                <Button Click="NumClick" Name="eight">8</Button>
+                <Button Click="NumClick" Name="nine">9</Button>
+
+                <Button Click="NumClick" Name="four">4</Button>
+                <Button Click="NumClick" Name="five">5</Button>
+                <Button Click="NumClick" Name="six">6</Button>
+
+                <Button Click="NumClick" Name="one">1</Button>
+                <Button Click="NumClick" Name="two">2</Button>
+                <Button Click="NumClick" Name="three">3</Button>
+
+                <Button Click="NumClick" Name="zero">0</Button>
+                <Button Click="OpClick" Name="dot">.</Button>
+                <Button Click="OpClick" Name="plus">+</Button>
+            </UniformGrid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+                
+                <Button Click="OpClick" Name="divide" Grid.Row="0">÷</Button>
+                <Button Click="OpClick" Name="times" Grid.Row="1">×</Button>
+                <Button Click="OpClick" Name="minus" Grid.Row="2">−</Button>
+                <Button Click="OpClick" Name="equal" Grid.Row="3" Background="Orange">=</Button>
+            </Grid>
+        </Grid>
+        
+        
+        
+    </Grid>
+</Window>

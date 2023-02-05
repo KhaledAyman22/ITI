@@ -1,0 +1,55 @@
+﻿<Window x:Class="WPFDay02.BinddingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      
+        Title="BinddingWindow" Height="450" Width="800">
+  
+        <!--#region Binding Ex1 -->
+        <!--<Slider Width="200"
+                Value="15"
+                Maximum="50"
+                Minimum="5"
+                Name="Sld"
+               />
+        <TextBlock FontSize="{Binding  ElementName=Sld,Path=Value}" HorizontalAlignment="Center">
+            Hello Hamada
+        </TextBlock>-->
+        <!--#endregion-->
+
+        <!--#region Binding Ex2 -->
+    <!--<DockPanel  LastChildFill="False">
+        <ListBox
+               x:Name="lst"
+                   ItemsSource="{x:Static Fonts.SystemFontFamilies}"
+                    Background="LightPink" 
+                     DockPanel.Dock="Left">
+
+        </ListBox>
+
+
+
+
+        <Border
+                BorderBrush="LightBlue"
+                BorderThickness="7"
+                DockPanel.Dock="Bottom">
+            <TextBox x:Name="txt1"></TextBox>
+        </Border>
+        <StackPanel>
+            <Label FontFamily="{Binding ElementName=lst,Path=SelectedItem}"  Content="{Binding ElementName=txt1,Path=Text}" FontSize="5"></Label>
+            <Label FontFamily="{Binding ElementName=lst,Path=SelectedItem}"  Content="{Binding ElementName=txt1,Path=Text}"  FontSize="15"></Label>
+            <Label FontFamily="{Binding ElementName=lst,Path=SelectedItem}"  Content="{Binding ElementName=txt1,Path=Text}" FontSize="25"></Label>
+            <Label FontFamily="{Binding ElementName=lst,Path=SelectedItem}"  Content="{Binding ElementName=txt1,Path=Text}" FontSize="35"></Label>
+        </StackPanel>
+    </DockPanel>-->
+    <!--#endregion-->
+
+    <StackPanel>
+        <TextBox Width="200" Height="40" Name="txt1" Margin="15" ></TextBox>
+        <TextBox Width="200" Height="40" Name="txt2"
+                 Text="{Binding ElementName=txt1,Mode=Default, Path=Text,UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+    </StackPanel>
+
+
+
+</Window>

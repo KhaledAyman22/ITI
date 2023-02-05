@@ -1,0 +1,18 @@
+﻿<Application x:Class="WPFDay02.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFDay02"
+             StartupUri="BinddingWindow.xaml">
+    <Application.Resources>
+        <!--<ResourceDictionary Source="ButtonStylr.xaml">
+            
+        </ResourceDictionary>-->
+
+        <ResourceDictionary>
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=""></ResourceDictionary>
+                <ResourceDictionary Source=""></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>-->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
