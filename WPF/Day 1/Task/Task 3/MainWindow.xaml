@@ -1,0 +1,49 @@
+﻿<Window x:Class="Task_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="400">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox 
+            Name="tarea"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Text="Default starting text." Grid.Row="0">
+        </TextBox>
+
+        <UniformGrid Grid.Row="1">
+            <Button Click="SetTextClick" Width="60" Height="20" Margin="5">Set Text</Button>
+            <Button Click="SelectAllClick" Width="60" Height="20" Margin="5">Select All</Button>
+            <Button Click="ClearClick" Width="60" Height="20" Margin="5">Clear</Button>
+            <Button Click="PrependClick" Width="60" Height="20" Margin="5">Prepend</Button>
+            <Button Click="InsertClick" Width="60" Height="20" Margin="5">Insert</Button>
+            <Button Click="AppendClick" Width="60" Height="20" Margin="5">Append</Button>
+            <Button Click="CutClick" Width="60" Height="20" Margin="5">Cut</Button>
+            <Button Click="PasteClick" Width="60" Height="20" Margin="5">Paste</Button>
+            <Button Click="UndoClick" Width="60" Height="20" Margin="5">Undo</Button>
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2" VerticalAlignment="Center">
+            <RadioButton Checked="AcccessChanged" Width="80" GroupName="access">Editable</RadioButton>
+            <RadioButton Checked="AcccessChanged" Width="80" GroupName="access">Read Only</RadioButton>
+        </UniformGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <RadioButton Checked="OrientationChanged" Margin="10" Width="80" GroupName="orientation" Content="Left"/>
+            <RadioButton Checked="OrientationChanged" Margin="10" Width="80" GroupName="orientation" Content="Center"/>
+            <RadioButton Checked="OrientationChanged" Margin="10" Width="80" GroupName="orientation" Content="Right"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

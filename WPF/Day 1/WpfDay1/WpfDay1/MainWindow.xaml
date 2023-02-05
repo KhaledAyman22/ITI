@@ -1,0 +1,380 @@
+﻿<Window x:Class="WpfDay1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfDay1"
+      
+        Title="Wndow1" Height="450" Width="800">
+    <!--<Window.Background>
+        <ImageBrush ImageSource="/img13.jpg"></ImageBrush>
+    </Window.Background>-->
+
+
+    <!--#region StackPanel -->
+    <!--<StackPanel Orientation="Horizontal">
+        
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn1"
+                x:Name="btn1"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+    </StackPanel>-->
+    <!--#endregion-->
+
+    <!--#region WrapPanel -->
+    <!--<WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
+
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn1"
+                x:Name="btn1"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+    </WrapPanel>-->
+    <!--#endregion-->
+
+    <!--#region DockPanel -->
+    <!--<DockPanel LastChildFill="False">
+
+        <Button
+               DockPanel.Dock="Top" 
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn1"
+                x:Name="btn1"
+                ></Button>
+        <Button 
+              
+               DockPanel.Dock="Bottom"
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn2"
+                ></Button>
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                DockPanel.Dock="Right"
+                ></Button>
+
+        <Button Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                ></Button>
+
+    </DockPanel>-->
+    <!--#endregion-->
+
+    <!--#region Grid -->
+    <!--<Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button
+                
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn1"
+                x:Name="btn1"
+              Grid.RowSpan="2"
+                ></Button>
+        <Button
+               Grid.Column="1"
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn2"
+                x:Name="btn2"
+                ></Button>
+        <Button
+              Grid.Row="1"
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+
+        <Button
+              Grid.Row="1"
+            Grid.Column="2"
+               Width="170"
+                Height="130"
+                Background="Orange"
+                Margin="5"
+                Content="Btn4"
+               
+                ></Button>
+
+    </Grid>-->
+    <!--#endregion-->
+
+    <!--#region UniformGrid -->
+    <!--<UniformGrid >
+        <Button
+             
+              
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+        <Button
+             
+               Width="70"
+                Height="30"
+                Background="Orange"
+                Margin="5"
+                Content="Btn3"
+               Grid.ColumnSpan="2"
+            
+                ></Button>
+    </UniformGrid>-->
+    <!--#endregion-->
+
+    <!--<Button Width="270"
+            Height="130"
+           Click="BtnClicked"
+          
+            >
+        
+        <StackPanel Orientation="Horizontal">
+            
+            <Label Content="Plplpallppla" ></Label>
+            <Label Content="Plplpallppla" ></Label>
+            <Label Content="Plplpallppla" ></Label>
+            <Image Source="/img13.jpg" Width="50"></Image>
+        </StackPanel>
+        <Button.ToolTip>
+            <StackPanel >
+
+                <Label Content="Plplpallppla" ></Label>
+                <Label Content="Plplpallppla" ></Label>
+                <Label Content="Plplpallppla" ></Label>
+                <Image Source="/img13.jpg" Width="50"></Image>
+            </StackPanel>
+
+        </Button.ToolTip>
+    </Button>-->
+
+
+
+    <!--<GroupBox Header="Group1">
+        <StackPanel>
+            
+            <RadioButton GroupName="hamada">Option1</RadioButton>
+            <RadioButton GroupName="hamada">Option2</RadioButton>
+            <RadioButton GroupName="hamada">Option3</RadioButton>
+        </StackPanel>
+    </GroupBox>-->
+
+
+    <!--<TabControl>
+        <TabItem Header="Tab1">
+            <StackPanel>
+                
+            <CheckBox>Option1</CheckBox>
+            <CheckBox>Option1</CheckBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Tab2" >
+            Hellooo.......
+        </TabItem>
+    </TabControl>-->
+
+    <!--<Expander  ExpandDirection="Right" Header="Exp1">
+        <StackPanel>
+
+            <CheckBox>Option1</CheckBox>
+            <CheckBox>Option1</CheckBox>
+        </StackPanel>
+    </Expander>-->
+
+
+    <TextBox    Background="Yellow" Width="150" Height="130"></TextBox>
+
+
+
+
+
+</Window>
