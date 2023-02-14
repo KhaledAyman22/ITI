@@ -47,5 +47,10 @@ namespace Task
 
             return true;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Count, FileName);
+        }
     }
 }

@@ -30,5 +30,12 @@ namespace Task
 
             return true;
         }
+
+        public override int GetHashCode()
+        {
+            string s = "";
+            this.ForEach(e => s += e.GetHashCode());
+            return HashCode.Combine(Count, s);
+        }
     }
 }

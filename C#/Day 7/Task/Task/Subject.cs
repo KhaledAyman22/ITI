@@ -30,5 +30,10 @@ namespace Task
             Subject s = (Subject)obj;
             return s.Name == Name && s.Description == Description;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Description);
+        }
     }
 }

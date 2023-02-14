@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -152,7 +154,7 @@ namespace Task_4
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return HashCode.Combine(Hours, Minutes, Seconds);
         }
 
         public static implicit operator DateTime (Duration duration)

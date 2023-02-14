@@ -29,5 +29,10 @@ namespace Task
 
             return Statment == ((Answer)(obj)).Statment;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Statment.GetHashCode());
+        }
     }
 }
