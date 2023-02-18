@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1", "Task 1\Task 1.csproj", "{51A3A373-1D01-4765-94F9-5E33B87A604D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 2", "Task 2\Task 2.csproj", "{F1C2329E-9FB3-4FF9-A74F-8B84268CA8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLHelper", "SQLHelper\SQLHelper.csproj", "{DB02472B-9A1A-4DCA-97DC-EFBECD9E9E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51A3A373-1D01-4765-94F9-5E33B87A604D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A3A373-1D01-4765-94F9-5E33B87A604D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A3A373-1D01-4765-94F9-5E33B87A604D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A3A373-1D01-4765-94F9-5E33B87A604D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C2329E-9FB3-4FF9-A74F-8B84268CA8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C2329E-9FB3-4FF9-A74F-8B84268CA8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C2329E-9FB3-4FF9-A74F-8B84268CA8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C2329E-9FB3-4FF9-A74F-8B84268CA8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB02472B-9A1A-4DCA-97DC-EFBECD9E9E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB02472B-9A1A-4DCA-97DC-EFBECD9E9E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB02472B-9A1A-4DCA-97DC-EFBECD9E9E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB02472B-9A1A-4DCA-97DC-EFBECD9E9E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {958F7686-EE8D-4E08-92EA-B3D164187E52}
+	EndGlobalSection
+EndGlobal
