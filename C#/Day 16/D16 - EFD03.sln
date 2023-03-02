@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindConsoleApp", "NorthWindConsoleApp\NorthWindConsoleApp.csproj", "{964527F8-1412-488B-BB9C-DEAD4B177387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITISchoolConsoleApp", "ITISchoolConsoleApp\ITISchoolConsoleApp.csproj", "{83B5E52E-B4EA-43F1-B0BA-1F0116497C83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{964527F8-1412-488B-BB9C-DEAD4B177387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964527F8-1412-488B-BB9C-DEAD4B177387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964527F8-1412-488B-BB9C-DEAD4B177387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964527F8-1412-488B-BB9C-DEAD4B177387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B5E52E-B4EA-43F1-B0BA-1F0116497C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B5E52E-B4EA-43F1-B0BA-1F0116497C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B5E52E-B4EA-43F1-B0BA-1F0116497C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B5E52E-B4EA-43F1-B0BA-1F0116497C83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74D23B7A-6375-4357-8718-B0636690328F}
+	EndGlobalSection
+EndGlobal
