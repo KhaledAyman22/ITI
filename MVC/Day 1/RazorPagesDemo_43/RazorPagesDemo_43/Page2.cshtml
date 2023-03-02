@@ -1,0 +1,38 @@
+﻿@{ Layout = "_myCustomLayout.cshtml"; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    @*<form method="get">
+            Name: <input type="text" name="name" value="" />
+            City: <input type="text" name="city" value="" />
+            <input type="submit" value="Save" />
+        </form>
+
+        <div>
+            Hello in my App:  @Request.QueryString["name"], From @Request.QueryString["city"] city
+        </div>*@
+
+    <form method="post">
+        Name: <input type="text" name="name" value="" />
+        City: <input type="text" name="city" value="" />
+        <input type="submit" value="Save" />
+    </form>
+
+
+        @*@if( ! Request.Form["name"].IsEmpty()  && !Request.Form["city"].IsEmpty())*@
+
+    @if(IsPost)
+            {
+                <div>
+                    Hello in my App:  @Request["name"], From @Request["city"] city
+                </div>
+            }
+
+
+</body>
+</html>

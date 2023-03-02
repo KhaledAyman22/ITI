@@ -1,0 +1,71 @@
+﻿@using RazorPagesDemo_43
+
+@*@{ Layout = null; }*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    @{
+        var name = "basma";
+
+        var txt = "";
+    }
+
+    <h2>   @txt </h2>
+
+    @{
+        if (DateTime.Now.Hour < 12)
+        { txt = "Have a Great morning"; }
+        else
+        { txt = "Have a Nice Evining"; }
+
+    }
+</head>
+<body>
+    <div>  Hello in my webApp ya @name </div>
+
+    <p> @txt</p>
+
+</body>
+
+@{
+    List<Product> products = new List<Product>()
+{
+        new Product (){ ID = 1, Name="Product-1", Price = 100 },
+    new Product (){ ID = 1, Name="Product-1", Price = 100 },
+    new Product (){ ID = 11, Name="Product1-1", Price = 100 },
+    new Product (){ ID = 10, Name="Product00-1", Price = 100 },
+    new Product (){ ID = 1, Name="Product-1", Price = 100 }
+};
+}
+
+@{ WebGrid grid = new WebGrid(products);
+
+}
+
+@grid.GetHtml()
+
+@*<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+
+    </tr>
+    @foreach (var item in products)
+    {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+
+            </tr>
+    }
+
+</table>*@
+
+@RenderPage("FooterPage.cshtml")
+
+</html>

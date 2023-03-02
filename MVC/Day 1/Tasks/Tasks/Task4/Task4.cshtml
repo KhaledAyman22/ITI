@@ -1,0 +1,34 @@
+﻿@using Tasks.Task4 
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    @{
+
+        List<Product> products = new List<Product>(){
+            new Product (){ ID = 1, Name="Product1", Price = 100 },
+            new Product (){ ID = 2, Name="Product2", Price = 200 },
+            new Product (){ ID = 3, Name="Product3", Price = 300 },
+            new Product (){ ID = 4, Name="Product4", Price = 400 },
+            new Product (){ ID = 5, Name="Product5", Price = 500 }
+        };
+
+
+        WebGrid grid = new WebGrid(products);
+
+
+        WebImage img = new WebImage("bd.jpg");
+        img.Resize(400, 400);
+        img.RotateLeft();
+        img.Write();
+    }
+
+    @grid.GetHtml()
+
+
+    <img src="bd.jpg"/>
+
+</body>
+</html>

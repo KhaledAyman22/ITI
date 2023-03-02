@@ -1,0 +1,128 @@
+/* *** css by miss monorom www.intensivstation.ch *** */
+/* css released under Creative Commons License -  http://creativecommons.org/licenses/by/2.0/deed.en  */
+
+body {
+ background: #E7E7E7 url('body.jpg') top left;
+font-size: 11px;
+font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+color:#564b47;
+padding:0px;
+margin:0px;
+}
+a {color: #DB7093;}
+a:visited {color:#c43300;}
+a:hover {color: #c43300;}
+a:active { color:#000000;}
+
+h1 {
+font-size: 11px;
+text-transform:uppercase;
+
+/*border-top:1px solid #564b47;
+border-bottom:1px solid #564b47;*/
+/*padding:5px 15px;*/
+margin:0px }
+
+h2 {
+color: #9A1212;
+font-size:20px;
+font-weight: normal;
+padding: 5px 10px;
+margin:0px;}
+
+img.download {vertical-align:middle;}
+
+/* ----------container to center the layout-------------- */
+#container {
+width: 760px;
+
+margin-left: auto;
+margin-right: auto;
+height:100%;
+background: #E8E8E8 url('menubottom.jpg') no-repeat bottom left;
+border:1px solid #8D8D8D;
+}
+
+/* ----------banner for logo-------------- */
+#banner {
+height:114px;
+text-align: center;
+background:  url('header.jpg') no-repeat bottom center;
+background-color: #e1ddd9;
+
+padding: 0px;
+margin: 0px;
+}
+#banner img {padding:10px 0px;} 
+#bannertitle{padding-top:50px;font-size:2em;font-weight:bold;}
+
+/* -----------------content--------------------- */
+#content {
+
+background:#ffffff  url('content.jpg') no-repeat top right;
+padding: 0px;
+margin-left: 200px;
+margin-right: 0px;
+}
+div#content { 
+min-height:600px;
+/*height:expression(this.scrollHeight > 600 ? "auto":"600px"); */
+}
+
+p, pre{
+padding: 5px 10px;
+margin:0px;
+}
+
+/* --------------left navi------------- */
+#left {
+float: left;
+width: 200px;
+margin: 0px;
+padding: 0px;
+background:#E8E8E8;
+ height:90%;
+}
+
+/* -----------footer--------------------------- */
+#footer {
+clear: both;
+margin: 0px;
+padding:0px;
+
+height:35px;
+text-align: right; 
+background:  url('footer.gif') repeat-x ;
+}
+ #footer h1 a{
+ color:#FFFFFF;
+ }
+  #footer h1{
+  padding:5px 5px 0px 0px;
+  }
+ /**********vertical menu***************/
+.verticalmenu ul{
+ list-style:none;
+/*list-style-image: url("bullet.gif")*/
+
+
+ padding: 10px;
+ margin: 0px;
+}
+
+ .verticalmenu li, a:link, .verticalmenu a:visited, .verticalmenu a:hover {
+   display: block;
+   font: bold 1.1em Verdana, Arial, Helvetica, sans-serif;
+   color: #9A1212;
+   text-decoration: none;
+   text-align: left;
+   
+   width: 140px;
+   height: 32px;
+   /*background: url('menuhover.gif') no-repeat;*/
+ }
+
+ .verticalmenu a:hover{
+   background: url('menuhover.gif') no-repeat;
+   color: #dc4d1b;
+ }

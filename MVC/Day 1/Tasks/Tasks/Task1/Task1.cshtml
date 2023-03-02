@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" />
+        </div>
+
+        <br />
+
+        <div>
+            <lablel for="birthdate">Birthdate:</lablel>
+            <input type="date" name="birthdate" />
+        </div>
+
+        <br />
+
+        <div>
+            <input type="checkbox" name="grad">
+            <label for="grad">IsGraduate</label>
+        </div>
+
+        <br />
+
+        <div>
+            <input type="submit" value="Go" onclick=""/>
+        </div>
+    </form>
+
+    <div>
+        @{
+            if (IsPost)
+            {
+                <p style="color: red">Hello @Request.Form["name"]</p>
+                <p style="color: blue">Your birthday is: @Request.Form["date"]</p>
+                
+                if (Request.Form["grad"] == "on")
+                {
+                    <p style="color: black">Yes, I'm graduated</p>
+                }
+                else
+                {
+                    <p style="color: black">No, I'm not graduated</p>
+                }
+            }
+        }
+</div>
+</body>
+</html>

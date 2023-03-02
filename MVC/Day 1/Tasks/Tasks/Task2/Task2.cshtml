@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div style="background-color: antiquewhite; width: 50%; height: 700px; float: left;">
+        <form method="post">
+            <p>Choose a background image</p>
+            <select name="bg">
+                @{
+                    for (int i = 0; i < 12; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                }
+            </select>
+
+
+            <p>Choose a font color</p>
+            <select name="fc">
+                <option value="black">Black</option>
+                <option value="hotpink">Hot Pink</option>
+                <option value="gray">Gray</option>
+                <option value="purple">Purple</option>
+                <option value="teal">Teal</option>
+            </select>
+
+            <hr />
+
+            <p>Choose greeting type</p>
+            <input id="r1" type="radio" name="gt" value="Birthday" />
+            <label for="r1">Birthday</label>
+            <br />
+            <input id="r2" type="radio" name="gt" value="Get Well Soon" />
+            <label for="r2">Get Well Soon</label>
+            <br />
+            <input id="r3" type="radio" name="gt" value="Valentine" />
+            <label for="r3">Valentine</label>
+            <br />
+            <input id="r4" type="radio" name="gt" value="Congrats" />
+            <label for="r4">Congrats</label>
+
+            <br />
+            <br />
+
+
+            <input type="checkbox" name="withPic" />
+            <label>Add the picture</label>
+
+            <p>Enter greeting message</p>
+            <textarea name="msg"></textarea>
+
+            <br />
+            <br />
+
+            <input type="submit" />
+        </form>
+    </div>
+
+    @if (IsPost)
+    {
+        var background = $"backgrounds/{Request.Form["bg"]}.jpg";
+        var color = Request.Form["fc"].ToLower();
+        var msg = Request.Form["msg"];
+        <div style="width: 50%; height: 700px; float: left; background-image: url( @background); display: flex; justify-content: center; align-items: center; flex-direction: column">
+
+
+            @{
+                if (Request.Form["withPic"] == "on")
+                {
+                    switch (Request.Form["gt"])
+                    {
+                        case "Birthday":
+                            <p style="color: @color; font-size:30px">Happy Birthday!!!</p>
+                            <img style="min-width: 200px" src="images/bd.jpg" />
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Get Well Soon":
+                            <p style="color: @color; font-size:30px">Get Well Soon</p>
+                            <img style="min-width: 200px" src="images/well.gif" />
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Valentine":
+                            <p style="color: @color; font-size:30px">Happy Valentine</p>
+                            <img style="min-width: 200px" src="images/val.bmp" />
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Congrats":
+                            <p style="color: @color; font-size:30px">Congrats</p>
+                            <img style="min-width: 200px" src="images/congrats.gif" />
+                            <p style="color: @color; font-size:30px">@msg</p>break;
+                    }
+                }
+
+                else
+                {
+                    switch (Request.Form["gt"])
+                    {
+                        case "Birthday":
+                            <p style="color: @color; font-size:30px">Happy Birthday!!!</p>
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Get Well Soon":
+                            <p style="color: @color; font-size:30px">Get Well Soon</p>
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Valentine":
+                            <p style="color: @color; font-size:30px">Happy Valentine</p>
+                            <p style="color: @color; font-size:30px">@msg</p> break;
+
+                        case "Congrats":
+                            <p style="color: @color; font-size:30px">Congrats</p>
+                            <p style="color: @color; font-size:30px">@msg</p>break;
+                    }
+                }
+            }
+        </div>
+    }
+
+
+</body>
+</html>

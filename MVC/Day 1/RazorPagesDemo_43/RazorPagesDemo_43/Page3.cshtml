@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    @{ 
+        var imagPath = "";
+    }
+
+    <form method="post">
+
+        <select name="imageList">
+            <option value="1.gif"> Image_1 </option>
+            <option value="2.gif"> Image_2 </option>
+            <option value="3.gif"> Image_3 </option>
+            <option value="4.gif"> Image_4 </option>
+            <option value="5.gif"> Image_5 </option>
+            <option value="6.gif"> Image_6 </option>
+
+        </select>
+
+        <input type="submit"  value="Choose" />
+
+    </form>
+    @{ 
+        imagPath = "/images/" + Request["imageList"];
+    }
+
+    <div>
+        <img src="@imagPath" alt="Alternate Text" />
+    </div>
+</body>
+
+@section mySection{
+
+    <ol>
+        <li>  List-Item </li>
+        <li>  List-Item </li>
+        <li>  List-Item </li>
+        <li>  List-Item </li>
+        <li>  List-Item </li>
+        <li>  List-Item </li>
+
+    </ol>
+
+    }
+</html>
