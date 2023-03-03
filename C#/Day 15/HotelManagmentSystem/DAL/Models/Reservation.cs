@@ -38,9 +38,8 @@ namespace DAL.Models
         public bool SupplyStatus { get; set; }
         public int FoodBill { get; set; }
 
-        public void Copy(Reservation res, bool withID)
+        public void Copy(Reservation res)
         {
-            if(withID) Id = res.Id;
             FirstName = res.FirstName;
             LastName = res.LastName;
             BirthDay = res.BirthDay;

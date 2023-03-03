@@ -248,7 +248,7 @@ namespace UI.MVVM.ViewModel
 
             if (res == null) return false;
 
-            res.Copy(Reservation, false);
+            res.Copy(Reservation);
 
             context.SaveChanges();
 

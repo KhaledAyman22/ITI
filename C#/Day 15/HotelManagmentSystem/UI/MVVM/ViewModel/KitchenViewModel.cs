@@ -70,7 +70,7 @@ namespace UI.MVVM.ViewModel
 
             if (res == null) return false;
 
-            res.Copy(Reservation, false);
+            res.Copy(Reservation);
 
             context.SaveChanges();
 
@@ -98,9 +98,7 @@ namespace UI.MVVM.ViewModel
             Reservation.FoodBill = food;
             Reservation.TotalBill = tot + food;
 
-            Reservation r = new();
-            r.Copy(Reservation, true);
-            Reservation = r;
+            OnPropertyChanged(nameof(Reservation));
         }
         
         public Dictionary<string, string>? GetFoodMenuData()
