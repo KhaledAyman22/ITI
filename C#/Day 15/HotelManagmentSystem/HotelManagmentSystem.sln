@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Blend for Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{32EAD98E-861A-4795-B55A-7F5A648BFABB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{5D60F90D-334A-4066-9617-05A81A914C6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32EAD98E-861A-4795-B55A-7F5A648BFABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32EAD98E-861A-4795-B55A-7F5A648BFABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32EAD98E-861A-4795-B55A-7F5A648BFABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32EAD98E-861A-4795-B55A-7F5A648BFABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D60F90D-334A-4066-9617-05A81A914C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D60F90D-334A-4066-9617-05A81A914C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D60F90D-334A-4066-9617-05A81A914C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D60F90D-334A-4066-9617-05A81A914C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72D00D25-523D-420D-9CB4-F3E1B9675D5C}
+	EndGlobalSection
+EndGlobal

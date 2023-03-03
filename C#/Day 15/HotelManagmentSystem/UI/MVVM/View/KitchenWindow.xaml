@@ -1,0 +1,94 @@
+﻿<Window x:Class="UI.MVVM.View.KitchenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:UI.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:KitchenViewModel}"
+        xmlns:local="clr-namespace:UI.MVVM.View"
+        mc:Ignorable="d"
+        Title="Kitchen" Height="660" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Kitchen" Foreground="AliceBlue" Background="#3d5a80" FontSize="40" FontWeight="Bold" Padding="20,15,0,0"/>
+
+        <TabControl Grid.Row="1" Margin="0,10,0,0" SelectionChanged="TabChanged">
+            <TabItem Header="ToDo">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5,5,0,0" Background="LightGray">
+                        <TextBlock Margin="5,0,0,0"  Text="Name" FontSize="15" FontWeight="Medium"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.FirstName}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="First" />
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.LastName}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Last" />
+                        </StackPanel>
+
+                        <TextBlock Text="Phone Number" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox IsEnabled="False" Text="{Binding Reservation.PhoneNumber}" HorizontalAlignment="Left" Margin="10,0,0,10" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="230" Height="30" Tag="Phone" />
+
+
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <TextBlock Text="Room Type" Margin="5,0,0,0" FontSize="15" FontWeight="Medium"/>
+                            <TextBlock Text="Floor" Margin="85,0,0,0" FontSize="15" FontWeight="Medium"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.RoomType}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Room type" />
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.RoomFloor}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Floor" />
+                        </StackPanel>
+
+                        <TextBlock Text="Room Number" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox IsEnabled="False" Text="{Binding Reservation.RoomNumber}" HorizontalAlignment="Left" Margin="10,0,0,10" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="230" Height="30" Tag="Room number" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="5,5,0,0" Background="LightGray">
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock IsEnabled="False" Text="Breakfast" Margin="5,0,0,0" FontSize="15" FontWeight="Medium"/>
+                            <TextBlock IsEnabled="False" Text="Lunch" Margin="100,0,0,0" FontSize="15" FontWeight="Medium"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.BreakFast}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Quantity" />
+                            <TextBox IsEnabled="False" Text="{Binding Reservation.Lunch}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Quantity" />
+                        </StackPanel>
+
+                        <TextBlock Text="Dinner" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox IsEnabled="False" Text="{Binding Reservation.Dinner}" HorizontalAlignment="Left" Margin="10,0,0,10" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Quantity" />
+
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                            <CheckBox IsEnabled="False" IsChecked="{Binding Reservation.Cleaning}" Margin="5,10,0,0">Cleaning</CheckBox>
+                            <CheckBox IsEnabled="False" IsChecked="{Binding Reservation.Towel}" Margin="20,10,0,0">Towels</CheckBox>
+                            <CheckBox IsEnabled="False" IsChecked="{Binding Reservation.SSurprise}" Margin="20,10,0,0">Sweet Surprise</CheckBox>
+                        </StackPanel>
+
+                        <CheckBox HorizontalAlignment="Center" Margin="0,50,0,0" IsChecked="{Binding Reservation.SupplyStatus}">Food/Supply status?</CheckBox>
+
+                        <Button x:Name="foodMenuBtn" Click="FoodMenuBtn_Click" Margin="5,45,5,0" Height="40" BorderBrush="#3d5a80" Background="#ee6c4d" Foreground="AliceBlue" Style="{StaticResource RoundedButton}">Change Food Selection</Button>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" Margin="5,5,0,0" Background="LightGray">
+                        <TextBlock Text="In Queue" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+
+                        <ListBox DisplayMemberPath="DisplayText" SelectedValuePath="Value" ItemsSource="{Binding QueueSrc}" SelectedValue="{Binding Reservation}" Height="350" Background="#3d5a80" Foreground="AliceBlue"/>
+
+                        <Button Name="updateBtn" Click="UpdateButtonnClick" Margin="5,30,5,0" Foreground="LimeGreen" Background="White" BorderBrush="LimeGreen" Height="40"  Style="{StaticResource RoundedButton}">Update Changes</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Overview">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Grid.Row="1" Visibility="Visible" Margin="10" ItemsSource="{Binding OverviewSrc}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

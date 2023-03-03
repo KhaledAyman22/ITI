@@ -1,0 +1,82 @@
+﻿<Window x:Class="UI.MVVM.View.FoodMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:UI.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FoodMenuViewModel}"
+        xmlns:local="clr-namespace:UI.MVVM.View"
+        mc:Ignorable="d"
+        Title="FoodMenu" Height="500" Width="650">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Food Selection" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Foreground="AliceBlue" 
+                       Background="#3d5a80" Padding="10,10,0,10" FontWeight="Bold"/>
+            
+            <UniformGrid Rows="2" Columns="2" Margin="5,0,5,0">
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,15,15,0">
+                    <Image Source="../../Assets/FoodMenu/breakfast.png" Width="100" Height="100"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                        <CheckBox x:Name="breakfastCheck" Margin="5,5,5,0"/>
+                        <TextBlock Text="Breakfast           (7$)" FontSize="17" FontWeight="Medium"/>
+                    </StackPanel>
+
+                    <TextBox Text="{Binding Breakfast}" IsEnabled="{Binding ElementName=breakfastCheck, Path=IsChecked}" Margin="10,10,10,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Height="40" Width="150" Tag="Quantity" TabIndex="1"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="10,15,15,0">
+                    <Image Source="../../Assets/FoodMenu/lunch.png" Width="100" Height="100"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                        <CheckBox x:Name="lunchCheck" Margin="5,5,5,0"/>
+                        <TextBlock Text="Lunch          (15$)" FontSize="17" FontWeight="Medium"/>
+                    </StackPanel>
+
+                    <TextBox Text="{Binding Lunch}" IsEnabled="{Binding ElementName=lunchCheck, Path=IsChecked}" Margin="10,10,10,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Height="40" Width="150" Tag="Quantity" TabIndex="1"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,15,15,0">
+                    <Image Source="../../Assets/FoodMenu/dinner.png" MaxWidth="100" />
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                        <CheckBox x:Name="dinnerCheck" Margin="5,5,5,0"/>
+                        <TextBlock Text="Dinner          (15$)" FontSize="17" FontWeight="Medium"/>
+                    </StackPanel>
+
+                    <TextBox Text="{Binding Dinner}" IsEnabled="{Binding ElementName=dinnerCheck, Path=IsChecked}" Margin="10,10,10,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Height="40" Width="150" Tag="Quantity" TabIndex="1"/>
+                </StackPanel>
+            </UniformGrid>
+
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Name="checkboxPanel">
+            <TextBlock Text="Special Needs" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Foreground="AliceBlue" 
+                       Background="#3d5a80" Padding="10,10,0,10" FontWeight="Bold"/>
+
+            <UniformGrid Rows="3" VerticalAlignment="Center" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <CheckBox IsChecked="{Binding Cleaning}" x:Name="cleaning" Margin="5,5,5,0"/>
+                    <TextBlock Text="Cleaning" FontSize="17" FontWeight="Medium"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <CheckBox IsChecked="{Binding Towels}"  x:Name="towels" Margin="5,5,5,0"/>
+                    <TextBlock Text="Towels" FontSize="17" FontWeight="Medium"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <CheckBox IsChecked="{Binding SweetSurprise}" x:Name="surprise" Margin="5,5,5,0"/>
+                    <TextBlock Text="Sweetes Surprise" FontSize="17" FontWeight="Medium"/>
+                </StackPanel>
+            </UniformGrid>
+
+        </StackPanel>
+
+        <Button x:Name="nextBtn" Click="NextBtn_Click" VerticalAlignment="Bottom" Margin="5,0,5,10" Foreground="AliceBlue" Grid.Column="2" Style="{StaticResource RoundedButton}" Background="#ee6c4d">Next</Button>
+    </Grid>
+</Window>
