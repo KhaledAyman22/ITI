@@ -1,0 +1,40 @@
+﻿@*@using FirstMVCApp_43.Models;*@
+@{
+    ViewBag.Title = "getAll";
+
+    //List<Employee> myEmpList = ViewBag.Emps;
+
+}
+
+<h2>getAll</h2>
+
+<a href="/Employee/Create"> Create New Employee </a>
+
+<div>
+    <table>
+        <tr>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Age </th>
+            <th> Email </th>
+            <th> &nbsp; </th>
+            <th> &nbsp; </th>
+            <th> &nbsp; </th>
+        </tr>
+
+        @foreach (var item in ViewBag.Emps)
+        {
+            <tr>
+                <td> @item.ID </td>
+                <td> @item.Name </td>
+                <td> @item.Age </td>
+                <td> @item.Email </td>
+                <td> <a href="/Employee/getById/@item.ID"> Select Emp </a> </td>
+                <td> <a href="/Employee/Edit/@item.ID"> Edit Emp </a> </td>
+                <td> <a href="/Employee/delete/@item.ID"> Delete Emp </a> </td>
+
+            </tr>
+        }
+    </table>
+</div>
+

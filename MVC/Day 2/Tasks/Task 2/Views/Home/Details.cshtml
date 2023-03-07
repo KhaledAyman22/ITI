@@ -1,0 +1,17 @@
+﻿@model Task_2.Models.Data
+@{
+    ViewBag.Title = "Details";
+}
+<main style="padding:20px">
+    <h2 style="margin: 20px 0px 20px 20px">Details</h2>
+
+    <div style=" margin:0px 0px 0px 40px">
+        <h3>Your Id is: @Model.Id</h3>
+        <h3>Your Name is: @Model.Name</h3>
+
+        @{var img = $"{Model.Img}.jpg";}
+
+        <img style="max-height: 350px" src="../../Assets/@img" />
+    </div>
+</main>
+

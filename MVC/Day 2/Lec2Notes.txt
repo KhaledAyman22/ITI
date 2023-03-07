@@ -1,0 +1,50 @@
+REST: Representational State Transfer (Architectural Style)
+=====
+- Each URL is representation to resources state in the current moment, on a specific URL.
+- Every URL Maps to a function.
+- No extensions will be displayed in URL of any page.
+
+
+CRUD:
+=====
+
+C: Create -> POST (Create new resource and post it over URL)
+
+R: Read -> GET (Get any resource and display it over URL)
+
+U: Update -> PUT (update data in any existing resource and put it back over URL)
+
+D: Delet -> DELETE (Delete any resource from URL)
+
+
+------------------------------------------------------------------
+
+MVC: (Model - View - Controller)
+=====
+
+http:\\www.myWebApp.com\Home\Page1  --->  Global.asax  ---> ApplicationStart() "main"
+
+										---> Routing (Generate RouteTable) ---------\Home\Page1
+																				---------\Home\Page2
+																				---------\Employee\GetAll
+																				---------\Employee\Delete
+
+				
+						---> C : Controller (Class, direct you to the suitable Action)
+
+						---> M : Model (Managing Resources)
+
+						---> V : View (display result in cshtml "Razor Page")
+
+
+
+
+------------------------------------------------------
+
+POST - Redirect - GET
+
+
+												
+
+	 
+

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Task_1.Models.Car>
+
+@{
+    ViewBag.Title = "All Cars";
+}
+
+<h2>AllCars</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NewCar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateCar",new { id=item.Num }) |
+            @Html.ActionLink("Details", "CarById", new { id=item.Num }) |
+            @Html.ActionLink("Delete", "DeleteCar", new { id=item.Num })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main style="padding:20px">
+    <h2 style="margin: 20px 0px 20px 20px">Please fill out this form</h2>
+    <form action="/Home/Details" method="post" style=" margin:0px 0px 0px 40px">
+        <table class="table" style="border-collapse: separate; border-spacing: 0 25px;">
+            <tbody>
+                <tr>
+                    <th>ID:</th>
+                    <td><input type="text" name="id" /></td>
+                </tr>
+
+
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+
+
+                <tr>
+                    <th>Image:</th>
+                    <td>
+                        <select name="img">
+                            @for (int i = 1; i < 8; i++)
+                             {
+                                <option value="@i">@i</option>
+                             }
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <th></th>
+                    <td><input type="submit"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</main>

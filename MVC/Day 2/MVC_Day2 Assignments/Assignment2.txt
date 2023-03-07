@@ -1,0 +1,16 @@
+1. Implement the following operations on Car Class:
+	- Operations:
+		GetAllCars
+		SelectCarById
+		CreateNewCar
+		Edit/UpdateCar
+		DeleteCar
+
+	- Car Class
+		Num (int)
+		Color (string)
+		Model (string)
+		Manfacture (string)
+
+
+2. Image Assignment (You will find details in attached folder)
