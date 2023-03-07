@@ -1,0 +1,50 @@
+﻿@model Task_1.Models.Instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Instructor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ins_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ins_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ins_Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ins_Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.Dept_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Dept_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ins_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,19 @@
+﻿@using FirstMVCApp_43.Models;
+
+@model Employee
+
+@{
+    ViewBag.Title = "getById";
+
+    //Employee curEmp = ViewBag.selectedEmp;
+}
+
+<h2>getById</h2>
+
+<h4>  ID : @Model.ID  </h4>
+<h4>  Name : @Model.Name  </h4>
+<h4>  Age : @Model.Age  </h4>
+<h4>  Email : @Model.Email  </h4>
+
+
+<a href="/Employee/getAll"> Back To List </a>

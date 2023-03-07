@@ -1,0 +1,42 @@
+LabelFor(model => model.Name) ===>  <Label> Name </Label>
+
+
+DisplayNameFor(model => model.Name) ===> Name
+
+
+DisplayFor(model => model.Name) ===>  values //ReadOnly
+
+
+EditorFor(model => model.Name) ===>  values  //Edit Mode (Suitable HTML Element)
+
+
+------------------------------------------------
+
+
+public ActionResult Edit(int id, string name, int age)
+{
+	 Employee emp = context.Employees.Find(id);
+
+	emp.age = age;
+	emp.Name = name;
+}
+
+
+public ActionResult Edit(int id, FormCollection collection)
+{
+
+Employee emp = context.Employees.Find(id);
+
+	emp.age = collection[0]; //emp.id =collection["age"];
+	emp.Name = collection[1]; //emp.Name = collection["name"];
+}
+
+
+public ActionResult Edit(int id, Employee em	
+
+Employee emp = context.Employees.Find(id);
+
+	emp.age = em.age;
+	emp.Name = em.Name;
+}
+

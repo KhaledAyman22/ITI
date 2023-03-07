@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ITIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+          </Key>
+          <Property Name="Dept_Id" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Desc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Dept_Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Manager" Type="int" />
+          <Property Name="Manager_hiredate" Type="date" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="Ins_Id" />
+          </Key>
+          <Property Name="Ins_Id" Type="int" Nullable="false" />
+          <Property Name="Ins_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ins_Degree" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="Dept_Id" Type="int" />
+        </EntityType>
+        <Association Name="FK_Department_Instructor">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="Ins_Id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Dept_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instructor_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Dept_Id" />
+            </Principal>
+            <Dependent Role="Instructor">
+              <PropertyRef Name="Dept_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Department_Instructor" Association="Self.FK_Department_Instructor">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instructor_Department" Association="Self.FK_Instructor_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Instructor" EntitySet="Instructor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+          </Key>
+          <Property Name="Dept_Id" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Manager" Type="Int32" />
+          <Property Name="Manager_hiredate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Instructor" Relationship="Self.FK_Department_Instructor" FromRole="Department" ToRole="Instructor" />
+          <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructor_Department" FromRole="Department" ToRole="Instructor" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="Ins_Id" />
+          </Key>
+          <Property Name="Ins_Id" Type="Int32" Nullable="false" />
+          <Property Name="Ins_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ins_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Dept_Id" Type="Int32" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Instructor" FromRole="Instructor" ToRole="Department" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Instructor_Department" FromRole="Instructor" ToRole="Department" />
+        </EntityType>
+        <Association Name="FK_Department_Instructor">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="Ins_Id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Dept_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instructor_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Dept_Id" />
+            </Principal>
+            <Dependent Role="Instructor">
+              <PropertyRef Name="Dept_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+          <AssociationSet Name="FK_Department_Instructor" Association="Self.FK_Department_Instructor">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instructor_Department" Association="Self.FK_Instructor_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Instructor" EntitySet="Instructors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIModelStoreContainer" CdmEntityContainer="ITIEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="ITIModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="Dept_Desc" ColumnName="Dept_Desc" />
+                <ScalarProperty Name="Dept_Location" ColumnName="Dept_Location" />
+                <ScalarProperty Name="Dept_Manager" ColumnName="Dept_Manager" />
+                <ScalarProperty Name="Manager_hiredate" ColumnName="Manager_hiredate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instructors">
+            <EntityTypeMapping TypeName="ITIModel.Instructor">
+              <MappingFragment StoreEntitySet="Instructor">
+                <ScalarProperty Name="Ins_Id" ColumnName="Ins_Id" />
+                <ScalarProperty Name="Ins_Name" ColumnName="Ins_Name" />
+                <ScalarProperty Name="Ins_Degree" ColumnName="Ins_Degree" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

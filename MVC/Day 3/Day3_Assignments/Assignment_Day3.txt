@@ -1,0 +1,8 @@
+1. Create MVC webApp using EFDataModel, to make CRUD operations over "Emps" table
+
+	- Search:
+		Add "Department dropdown list" to the top of your Index "ListView", 
+		to list Employees by Department
+
+
+2. try to make your own Inline Html Helper (any logic you want) and use it.

@@ -1,0 +1,57 @@
+﻿@model Task_1.Models.Instructor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Instructor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ins_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ins_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ins_Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ins_Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.Dept_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Dept_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
