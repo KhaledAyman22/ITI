@@ -1,0 +1,30 @@
+Create MVC webApp with 3 Areas (Admin, HR, Finance)
+	- Add links to these 3 areas in the master layout to ease navigation
+	- Enable custom errors on your webapp
+	- Handle errors in each Area using different ErrorViewPage,
+		try to display helpful error information everytime an error ocurred
+
+
+	- HR department is responsible for Employees management, 
+		So, Add Employee controller, and:
+		
+		- Implement all CRUD operations to be able to manage your employees 
+		
+		- Apply "as much as you can" DataAnnotations
+		 (Search for any new dataAnnotation attributes and apply it)
+		
+		- Apply client-side & server-side validation 
+
+		- Display VialidationSummary for all occurred errors
+
+
+Employee shoud have the following properties:
+- empID
+- Name
+- Username
+- Password
+- Gender
+- Salary
+- joinDate
+- email
+- phoneNum
