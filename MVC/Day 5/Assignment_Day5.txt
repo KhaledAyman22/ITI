@@ -1,0 +1,41 @@
+1. Try to Deploy any previuose MVC Application on IIS, and make your partner try to access your hosted webApp. ( Make sure you and your partner could ping on each othe IPAddress)  
+
+2. MVC webApp which manages Customers and thier Orders:
+	- Create All CRUD operations to manage your Client's orders
+
+	- Post/Edit methods should be tested for validation using (ModelState.IsValid) , 
+		(Display VialidationSummary for all occurred errors)
+
+	- Apply "RoutePrefix" on Customer controller 
+
+	- Apply "Route Constraints" on your actions 
+
+	- Implement Search for specific customer's orders
+
+	- Create any custom dataAnnotation, and apply it on your classes
+
+	- Handle errors in each Controller using different ErrorViewPage,
+		try to display helpful error information everytime an error ocurred
+	
+	- Create a custom handleErrorAttribute, Override "OnException" method to implement custom ExceptionFilter to handle the following case:
+
+		(get orders for user "but this user is not founded" - search for orders made by user that doesn't exists) 
+
+
+
+Customer shoud have the following properties:
+- ID
+- Name
+- Gender
+- email
+- phoneNum
+
+Order shoud have the following properties:
+- ID
+- Date
+- TotalPrice
+[ForeignKey("Customer")]
+- CustID
+
+** Apply all necessary DataAnnotation on your classes
+*** It is 1:M relationship (1 Customer -> Many Orders)
