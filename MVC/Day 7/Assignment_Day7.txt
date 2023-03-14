@@ -1,0 +1,19 @@
+1. Try ur first .NetCore MVC WebApp, implement the following operations on Car Class:
+	- Operations:
+		GetAllCars
+		SelectCarById
+		CreateNewCar
+		Edit/UpdateCar
+		DeleteCar
+
+	- Car Class
+		Num (int)
+		Color (string)
+		Model (string)
+		Manfacture (string)
+
+
+2. Navigate through ur .NetCore wepApp structure and try everything you get in lecture 
+
+
+3. Deliver any late labs...

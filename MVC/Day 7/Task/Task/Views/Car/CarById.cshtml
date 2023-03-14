@@ -1,0 +1,50 @@
+﻿@model Task_1.Models.Car
+
+@{
+    ViewBag.Title = "Car By Id";
+}
+
+<h2>CarById</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateCar", new { id = Model.Num }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
