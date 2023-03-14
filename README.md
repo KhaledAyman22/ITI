@@ -18,7 +18,7 @@
         • XML Fundamentals
         • Visual C# .Net
         • Language Integrated Query(LINQ)
-        • Entity Framework 6 & Core
+        • Entity Framework 7 (Core)
         • .Net Design Patterns
         • Advanced JavaScript
         • Advanced SQL Server Programming
