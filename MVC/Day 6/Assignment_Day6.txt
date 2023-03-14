@@ -1,0 +1,13 @@
+1. Try to Deploy any previuose MVC Application on IIS, and make your partner try to access your hosted webApp. ( Make sure you and your partner could ping on each othe IPAddress)  
+
+
+2. Implement "Identity" on MVC webApp:
+	- using CodeFirst, generate table "Client": 
+		(ClientName, Password, Address, Mobile, Email)
+	- Name your database "Identity-DB"
+	- Create UserIdentity with any Claims, and implement (Register, login, logout) 
+
+
+3. Create MVC webApp "Individual User template" with External Login:
+	- Use any provider except Google (Microsoft, Facebook, Twitter, etc...)
+

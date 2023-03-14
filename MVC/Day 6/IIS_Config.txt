@@ -1,0 +1,11 @@
+* Deploying ASP.net MVC Application: 
+-------------------------------------
+
+- Web Management Tools -> 
+	IIS managment console -> check
+
+- World Wid Web Services -> 
+	Common Http Features -> check All
+
+- Application Development Features -> 
+	.Net Extensiblity 4.8 & ASP.NET 4.8 -> check
