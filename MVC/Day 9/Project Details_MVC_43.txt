@@ -1,0 +1,27 @@
+Project Notes:
+==============
+
+	- Choose one of the following Asp.NetCore MVC webapplications to implement:
+		* Purchase Online System (like: Amazon.com/ Souq.com / Jumia.com / Noon.com ...)
+		* Order-Food Online System (like: Talabat.com, elmenus.com / ...)
+		* Ticket-Booking Online System (like: skyscanner.net / wego.com / ...)
+
+
+	- Aplly all what we have learned through the course
+
+	- Download suitable template and apply it on  your webApp Layout 
+
+	- Aplly Design patterns in your project, such as: (Dependecy Injection, Repository, ...)
+
+	- Implement Identity in ASP.Net Core (Users, Roles, Confirm Email, ForgetPassword, ...)
+
+	- Use External-Logins in your project
+
+	- Add any new feature, such as: 
+		* online payment using "Stripe or Paypal"
+		* use google maps
+
+
+- Project will be implemented using MVC Core (0.7)
+- Project will be in groups, each of 4 members
+- Project will be deliverd within 10 days (25 March 2023)

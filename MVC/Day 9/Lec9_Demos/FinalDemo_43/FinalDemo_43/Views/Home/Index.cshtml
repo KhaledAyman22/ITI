@@ -1,0 +1,19 @@
+﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment envObj
+@inject Microsoft.Extensions.Configuration.IConfiguration configObj
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2> EnvironmentName-InjectionIntoController: @ViewBag.envName </h2>
+
+<h2> AppName-InjectionIntoView: @envObj.ApplicationName </h2>
+
+<h2> anyKey-InjectionIntoView: @configObj["logging:loglevel:default"] </h2>
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

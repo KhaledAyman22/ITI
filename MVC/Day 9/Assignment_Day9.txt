@@ -1,0 +1,31 @@
+1. Create ASP.NetCore MVC webApp which manages Trainees and thier Tracks and Courses:
+	- Create All CRUD operations to manage your application
+	- Use EF_Core Code First to create TraineesDB
+	- Use Repositories and apply custom-servive-injection in your application 
+	- Use TagHelpers in your views : <environment> , <partial>
+	- Use _layout page as a master template for your application
+	- Try to make your webApp have a nice look by applying different styles and bootstrap, use:"Styling & Bundling"
+	- Use client-side packages to apply Validation on your application
+	- Try to use "_ViewStart & _ViewImport"
+	- Apply UI "User Identity" in your application (at least "Register,Login, Logout")
+	- Try to Display Environment Variable data in any View using @inject
+
+Track shoud have the following properties:
+- ID
+- Name
+- Description
+
+Trainee shoud have the following properties:
+- ID
+- Name
+- Gender
+- email
+- MobileNo
+- Birthdate
+
+Course shoud have the following properties:
+- ID
+- Topic
+- Grade
+
+* Note: Apply data annotation on your classes 
