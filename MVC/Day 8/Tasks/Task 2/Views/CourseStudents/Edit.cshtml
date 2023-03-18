@@ -1,0 +1,40 @@
+﻿@model Task_2.ViewModels.CourseStudentsViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>@Model.Course.Topic  Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.Course.Id" />
+            @foreach (var student in Model.Students)
+            {
+                bool check = false;
+                if(Model.Course.Students.Contains(student)) check = true;
+                <div class ="form-group">
+                    <label>
+                        <input checked="@check" type="checkbox" name="selectedIds" value="@student.Id" />
+                        @student.Name
+                    </label>
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.Course.Id">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

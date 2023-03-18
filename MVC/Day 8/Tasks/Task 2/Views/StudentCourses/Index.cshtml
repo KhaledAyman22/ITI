@@ -1,0 +1,37 @@
+﻿@model Task_2.Models.Student
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Topic
+            </th>
+            <th>
+                CourseGrade
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Courses)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseGrade)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

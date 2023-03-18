@@ -1,0 +1,54 @@
+﻿@model Task_1.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StFname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StFname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StLname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StLname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StAge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dept)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dept.DeptId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StSuperNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StSuperNavigation.StId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

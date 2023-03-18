@@ -1,0 +1,11 @@
+[
+  {
+    "outputFileName": "wwwroot/css/min/AllStyles.css",
+    "inputFiles": [
+      "wwwroot/css/Style_1.css",
+      "wwwroot/css/Style_2.css"
+    ],
+    "minify": { "enabled": true }
+  }
+
+]

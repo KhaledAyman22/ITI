@@ -1,0 +1,32 @@
+1. Try to use any existing database you made before, scaffold it usig "EFCore Power Tool",  
+and make ASP.NetCore MVC webApp implement all CRUD operation using this DB. 
+
+
+2. ASP.NetCore MVC webApp which manages Students and thier Courses:
+	- Create All CRUD operations to manage your Student's courses
+	- Use EF_Core Code First to create CrsStudents_DB
+	- 1:M relationship (1 Student : M Cources)
+
+Student shoud have the following properties:
+- ID
+- Name
+- Gender
+- email
+- phoneNum
+- Birthdate
+
+Course shoud have the following properties:
+- ID
+- Topic
+- CourseGrade
+
+
+3. Try the following:
+	- Use TagHelpers in your views
+	- Use _layout page as a master template for your application
+	- Try to make your webApp have a nice look by applying different styles and bootstrap, use:"Styling & Bundling"
+	- Use client-side packages to apply Validation on your application
+	- Try to use "_ViewStart & _ViewImport"
+
+	
+4. Try to Display Environment Variable data in your page
