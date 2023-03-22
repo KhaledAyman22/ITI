@@ -1,0 +1,93 @@
+use("ITI");
+//run following queries on instructors collection:
+//a- Display all documents in instructors collection
+db.Instructors.find();
+
+//b- Display all instructors with salaries greater than 4000 (only show firstName and salary)
+db.Instructors.find({ salary: { $gt: 4000 } }, { firstName: 1, salary: 1 });
+
+//c- Display all instructors with ages less than or equal 25.
+db.Instructors.find({ salary: { $lte: 25 } });
+
+//d- Display all instructors with city mansoura and sreet number 10 or 14 only display (firstname,address,salary).
+db.Instructors.find({ "address.city": "mansoura", $or: [{ "address.street": 10 }, { "address.street": 14 }] }, { firstName: 1, address: 1, salary: 1 });
+
+//e- Display all instructors who have js and jquery in their courses (both of them not one of them).
+db.Instructors.find({ courses: { $all: ["js", "jquery"] } });
+
+//f- Display number of courses for each instructor and display first name with number of courses. 
+db.Instructors.find({ "courses": { $exists: true, $type: "array" } }, { firstName: 1, numberCourse: { $size: "$courses" } });
+
+//g- Write mongodb query to get all instructors that have firstName and
+//   lastName properties , sort them by firstName ascending then by
+//   lastName descending and finally display their data FullName and age
+//   Note: use mongoDb sort method not javascript array method
+//   BONUS: create new collection with step g values data and name it "instructorsData"
+db.Instructors.aggregate(
+    { $match: { "firstName": { $exists: true }, "lastName": { $exists: true } } },
+    { $sort: { firstName: 1, lastName: -1 } },
+    { $project: { _id: 0, FullName: { $concat: ['$firstName', ' ', '$lastName'] }, age: 1 } },
+    { $out: "instructorsData" }
+);
+
+db.instructorsData.find();
+
+//h- Find all instructors that have fullName that contains “mohammed”.
+db.instructorsData.find({ FullName: { $regex: /^.*mohammed.*$/ } });
+
+//i- Delete instructor with first name “ebtesam” and has only 5 courses in courses array
+db.Instructors.insertOne(
+    {
+        _id: 9, firstName: "ebtesam", lastName: "hesham", age: 21, salary: 7500,
+        address: { city: "mansoura", street: 14, building: 3 },
+        courses: ["js", "html5", "signalR", "expressjs", "bootstrap"]
+    }
+);
+db.Instructors.findOneAndDelete({ firstName: "ebtesam", courses: { $size: 5 } });
+db.Instructors.find();
+
+//j- Add active property to all instructors and set its value to true.
+db.Instructors.updateMany({}, { $set: { active: true } });
+db.Instructors.find();
+
+//k- Change “EF” course to “jquery” for “mazen mohammed” instructor (without knowing EF Index)
+db.Instructors.findOneAndUpdate(
+    { firstName: "mazen", lastName: "mohammed", courses: "EF" },
+    { $set: { "courses.$": "jquery" } }
+);
+db.Instructors.find();
+
+//l- Add jquery course for “noha hesham”.
+db.Instructors.findOneAndUpdate(
+    { firstName: "noha", lastName: "hesham" },
+    { $push: { "courses": "jquery" } }
+);
+db.Instructors.find();
+
+//m- Remove courses property for “ahmed mohammed ” instructor
+db.Instructors.findOneAndUpdate(
+    { firstName: "ahmed", lastName: "mohammed" },
+    { $set: { "courses": [] } }
+);
+db.Instructors.find();
+
+//n- Decrease salary by 500 for all instructors that has only 3 courses in their list ($inc)
+db.Instructors.updateMany(
+    { courses: { $size: 3 } },
+    { $inc: { salary: 500 } }
+);
+db.Instructors.find();
+
+//o- Rename address field for all instructors to fullAddress.
+db.Instructors.updateMany(
+    {},
+    { $rename: { address: "fullAddress" } }
+);
+db.Instructors.find();
+
+//p- Change street number for noha hesham to 2
+db.Instructors.findOneAndUpdate(
+    { firstName: "noha", lastName: "hesham" },
+    { $set: { "fullAddress.street": 2 } }
+);
+db.Instructors.find();
