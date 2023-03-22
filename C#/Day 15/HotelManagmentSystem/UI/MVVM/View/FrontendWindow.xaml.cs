@@ -96,6 +96,8 @@ namespace UI.MVVM.View
             if(finalizePaymentWindow.ShowDialog() == true)
             {
                 ((FrontendViewModel)DataContext).SetPaymentData(finalizePaymentWindow.Data);
+
+                updateBtn.IsEnabled = true;
             }
         }
 
