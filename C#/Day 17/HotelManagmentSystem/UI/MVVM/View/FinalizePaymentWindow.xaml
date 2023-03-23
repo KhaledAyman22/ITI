@@ -1,0 +1,67 @@
+﻿<Window x:Class="UI.MVVM.View.FinalizePaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:UI.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FinalizePaymentViewModel}"
+        xmlns:local="clr-namespace:UI.MVVM.View"
+        mc:Ignorable="d"
+        Title="FinalizePayment" Height="450" Width="420">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Margin="10" FontWeight="Bold" Text="Reservation"/>
+                <TextBlock Margin="10" Text="Current Bill"/>
+                <TextBlock Margin="10" Text="Food Bill"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Margin="10" FontWeight="Bold" Text="Price"/>
+                <TextBlock x:Name="crntBill" Margin="10" Text="{Binding CurrentBill}"/>
+                <TextBlock x:Name="foodBill" Margin="10" Text="{Binding FoodBill}"/>
+                <TextBlock x:Name="tax" Margin="10" FontWeight="Medium" Text="{Binding Tax}"/>
+                <TextBlock x:Name="total" Margin="10" FontWeight="Bold" Text="{Binding Total}"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20,0,0,0">
+            <ComboBox ItemsSource="{Binding PaymentTypeSrc}" SelectedValue="{Binding PaymentType}" Name="paymentType" Width="100" Height="30" Foreground="#3d5a80" FontSize="17"/>
+
+            <TextBox Text="{Binding CardNumber}" x:Name="cardNumber" HorizontalAlignment="Right" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="17" Width="220" Height="40" Tag="9999 - 9999 - 9999 - 9999"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20,0,0,0">
+            <ComboBox ItemsSource="{Binding MonthSrc}" SelectedValue="{Binding Month}" FontSize="17" Name="ccv_month" Width="60" Height="30"/>
+            <TextBlock Text="  /  " FontSize="17" VerticalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding YearSrc}" SelectedValue="{Binding Year}" FontSize="17" Name="ccv_year" Width="60" Height="30"/>
+
+            <TextBox Text="{Binding CCV}" x:Name="ccv" HorizontalAlignment="Right" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="17" Width="50" Height="40" Tag="CCV"/>
+
+            <TextBlock Margin="10,0,0,0" Text="Card Type: " VerticalAlignment="Center"/>
+
+            <TextBlock Text="{Binding CardType, Mode=TwoWay}" FontSize="17" Foreground="Black" Name="cardType" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Button x:Name="nextBtn" Click="NextBtn_Click" Grid.Row="3" HorizontalAlignment="Right" Foreground="AliceBlue" Background="#ee6c4d" Style="{StaticResource RoundedButton}" Width="100" Height="40" Margin="0,0,20,20">Next</Button>
+    </Grid>
+</Window>

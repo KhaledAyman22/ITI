@@ -1,0 +1,48 @@
+﻿<Window x:Class="UI.MVVM.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:UI.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:LoginViewModel}"
+        xmlns:local="clr-namespace:UI.MVVM.View"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Login" FontSize="35" Foreground="AliceBlue"  Padding="40,20,0,0" Background="#3d5a80" FontWeight="Bold"/>
+
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Margin="0 40 0 0" Orientation="Horizontal">
+                <Image Source="..\..\Assets\Login\user.png" MaxWidth="25"/>
+                <TextBox Text="{Binding Username}" HorizontalAlignment="Right" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="17" Width="300" Height="40" Tag="Username" TabIndex="1"/>
+            </StackPanel>
+
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal">
+                <Image Source="..\..\Assets\Login\lock.png" MaxWidth="25"/>
+                <Border Margin="10,0,0,0" CornerRadius="10" Width="300" Height="40" Background="#3d5a80">
+                    <StackPanel>
+                        <TextBlock MouseUp="passwordBoxText_MouseUp" x:Name="passwordBoxText" Text="Password" Padding="10,8,0,0" Foreground="AliceBlue" Background="Transparent" HorizontalAlignment="Left" Width="300" Height="40" FontSize ="17" FontWeight="Medium"/>
+                        <PasswordBox LostFocus="passwordBox_LostFocus" x:Name="passwordBox" BorderBrush="Transparent" Padding="6,6,0,0" Foreground="AliceBlue" Background="Transparent" HorizontalAlignment="Right" Width="300" Height="40" FontSize ="17" TabIndex="2"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Button Margin="0 20 0 0" Width="100" Background="#ee6c4d" Foreground="AliceBlue" Style="{StaticResource RoundedButton}"
+                    Content="Login" FontSize="14" Click="LoginClicked"/>
+
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

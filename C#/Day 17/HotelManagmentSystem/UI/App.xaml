@@ -1,0 +1,45 @@
+﻿<Application x:Class="UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModel="clr-namespace:UI.MVVM.ViewModel"
+             xmlns:view="clr-namespace:UI.MVVM.View"
+             StartupUri="MVVM/View/LoginWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/TextBoxWithPlaceHolder.xaml"/>
+                <ResourceDictionary Source="Styles/PasswordBoxWithPlaceHolder.xaml"/>
+                <ResourceDictionary Source="Styles/RoundedButton.xaml"/>
+                <ResourceDictionary Source="Styles/Calendar/CalendarItemTheme.xaml"/>
+                <ResourceDictionary Source="Styles/Calendar/CalendarTheme.xaml"/>
+                <ResourceDictionary Source="Styles/Calendar/CalendarDayButtonTheme.xaml"/>
+                <ResourceDictionary Source="Styles/Calendar/CalendarButtonTheme.xaml"/>
+                <ResourceDictionary Source="Styles/DatePicker1/DatePickerTheme.xaml"/>
+                <ResourceDictionary Source="Styles/DatePicker1/DatePickerTextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+                <view:LoginWindow/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FrontendViewModel}">
+                <view:FrontendWindow/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FoodMenuViewModel}">
+                <view:FoodMenuWindow/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FinalizePaymentViewModel}">
+                <view:FinalizePaymentWindow/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:KitchenViewModel}">
+                <view:KitchenWindow/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

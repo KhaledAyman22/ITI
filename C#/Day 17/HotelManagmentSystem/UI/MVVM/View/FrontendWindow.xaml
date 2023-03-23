@@ -1,0 +1,155 @@
+﻿<Window x:Class="UI.MVVM.View.FrontendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.MVVM.View"
+        xmlns:viewmodel="clr-namespace:UI.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FrontendViewModel}"
+        mc:Ignorable="d"
+        Title="Frontend" Height="660" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Frontend" Foreground="AliceBlue" Background="#3d5a80" FontSize="40" FontWeight="Bold" Padding="20,15,0,0"/>
+
+        <TabControl Grid.Row="1" Margin="0,10,0,0" SelectionChanged="TabChanged">
+            <TabItem Header="Reservation">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5,5,0,0" Background="LightGray">
+                        <TextBlock Margin="5,0,0,0"  Text="Name" FontSize="15" FontWeight="Medium"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <TextBox Text="{Binding Reservation.FirstName}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="First" TabIndex="1"/>
+                            <TextBox Text="{Binding Reservation.LastName}" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Last" TabIndex="1"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Birthday" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <DatePicker SelectedDate="{Binding Reservation.BirthDay}" Width="230" Height="25" x:Name="DatePicker" Margin="10,0,0,10" HorizontalAlignment="Left" FlowDirection="LeftToRight" CalendarStyle="{DynamicResource CalendarTheme}"  Style="{DynamicResource DatePickerTheme1}"/>
+
+                        <TextBlock Text="Gender" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <ComboBox ItemsSource="{Binding Gender}" SelectedItem="{Binding Reservation.Gender}"  IsEditable="True" IsReadOnly="True" Text="Gender" Width="150" HorizontalAlignment="Left" Margin="10,0,0,10"></ComboBox>
+
+                        <TextBlock Text="Phone Number" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox Text="{Binding Reservation.PhoneNumber}" HorizontalAlignment="Left" Margin="10,0,0,10" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="230" Height="30" Tag="Phone" TabIndex="1"/>
+
+                        <TextBlock Text="Email" Margin="5,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox Text="{Binding Reservation.EmailAddress}" HorizontalAlignment="Left" Margin="10,0,0,10" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="230" Height="30" Tag="Email" TabIndex="1"/>
+
+
+                        <TextBlock Text="Address" Margin="0,0,0,5" FontSize="15" FontWeight="Medium"/>
+                        <TextBox Text="{Binding Reservation.StreetAddress}" HorizontalAlignment="Left" Margin="10,0,0,20" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="230" Height="30" Tag="Address" TabIndex="1"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBox Text="{Binding Reservation.AptSuite}" HorizontalAlignment="Left" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Apt." TabIndex="1"/>
+                            <TextBox Text="{Binding Reservation.City}" HorizontalAlignment="Left" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="City" TabIndex="1"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <ComboBox  ItemsSource="{Binding State}" SelectedValue="{Binding Reservation.State}" IsReadOnly="True" IsEditable="True" Text="State" x:Name="state" Margin="10,0,0,0" Width="150"/>
+                            <TextBox Text="{Binding Reservation.ZipCode}" HorizontalAlignment="Left" Margin="10,0,0,0" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="150" Height="30" Tag="Zip Code" TabIndex="1"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="5,5,0,0" Background="LightGray">
+                        <TextBlock Text="Your choices" FontSize="15" FontWeight="Medium" Margin="5,0,0,5" />
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <ComboBox ItemsSource="{Binding NumberGuests}" SelectedValue="{Binding Reservation.NumberGuest}" IsEditable="True" IsReadOnly="True" Text="Num of Guests" Margin="10,0,0,0" FontSize ="14" Width="110" Height="25"/>
+                            <ComboBox Name="roomType" ItemsSource="{Binding RoomType}" SelectedValue="{Binding Reservation.RoomType}" IsEditable="True" IsReadOnly="True" Text="Room Type" Margin="10,0,0,0"  FontSize ="14" Width="110" Height="25"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                            <ComboBox ItemsSource="{Binding RoomFloor}" SelectedIndex="{Binding ElementName=roomType, Path=SelectedIndex}" IsEditable="True" IsReadOnly="True" Text="Floor" Margin="10,0,0,0" FontSize ="14" Width="110" Height="25"/>
+                            <ComboBox ItemsSource="{Binding RoomNumber}" SelectedValue="{Binding Reservation.RoomNumber}" IsEditable="True" IsReadOnly="True" Text="Room Number" Margin="10,0,0,0"  FontSize ="14" Width="110" Height="25"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Entry Date" FontSize="15" FontWeight="Medium" Margin="5,0,0,5" />
+                        <DatePicker SelectedDate="{Binding Reservation.ArrivalTime}" Name="entryDate" Width="180" HorizontalAlignment="Left" Margin="10,5,0,10"/>
+
+                        <TextBlock Text="Departure Date" FontSize="15" FontWeight="Medium" Margin="5,0,0,5" />
+                        <DatePicker SelectedDate="{Binding Reservation.LeavingTime}" Name="departDate" Width="180" HorizontalAlignment="Left" Margin="10,5,0,0"/>
+
+                        <Button x:Name="foodMenuBtn" Click="FoodMenuBtn_Click" Margin="5,20,5,0" Height="40" BorderBrush="#3d5a80" Background="#ee6c4d" Foreground="AliceBlue" Style="{StaticResource RoundedButton}">Food and menu</Button>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                            <CheckBox IsChecked="{Binding Reservation.CheckIn}" Margin="5">Check in?</CheckBox>
+                            <CheckBox Margin="5">Send SMS?</CheckBox>
+                            <CheckBox IsChecked="{Binding Reservation.SupplyStatus}" Margin="5">Food/Supply status?</CheckBox>
+                        </StackPanel>
+
+                        <Button Name="finalizeBtn" Click="FinalizeBtn_Click" Margin="5,20,5,0" Height="40" BorderBrush="#3d5a80" Background="#ee6c4d" Foreground="AliceBlue" Style="{StaticResource RoundedButton}">Finalize Bill</Button>
+
+                        <Button x:Name="submitBtn" Click="SubmitBtn_Click" Visibility="{Binding IsNew}" Margin="5,20,5,0" Height="40" BorderBrush="#3d5a80" Background="#ee6c4d" Foreground="AliceBlue" Style="{StaticResource RoundedButton}">Submit</Button>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" Margin="5,5,0,0" Background="LightGray">
+                        <ComboBox Name="existing" SelectedValue="{Binding Reservation}" ItemsSource="{Binding ComboSrc, Mode=TwoWay}" DisplayMemberPath="DisplayText" SelectedValuePath="Value" Visibility="{Binding IsEdit, Mode=TwoWay}" IsEditable="True" IsReadOnly="True" Text="Select reservation to edit" Margin="5,20,5,0"></ComboBox>
+                        <Button Name="updateBtn" Click="UpdateButtonnClick" Visibility="{Binding IsEdit}" IsEnabled="False" Margin="5,180,5,0" Foreground="LimeGreen" Background="White" BorderBrush="LimeGreen" Height="40"  Style="{StaticResource RoundedButton}">Update</Button>
+                        <Button Name="deletBtn" Click="DeleteButtonnClick"  Visibility="{Binding IsEdit}"  Margin="5,20,5,0" Height="40" Foreground="Red" Background="Black" BorderBrush="Red" Style="{StaticResource RoundedButton}">Delete</Button>
+                        <Button Name="editBtn" Click="EditButtonnClick" Margin="5,20,5,0" Height="40" Foreground="AliceBlue" BorderBrush="#3d5a80" Background="#ee6c4d" Style="{StaticResource RoundedButton}">Edit Existing</Button>
+                        <Button Name="newBtn"  Click="NewButtonnClick" Margin="5,20,5,0" Height="40" Foreground="AliceBlue" BorderBrush="#3d5a80" Background="#ee6c4d" Style="{StaticResource RoundedButton}">New Reservation</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Universal Search">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Border Grid.Row="0" VerticalAlignment="Top" Margin="0,20,0,0" CornerRadius="10" Background="#3d5a80" BorderBrush="#3d5a80" Height="35" Width="540">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="searchBox" Style="{StaticResource TextBoxWithPlaceHolderTheme}" FontSize ="14" Width="510" Height="35" Tag="Search" TabIndex="1"/>
+                            <Button Background="Transparent" BorderBrush="Transparent" Click="SearchClick">
+                                <Image Source="../../Assets/search.png" MaxWidth="20"/>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <DataGrid Grid.Row="1" Visibility="Visible" Margin="10" ItemsSource="{Binding SearchSrc}"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Reservation Adv. View">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Margin="10" ItemsSource="{Binding ReservationsSrc}"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Room Availability">
+                <Grid Background="#FFE5E5E5" Name="g">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="#3d5a80" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="Occupied" Foreground="AliceBlue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
+                    </Border>
+
+                    <Border Background="#3d5a80" Grid.Row="0" Grid.Column="1">
+                        <TextBlock Text="Reserved" Foreground="AliceBlue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
+                    </Border>
+
+                    <ListBox x:Name="occupied" Margin="5" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding OccupiedSrc}"/>
+                    <ListBox x:Name="reserved" Margin="5" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ReservedSrc}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
