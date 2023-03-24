@@ -1,0 +1,119 @@
+﻿@model ResponseViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    var res = Model?.Response ?? "";
+}
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <!-- First column -->
+            <div class="col-md-4">
+            
+                    <label>
+                        <input type="radio" name="requestType" value="GetBranches">
+                        GetBranches
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetBranch">
+                        GetBranch
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PutBranch">
+                        PutBranch
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PostBranch">
+                        PostBranch
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="DeleteBranch">
+                        DeleteBranch
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetDepartments">
+                        GetDepartments
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetDepartmentsDetailed">
+                        GetDepartmentsDetailed
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetDepartment">
+                        GetDepartment
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetDepartmentDetailed">
+                        GetDepartmentDetailed
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PutDepartment">
+                        PutDepartment
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PostDepartment">
+                        PostDepartment
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="DeleteDepartment">
+                        DeleteDepartment
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetInstructors">
+                        GetInstructors
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="GetInstructor">
+                        GetInstructor
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PutInstructor">
+                        PutInstructor
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="PostInstructor">
+                        PostInstructor
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="requestType" value="DeleteInstructor">
+                        DeleteInstructor
+                    </label>
+                    <br>
+                    <label>
+                        Id
+                        <input type="number" name="id">
+                    </label>
+                    <br>
+                    <br>
+                    <input type="submit" value="Send" />
+            
+            </div>
+        
+            <!-- Second column -->
+            <div class="col-md-4">
+                <textarea name="requestBody" class="form-control" rows="10"></textarea>
+            </div>
+
+            <!-- Third column -->
+            <div class="col-md-4">
+                <textarea disabled = "disabled" id="response" class="form-control" rows="10">@res</textarea>
+            </div>
+        </div>
+    </div>
+</form>

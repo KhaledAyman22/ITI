@@ -1,0 +1,132 @@
+﻿<Window x:Class="Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1080" WindowState="Maximized" >
+    <TabControl>
+        <TabItem Header="Instructors">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+              
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Click="GetInstructorsBtn" Margin="5" Width="150" Height="30">GetInstructors</Button>
+                    <Button Click="GetInstructorBtn" Margin="5" Width="150" Height="30">GetInstructor</Button>
+                    <Button Click="PutInstructorBtn" Margin="5" Width="150" Height="30">PutInstructor</Button>
+                    <Button Click="PostInstructorBtn" Margin="5" Width="150" Height="30">PostInstructor</Button>
+                    <Button Click="DeleteInstructorBtn" Margin="5" Width="150" Height="30">DeleteInstructor</Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Width="30">Id</TextBlock>
+                    <TextBox x:Name="idIns" Width="100"/>
+                </StackPanel>
+              
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontWeight="Bold" Grid.Column="0" HorizontalAlignment="Center" Height="30">Json Body</TextBlock>
+                    <TextBlock FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Center" Height="30">Response</TextBlock>
+                </Grid>
+                
+                <UniformGrid Grid.Row="3" Columns="2">
+                    <TextBox VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"  x:Name="bodyIns" Margin="5" BorderBrush="Black" AcceptsReturn="True" TextWrapping="Wrap" Height="500"/>
+                    <TextBox VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" x:Name="responseIns" IsReadOnly="True" Margin="5" BorderBrush="Black" TextWrapping="Wrap" Height="500"/>
+                </UniformGrid>
+                
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Departments">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Click="GetDepartmentsBtn" Margin="5" Width="150" Height="30">GetDepartments</Button>
+                    <Button Click="GetDepartmentsDetailedBtn" Margin="5" Width="150" Height="30">GetDepartmentsDetailed</Button>
+                    <Button Click="GetDepartmentBtn" Margin="5" Width="150" Height="30">GetDepartment</Button>
+                    <Button Click="GetDepartmentDetailedBtn" Margin="5" Width="150" Height="30">GetDepartmentDetailed</Button>
+                    <Button Click="PutDepartmentBtn" Margin="5" Width="150" Height="30">PutDepartment</Button>
+                    <Button Click="PostDepartmentBtn" Margin="5" Width="150" Height="30">PostDepartment</Button>
+                    <Button Click="DeleteDepartmentBtn" Margin="5" Width="150" Height="30">DeleteDepartment</Button>
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Width="30">Id</TextBlock>
+                    <TextBox x:Name="idDep" Width="100"/>
+                </StackPanel>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontWeight="Bold" Grid.Column="0" HorizontalAlignment="Center" Height="30">Json Body</TextBlock>
+                    <TextBlock FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Center" Height="30">Response</TextBlock>
+                </Grid>
+
+                <UniformGrid Grid.Row="3" Columns="2">
+                    <TextBox VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" x:Name="bodyDep" Margin="5" BorderBrush="Black" TextWrapping="Wrap" Height="500"/>
+                    <TextBox VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" x:Name="responseDep" IsReadOnly="True"  Margin="5" BorderBrush="Black" TextWrapping="Wrap" Height="500"/>
+                </UniformGrid>
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Branches">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Click="GetBranchesBtn" Margin="5" Width="100" Height="30">GetBranches</Button>
+                    <Button Click="GetBranchBtn" Margin="5" Width="100" Height="30">GetBranch</Button>
+                    <Button Click="PutBranchBtn" Margin="5" Width="100" Height="30">PutBranch</Button>
+                    <Button Click="PostBranchBtn" Margin="5" Width="100" Height="30">PostBranch</Button>
+                    <Button Click="DeleteBranchBtn" Margin="5" Width="100" Height="30">DeleteBranch</Button>
+                </StackPanel>
+
+
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Width="30">Id</TextBlock>
+                    <TextBox x:Name="idBrnch" Width="100"/>
+                </StackPanel>
+                
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontWeight="Bold" Grid.Column="0" HorizontalAlignment="Center" Height="30">Json Body</TextBlock>
+                    <TextBlock FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Center" Height="30">Response</TextBlock>
+                </Grid>
+
+                <UniformGrid Grid.Row="3" Columns="2">
+                    <TextBox  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" x:Name="bodyBrnch" Margin="5" BorderBrush="Black" TextWrapping="Wrap" Height="500"/>
+                    <TextBox  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" x:Name="responseBrnch" IsReadOnly="True"  Margin="5" BorderBrush="Black" TextWrapping="Wrap" Height="500"/>
+                </UniformGrid>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
