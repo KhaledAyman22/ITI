@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "63f340bd5b185cb40e786975"
+  },
+  "ISBN": 1,
+  "Title": "C#",
+  "Pages": 300,
+  "Versions": [
+    {
+      "No": 1,
+      "Price": 100
+    },
+    {
+      "No": 2,
+      "Price": 200
+    }
+  ],
+  "Borrow": true,
+  "Cat": "BE"
+},{
+  "_id": {
+    "$oid": "63f340be5b185cb40e786976"
+  },
+  "ISBN": 2,
+  "Title": "HTML",
+  "Pages": 100,
+  "Versions": [
+    {
+      "No": 1,
+      "Price": 50
+    }
+  ],
+  "Borrow": true,
+  "Cat": "FE"
+},{
+  "_id": {
+    "$oid": "63f340be5b185cb40e786977"
+  },
+  "ISBN": 3,
+  "Title": "Mongo",
+  "Pages": 150,
+  "Versions": [
+    {
+      "No": 1,
+      "Price": 100
+    },
+    {
+      "No": 2,
+      "Price": 200
+    },
+    {
+      "No": 3,
+      "Price": 250
+    }
+  ],
+  "Borrow": false
+},{
+  "_id": {
+    "$oid": "63f341015b185cb40e786978"
+  },
+  "ISBN": 7,
+  "Title": "Mongobd",
+  "Pages": 150,
+  "Versions": [
+    {
+      "No": 1,
+      "Price": 100
+    },
+    {
+      "No": 2,
+      "Price": 200
+    },
+    {
+      "No": 3,
+      "Price": 300
+    }
+  ],
+  "Borrow": true,
+  "Cat": "BE"
+}]

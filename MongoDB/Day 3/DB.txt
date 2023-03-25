@@ -1,0 +1,51 @@
+let depts=[{
+    _id:1,
+    name:"SD",
+    location:"1'stFloor",
+    phone:"0123456"
+},
+{
+    _id:2,
+    name:"OS",
+    location:"2'stFloor",
+    phone:"0123456"
+}
+]
+
+let students=[{
+    firstName:"ahmed",
+    lastName:"ahmed",
+    addresses:[
+        {
+            city:"mansoura",
+            street:30
+        },
+        {
+            city:"alex",
+            street:24
+        }
+    ],
+    department:1,
+    subjects:[
+    2,3
+    ]
+},
+{
+firstName:"hesham",
+    lastName:"mohamed",
+    addresses:[
+        {
+            city:"mansoura",
+            street:30
+        },
+        {
+            city:"alex",
+            street:24
+        }
+    ],
+    department:1,
+    subjects:[
+    2,3
+    ]
+}
+]

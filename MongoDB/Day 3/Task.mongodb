@@ -1,0 +1,211 @@
+// Create new database named: FacultySystemV2. 
+use FacultySystemV2
+
+//Create Student collection that has (FirstName, LastName, IsFired, FacultyID, array of objects, each object has CourseID, grade). 
+db.createCollection("Student", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["FirstName", "LastName", "IsFired", "FacultyID", "Courses"],
+            properties: {
+                FirstName: {
+                    bsonType: "string",
+                },
+                LastName: {
+                    bsonType: "string",
+                },
+                IsFired: {
+                    bsonType: "bool",
+                },
+                FacultyID: {
+                    bsonType: "objectId",
+                },
+                Courses: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "object",
+                        required: ["CourseID", "grade"],
+                        properties: {
+                            CourseID: {
+                                bsonType: "objectId",
+                            },
+                            grade: {
+                                bsonType: "int",
+                                minimum: 0,
+                                maximum: 100,
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+//Create Faculty collection that has (Faculty Name, Address).
+db.createCollection("Faculty", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["FacultyName", "Address"],
+            properties: {
+                FacultyName: {
+                    bsonType: "string",
+                },
+                Address: {
+                    bsonType: "string",
+                }
+            }
+        }
+    }
+});
+
+//Create Course collection, which has (Course Name, Final Mark).
+db.createCollection("Course", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["CourseName", "FinalMark"],
+            properties: {
+                CourseName: {
+                    bsonType: "string",
+                },
+                FinalMark: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 100,
+                }
+            }
+        }
+    }
+});
+
+//Insert some data in previous collections.
+db.Faculty.insertMany([{
+        FacultyName: "Computer Science",
+        Address: "123 Main Street"
+    },
+    {
+        FacultyName: "Business",
+        Address: "456 Oak Avenue"
+    }
+]);
+
+db.Course.insertMany([{
+        CourseName: "Introduction to Programming",
+        FinalMark: 85
+    },
+    {
+        CourseName: "Database Systems",
+        FinalMark: 92
+    },
+    {
+        CourseName: "Marketing",
+        FinalMark: 78
+    }
+]);
+
+db.Student.insertMany([{
+        FirstName: "John",
+        LastName: "Doe",
+        IsFired: false,
+        FacultyID: ObjectId("60b0136da974b08e03b513d7"),
+        Courses: [{
+                CourseID: ObjectId("60b01f3da974b08e03b513db"),
+                grade: 90
+            },
+            {
+                CourseID: ObjectId("60b01f4ea974b08e03b513dc"),
+                grade: 88
+            }
+        ]
+    },
+    {
+        FirstName: "Jane",
+        LastName: "Doe",
+        IsFired: false,
+        FacultyID: ObjectId("60b0136da974b08e03b513d8"),
+        Courses: [{
+                CourseID: ObjectId("60b01f3da974b08e03b513db"),
+                grade: 92
+            },
+            {
+                CourseID: ObjectId("60b01f4ea974b08e03b513dc"),
+                grade: 85
+            }
+        ]
+    },
+    {
+        FirstName: "Bob",
+        LastName: "Smith",
+        IsFired: true,
+        FacultyID: ObjectId("60b0136da974b08e03b513d9"),
+        Courses: [{
+            CourseID: ObjectId("60b01f3da974b08e03b513dc"),
+            grade: 78
+        }]
+    }
+]);
+
+//Display each Student Full Name along with his average grade in all courses. $concat
+db.Student.find({}, {
+    FullName: {
+        $concat: ["$FirstName", " ", "$LastName"]
+    },
+    GradeAvg: {
+        $avg: "$Courses.grade"
+    }
+});
+
+//Using aggregation display the sum of final mark for all courses in Course collection.
+db.Course.aggregate({
+    $match: {
+        "FinalMark": {
+            $exists: true
+        }
+    }
+}, {
+    $group: {
+        _id: null,
+        TotalFinalMark: {
+            $sum: "$FinalMark"
+        }
+    }
+});
+
+//Implement (one to many) relation between Student and Course, by adding array of Courses IDs in the Student object. 
+db.Student.updateMany({}, {
+    $set: {
+        CourseIDs: [ObjectId("641eff4748383f04b8162007"), ObjectId("641eff4748383f04b8162008"), ObjectId("641eff4748383f04b8162009")]
+    }
+});
+
+db.Course.find()
+
+//Select specific Student with his name, and then display his courses. 
+let std = db.Student.findOne({
+    FirstName: "John"
+})
+db.Course.find({
+    _id: {
+        $in: std.CourseIDs
+    }
+})
+
+//Implement relation between Student and faculty by adding the faculty object in the Student using _id Relation using $Lookup. 
+db.Student.aggregate([{
+    $lookup: {
+        from: "Faculty",
+        localField: "FacultyID",
+        foreignField: "_id",
+        as: "Faculty"
+    }
+}])
+
+//Select specific Student with his name, and then display his facult
+let std = db.Student.findOne({
+    FirstName: "John"
+})
+db.Faculty.find({
+    _id: std.FacultyID
+})
