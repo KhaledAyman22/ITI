@@ -1,0 +1,6 @@
+operation: mul, params: 5,5,5,6, result: 750
+operation: div, params: 5,5,5,6, result: 0.03333333333333333
+operation: div, params: 5,5,5,6,7, result: 0.0047619047619047615
+operation: add, params: 5,5,5,6,7, result: 28
+operation: sub, params: 5,5,5,6,7, result: -18
+operation: mul, params: 5,5,5,6,7, result: 5250
