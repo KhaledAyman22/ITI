@@ -1,0 +1,4 @@
+Day2 --> [ Custom Module - Event - Server]
+Day3 --> [ UMD - Publish - Server - Middlewares ] 
+Day4 --> [Mongoose - ejs]
+Day5 --> [ MVC - Authntication VS Authorization ]
