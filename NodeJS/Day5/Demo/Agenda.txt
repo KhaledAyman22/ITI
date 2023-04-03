@@ -1,0 +1,5 @@
+1- Handle All End Points [Mongo DB]
+2- Validation [ajv]  [Another Json Schema Validators] [npm i ajv]
+3- Utils [Helpers] ==> ajv
+4- MC [Model - Controller]
+5- Authentication [Login-Reg] VS Authorization [Permissions]
