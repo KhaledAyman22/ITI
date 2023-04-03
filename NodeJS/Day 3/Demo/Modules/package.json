@@ -1,0 +1,18 @@
+{
+  "name": "umdpdswamobile43",
+  "version": "1.2.2",
+  "description": "umd mobile smart 43",
+  "main": "umdModule.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "umd",
+    "mobile",
+    "pd",
+    "swa",
+    "43"
+  ],
+  "author": "mobile",
+  "license": "ISC"
+}

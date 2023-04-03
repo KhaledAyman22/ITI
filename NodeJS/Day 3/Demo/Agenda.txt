@@ -1,0 +1,17 @@
+1- Custom Module [UMD] (universal Module Defination)
+2- Publish npm ==> [npm init]
+3- Server [EndPoints] [Third Party Module (Express)] [npm i express]
+4- Middlewares
+
+
+//End-Points
+/api/students ==GET==> All Students [End Point]
+/api/students/5 ==GET==> Student with ID = 5 [End Point]
+/api/students ==POST==> Add New Student [End Point]
+
+
+Version [ Major - Minor - Patch ]
+
+*[1.2.3] ==> 1.2.4 ==> 1.5.1 ====> 1.5.2 ==> 2.1.1 ==> [2.1.1]
+^1.[2.3] ==> 1.2.4 ==> 1.5.1 ==> 1.5.2 ====> [1.5.2]
+~1.2.[3] ==> 1.2.4 ==> 1.5.1 ====> [1.2.4]
