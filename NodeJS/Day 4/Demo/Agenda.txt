@@ -1,0 +1,3 @@
+Day4
+1- EJS [Engine Template] ==> Code JS at HTML ==> Development ==> for loop Element ==> Show ==> [npm i ejs]
+2- MongoDB ==> mongoose ==> [npm i mongoose]

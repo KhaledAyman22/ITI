@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/add">ADD New Customer</a>
+    <table border="2px" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>CLIENTNUM</th>
+                <th>Customer_Age</th>
+                <th>Gender</th>
+                <th>Marital_Status</th>
+                <th>Income_Category</th>
+                <th>Credit_Limit</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%for(let i=0; i< clients.length; i++){%>
+            <tr>
+                <td><%=clients[i].CLIENTNUM%></td>
+                <td><%=clients[i].Customer_Age%></td>
+                <td><%=clients[i].Gender%></td>
+                <td><%=clients[i].Marital_Status%></td>
+                <td><%=clients[i].Income_Category%></td>
+                <td><%=clients[i].Credit_Limit%></td>
+                <td><a href="/delete/<%=clients[i]._id%>">Delete</a></td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+</body>
+</html>
