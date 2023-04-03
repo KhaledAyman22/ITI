@@ -1,0 +1,9 @@
+1- Angular Arch
+2- HTML, CSS, TS
+3- Binding
+4- Component Interaction
+5- Services
+6- Pipes
+7- Directives
+8- API
+9- SPA
