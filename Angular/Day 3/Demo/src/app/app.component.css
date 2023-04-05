@@ -1,0 +1,13 @@
+/* h1{
+  color: red;
+  background-color: aqua;
+  text-align: center;
+} */
+
+div{
+  border: 1px solid black;
+  width: 90%;
+  border-radius: 10px;
+  margin: 5px auto;
+  text-align: center;
+}

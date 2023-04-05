@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Enter Your Name and Age</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="user.name" placeholder="Enter your name">
+  </div>
+
+  <div *ngIf="user.name !== '' && user.name.length < 3" style="color: red; text-align: center;">
+    <p class="bg-warning text-danger font-weight-bold">Name isn't valid</p>
+  </div>
+
+
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" class="form-control" id="age" [(ngModel)]="user.age" placeholder="Enter your age">
+  </div>
+
+  <div *ngIf="+user.age > 40 || +user.age < 20" style="color: red; text-align: center;">
+    <p class="bg-warning text-danger font-weight-bold">Age isn't valid</p>
+  </div>
+
+  <button type="button" class="btn btn-success" (click)="Register()">Submit</button>
+</div>

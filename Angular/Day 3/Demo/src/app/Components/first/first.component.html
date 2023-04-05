@@ -1,0 +1,34 @@
+<h1 style="color: blue;">First Component Works!!</h1>
+
+<!-- <app-second></app-second> -->
+<p>{{name}}</p>
+<p>4+4 = {{4+4}}</p>
+
+<!-- One Way Binding From[ts] to [html] -->
+<input type="text" value="{{name}}"/>
+<input type="text" [value]="name"/>
+
+<!-- Event Binding -->
+<input type="button" value="Change" (click)="chg()" />
+
+<img src="https://images.unsplash.com/photo-1680213253044-ee5962a18306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60" >
+
+<!-- <img src="../../../assets/Images/1.jpg" /> XXXXXX -->
+<!-- <img src="assets/Images/1.jpg" /> -->
+<img [src]="imgSrc" />
+
+<br><br><br><br><br><br><br>
+<!-- Two Way Binding -->
+
+<!-- 1)ur Own Code -->
+<input type="text" placeholder="Enter ur First Name"  (input)="getData($event)" />
+<p>{{fName}}</p>
+
+<br><br><br><br><br><br><br>
+
+<!-- 2)Angular -->
+<input type="text" placeholder="Enter ur Last Name" [(ngModel)]="lName" />
+<p>{{lName}}</p>
+
+
+<br><br><br><br><br><br><br>

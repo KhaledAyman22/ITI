@@ -1,0 +1,14 @@
+<table class="table col-8 mx-auto my-5">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.name}}</td>
+    <td>{{user.age}}</td>
+  </tr>
+  </tbody>
+</table>
