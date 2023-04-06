@@ -11,6 +11,6 @@ router.post("/create", DoctorController.CreateDoctor);
 
 router.post("/update/:id", DoctorController.UpdateDoctor);
 
-router.delete("/delete/:id", DoctorController.DeleteDoctor);
+router.get("/delete/:id", DoctorController.DeleteDoctor);
 
 module.exports = router;

@@ -8,7 +8,7 @@ let CreatePage = async (req, res) =>{
 
 let UpdatePage = async (req, res) =>{
     let doctor = await DoctorModel.findById(req.params.id).exec()
-    res.render('Doctor/updatePatient.ejs', {doctor})
+    res.render('Doctor/updateDoctor.ejs', {doctor})
 }
 
 let CreateDoctor = async (req, res) => {
@@ -49,7 +49,7 @@ let DeleteDoctor = async (req, res) => {
 let GetDoctor = async (req, res) => {
     let doctor = await DoctorModel.findById(req.params.id).exec()
     if (doctor) {
-        res.render('Doctor/patientDetails.ejs', {doctor})
+        res.render('Doctor/doctorDetails.ejs', {doctor})
     }
     else {
         res.render('Shared/error.ejs',{message:"Invalid Id"})

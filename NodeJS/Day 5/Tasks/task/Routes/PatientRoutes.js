@@ -4,13 +4,13 @@ const PatientController = require("../Controllers/PatientController");
 
 router.get("", PatientController.GetPatients);
 router.get("/create", PatientController.CreatePage);
-router.get("/update", PatientController.UpdatePatient);
+router.get("/update/:id", PatientController.UpdatePage);
 router.get("/:id", PatientController.GetPatient);
 
 router.post("/create", PatientController.CreatePatient);
 
-router.post("/update/:id", PatientController.UpdatePage);
+router.post("/update/:id", PatientController.UpdatePatient);
 
-router.delete("/delete/:id", PatientController.DeletePatient);
+router.get("/delete/:id", PatientController.DeletePatient);
 
 module.exports = router;
