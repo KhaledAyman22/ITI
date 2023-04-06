@@ -1,0 +1,22 @@
+<h1 class="alert alert-dark w-50 m-auto text-center mt-2">Students</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of allStudents">
+            <td>{{s.name}}</td>
+            <td>{{s.age}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h1 class="mb-2 alert alert-dark w-50 m-auto text-center">Registration</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="form">
+        <div class="form-group d-flex m-2">
+          <label class="col-3">Name</label>
+          <input #name type="text" class="form-control">
+        </div>
+
+        <div class="form-group d-flex m-2">
+          <label class="col-3">Age</label>
+          <input #age type="text" class="form-control">
+        </div>
+
+        <div class="form-group d-flex justify-content-center m-2">
+          <input type="button" value="ADD" class="btn btn-outline-dark" (click)="Add(name.value, age.value)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

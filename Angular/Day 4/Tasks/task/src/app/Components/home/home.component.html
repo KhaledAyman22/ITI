@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup] = "formValidation" class="row justify-content-center">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name">
+    </div>
+    <div *ngIf="!NameValid" class="alert alert-danger">
+      Name isn't valid
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input formControlName="age" type="number" class="form-control" id="age" placeholder="Enter your age">
+    </div>
+    <div *ngIf="!AgeValid" class="alert alert-danger">
+      Age isn't valid
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter your email">
+    </div>
+    <div *ngIf="!EmailValid" class="alert alert-danger">
+      Email isn't valid
+    </div>
+    <button type="submit" class="btn btn-primary mt-3  col-2" (click)="Check()">Submit</button>
+    <div *ngIf="valid" class="alert alert-success mt-3">
+      User added successfully
+    </div>
+  </form>
+</div>

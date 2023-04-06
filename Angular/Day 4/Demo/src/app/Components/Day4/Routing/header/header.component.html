@@ -1,0 +1,14 @@
+<!-- <ul>
+  <li><a href="/">Users</a></li>
+  <li><a href="/users">Users</a></li>
+  <li><a href="/users/5">User Details</a></li>
+  <li><a href="/profile">Profile</a></li>
+  <li><a href="/afeeg">Error</a></li>
+</ul> -->
+<ul>
+  <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Users</a></li>
+  <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/users">Users</a></li>
+  <li><a routerLinkActive="active" routerLink="/users/5">User Details</a></li>
+  <li><a routerLinkActive="active" routerLink="/profile">Profile</a></li>
+  <li><a routerLinkActive="active" routerLink="/afeeg">Error</a></li>
+</ul>
