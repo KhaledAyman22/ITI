@@ -1,0 +1,28 @@
+<div *ngIf="student" class="row justify-content-center">
+
+  <form class="col-md-8">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="student.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" [(ngModel)]="student.age" name="age" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="student.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Phone</label>
+      <input type="text" class="form-control" id="phone" [(ngModel)]="student.phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="courses">Courses</label>
+      <input type="text" class="form-control" id="courses" [(ngModel)]="student.courses" name="courses">
+    </div>
+    <div class="text-center">
+      <button type="button" (click)="Update()" class="btn btn-primary mt-3">Update</button>
+    </div>
+  </form>
+</div>

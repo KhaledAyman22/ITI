@@ -1,0 +1,10 @@
+1- Pipes
+2- Custom Pipe
+3- Custom Directive
+4- Routing ==> Api[SPA] ==> Service
+
+
+*ngIf
+*ngFor
+ngClass
+ngStyle

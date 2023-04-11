@@ -1,0 +1,124 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "age": 20,
+      "email": "john.smith@example.com",
+      "phone": "555-1234",
+      "courses": [
+        "Mathematics",
+        "English",
+        "History"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "age": 19,
+      "email": "jane.doe@example.com",
+      "phone": "555-5678",
+      "courses": [
+        "Biology",
+        "Chemistry",
+        "Physics"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "age": 21,
+      "email": "bob.johnson@example.com",
+      "phone": "555-9012",
+      "courses": [
+        "Computer Science",
+        "Statistics",
+        "Data Science"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sarah Lee",
+      "age": 22,
+      "email": "sarah.lee@example.com",
+      "phone": "555-3456",
+      "courses": [
+        "Art History",
+        "Anthropology",
+        "Sociology"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Alex Chen",
+      "age": 20,
+      "email": "alex.chen@example.com",
+      "phone": "555-7890",
+      "courses": [
+        "Psychology",
+        "Philosophy",
+        "Linguistics"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Emily Davis",
+      "age": 19,
+      "email": "emily.davis@example.com",
+      "phone": "555-2345",
+      "courses": [
+        "English",
+        "History",
+        "Political Science"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "David Kim",
+      "age": 21,
+      "email": "david.kim@example.com",
+      "phone": "555-6789",
+      "courses": [
+        "Computer Science",
+        "Mathematics",
+        "Physics"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Avery Brown",
+      "age": 22,
+      "email": "avery.brown@example.com",
+      "phone": "555-1234",
+      "courses": [
+        "Chemistry",
+        "Biology",
+        "Environmental Science"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Liam Martinez",
+      "age": 20,
+      "email": "liam.martinez@example.com",
+      "phone": "555-5678",
+      "courses": [
+        "History",
+        "Political Science",
+        "Sociology"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Olivia Johnson",
+      "age": 19,
+      "email": "olivia.johnson@example.com",
+      "phone": "555-9012",
+      "courses": [
+        "English",
+        "Philosophy",
+        "Communications"
+      ]
+    }
+  ]
+}

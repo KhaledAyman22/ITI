@@ -1,0 +1,75 @@
+<!-- <h1>Welcome PD, SWA, Mobile &hearts;</h1> -->
+
+<!-- <div style="border: 2px solid red;">
+</div> -->
+<!-- <app-first></app-first> -->
+
+<!-- <app-second></app-second> -->
+
+<!-- Day3 -->
+<!-- <app-all-in-one></app-all-in-one> -->
+<!-- Component Interaction -->
+<!--From Parent To Child  <child [attr]="Parent"> -->
+<!--From Child To Parent <child (urEvent)="Parentfun($event)" > -->
+<!--
+<div>
+  <h1>Parent</h1>
+  <p>Data: {{DataParent}}</p>
+  <div>
+    <app-home [DataFromParent]="DataFromLogin" [Dala3]="fName"></app-home>
+  </div>
+  <div>
+    <app-login (EventDala3)="getData($event)"></app-login>
+  </div>
+  <p>Data:{{DataFromLogin}}</p>
+</div> -->
+
+
+
+<!--Explain-->
+<!-- <input [value]="fName" /> -->
+<!-- <input (input)="getData($event)" > -->
+
+
+
+<!--Day4-->
+
+<!-- Component Interaction [Life Cycle] -->
+<!-- <app-registration (myEvent)="getData($event)"></app-registration> -->
+<!-- <app-students [allStudents]="Students"></app-students> -->
+<!-- <app-students [student]="oneStudent"></app-students> -->
+
+<!-- Validation [Reactive Forms Module] -->
+<!-- <app-validation></app-validation> -->
+
+
+<!-- Routing -->
+<!-- <app-header></app-header>
+<div class="alert alert-dark w-75 m-auto">
+  <router-outlet></router-outlet>
+</div> -->
+
+<!-- Day5 -->
+<!-- Custom Directive -->
+<!-- <h1 appCustom="white">Hello World</h1>
+<h1 appCustom="red">Hii</h1>
+<h1 appCustom="blue">Every One</h1> -->
+
+<!-- <h1 [appCustom]="{fc:'yellow', bc:'blue'}">Hello World</h1>
+<h1 [appCustom]="{fc:'red', bc:'black'}">Hii</h1>
+<h1 [appCustom]="{fc:'green', bc:'red'}">Every One</h1> -->
+
+
+<!-- Pipes -->
+<!-- Built-in Pipes -->
+<h1>{{fName}}</h1>
+<h1>{{fName|uppercase}}</h1>
+<h1>{{fName|lowercase}}</h1>
+<h1>{{fName|uppercase|lowercase}}</h1>
+<h1>{{salary}}</h1>
+<h1>{{salary|currency:"USD"}}</h1>
+<h1>{{salary|currency:"INR"}}</h1>
+<h1>{{salary|currency:"EGP"}}</h1>
+
+<h1>{{fName|custom:'/':'*':'%'}}</h1>
+<h1>{{fName|custom}}</h1>

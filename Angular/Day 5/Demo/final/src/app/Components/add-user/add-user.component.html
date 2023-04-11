@@ -1,0 +1,17 @@
+<div class="form">
+  <div class="form-group d-flex m-2">
+    <label class="col-3">Name</label>
+    <input #name type="text" class="form-control"/>
+  </div>
+  <div class="form-group d-flex m-2">
+    <label class="col-3">Email</label>
+    <input #email type="email" class="form-control"/>
+  </div>
+  <div class="form-group d-flex m-2">
+    <label class="col-3">Phone</label>
+    <input #phone type="text" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <input type="button" value="ADD" (click)="Add(name.value, email.value, phone.value)" class="btn btn-outline-success"/>
+  </div>
+</div>

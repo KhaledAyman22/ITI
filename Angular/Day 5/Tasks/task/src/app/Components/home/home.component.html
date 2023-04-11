@@ -1,0 +1,29 @@
+<div class="row justify-content-center mt-4">
+  <div class="col-md-10 m-auto">
+    <table *ngIf="students" class="table table-striped text-center">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let s of students">
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.age }}</td>
+        <td>{{ s.phone }}</td>
+        <td>
+          <button routerLink="students/{{s.id}}" class="btn btn-success mx-2">Details</button>
+          <button routerLink="students/update/{{s.id}}" class="btn btn-warning mx-2">Update</button>
+          <button (click)="Delete(s.id)" class="btn btn-danger mx-2">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

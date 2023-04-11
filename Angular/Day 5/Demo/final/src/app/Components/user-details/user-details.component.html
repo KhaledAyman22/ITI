@@ -1,0 +1,10 @@
+<div *ngIf="user; else loadingBlock" class="alert alert-info">
+  <h5>Name: {{user.name}}</h5>
+  <!-- <h5>UserName: {{user.username}}</h5> -->
+  <!-- <h5>Address: {{user.address.street}}, {{user.address.city}}</h5> -->
+  <h5>Email: {{user.email}}</h5>
+  <h5>Phone: {{user.phone}}</h5>
+</div>
+<ng-template #loadingBlock>
+  <h1 style="color: red;">Loading...</h1>
+</ng-template>

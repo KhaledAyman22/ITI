@@ -1,0 +1,20 @@
+<div *ngIf="student" class="container mt-5">
+  <h1>Student Data</h1>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <p><strong>Name: </strong>{{student.name}}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Age: </strong>{{student.age}}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Email: </strong>{{student.email}}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Phone: </strong>{{student.phone}}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Courses: </strong>{{student.courses.join(', ')}}</p>
+    </div>
+  </div>
+</div>

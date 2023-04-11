@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "phone": "01111111"
+    },
+    {
+      "id": 2,
+      "name": "Aly",
+      "email": "aly@gmail.com",
+      "phone": "0222222222"
+    },
+    {
+      "id": 3,
+      "name": "Sara",
+      "email": "sara@gmail.com",
+      "phone": "0333333333"
+    },
+    {
+      "id": 4,
+      "name": "sama",
+      "email": "sama@gmail.com",
+      "phone": "0444444"
+    },
+    {
+      "id": 5,
+      "name": "Haitham",
+      "email": "haitham@gmail.com",
+      "phone": "05555555"
+    },
+    {
+      "name": "KOKO",
+      "email": "koko@gmail.com",
+      "phone": "066666666",
+      "id": 6
+    }
+  ]
+}
