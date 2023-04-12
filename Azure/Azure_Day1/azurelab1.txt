@@ -1,0 +1,9 @@
+1-create azure free account as owner subscription 
+2-each owner at at least 5 contributer at same subscription 
+3-each contributer create vm nameby  ,vm with sql server
+4- restor your local db at vm sql server
+5-create new database name itiazureCode   programatically (sql query not wizared :)) and containe 3 tables (students,department,courses,instructors)
+6-make sure all tables with feilds and realation
+7-each owner create azure sql server 
+8-each owber add IPs for contributers to access this server
+9-each one create his database at this server with the same functional(uptoyou )
