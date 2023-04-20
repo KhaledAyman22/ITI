@@ -1,0 +1,21 @@
+Create repo with pr workflow, add reviewer policy and build policy
+Create CI pipline fot any application
+
+A- Pipline steps 
+1-pipline
+2-Azure Repos Git then select repo
+3-choose starter pipline
+5-congfigure pool and agent
+6-get steps from share yaml 
+------------
+B- Self hosted agent creation
+1-go to projct settings 
+2-under pipelined open Agent pools 
+3-add new self hosted pool
+enter to new added pool and add agent 
+1-download the agent file 
+2- create the agent by copying the powersheel script (please open as an admin)
+3-configure the agent  
+    a. server url is Azure vsts url+organization 
+    b.you can get PAT from vsts from top lift 
+    c. run the agent as service

@@ -1,0 +1,74 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  name: DemoProjectPool
+  demands:
+   - agent.name -equals AbdulrahmanDemoPool  
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: Npm@1
+  displayName: 'NPM Install'
+  inputs:
+    command: 'install'
+    workingDir: 'StudentClientapp'
+- task: Npm@1
+  displayName: 'NG Build'
+  inputs:
+    command: 'custom'
+    workingDir: 'StudentClientapp'
+    customCommand: 'run build -- --configuration production'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests using .Net Core'
+  inputs:
+    command: test
+    projects: '/*/*Test.csproj'
+    arguments: '--configuration $(BuildConfiguration) --collect "code coverage"'
+
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '16.10.0'  
+
+- task: Npm@1
+  displayName: 'Install Angular CLI'
+  inputs:
+    command: 'custom'
+    workingDir: 'ClientApp'
+    customCommand: 'install -g @angular/cli@13'
+
+- task: Npm@1
+  displayName: 'NG Test'
+  inputs:
+    command: 'custom'
+    workingDir: 'StudentClientapp'
+    customCommand: 'run test  --browsers=ChromeHeadless --watch=false'

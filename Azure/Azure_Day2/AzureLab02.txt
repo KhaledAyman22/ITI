@@ -1,0 +1,11 @@
+1-create you desktop app or webappliction (MVC/webforms) connected with azure sql server 
+2-make crud operations from your application at sql server db at azure
+3-create your migration project to migrate local database (iti/examination system /adventureworks)to azure database
+using Microsoft Data Migration Assistant 
+4-publish your web pervious webapplication from 1 at azure  and run your crud also (using vs or publish profile )
+5-publish your jsproject at azure using ftb creditions (source code local or github )
+ thanks 
+any questions you can contact me at 
+01012621808
+or 
+https://www.linkedin.com/in/nadia-saleh/
