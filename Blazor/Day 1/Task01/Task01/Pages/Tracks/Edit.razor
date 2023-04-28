@@ -1,0 +1,62 @@
+﻿@page "/tracks/edit/{id}"
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    public Track? Track { get; set; }
+
+    public bool Saved;
+
+    protected override Task OnInitializedAsync()
+    {
+        Track = DummyDb.Tracks.FirstOrDefault(t => t.ID == Id);
+
+        return base.OnInitializedAsync();
+    }
+
+    protected void HandleValidSubmit()
+    {
+        Saved = true;
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        Saved = false;
+    }
+}
+
+
+@if (!Saved)
+{
+    <EditForm Model="@Track" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group row">
+            <label for="name" class="col-form-label">Track Name: </label>
+            <InputText id="name" class="form-control" @bind-Value="@Track.Name" placeholder="Enter track name"></InputText>
+            <ValidationMessage For="@(() => Track.Name)" />
+        </div>
+
+
+        <div class="form-group row">
+            <label for="description" class="col-form-label">Track Description: </label>
+            <InputText id="description" class="form-control" @bind-Value="@Track.Description" placeholder="Enter track description"></InputText>
+            <ValidationMessage For="@(() => Track.Description)" />
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success mt-3">Update track</button>
+        </div>
+
+    </EditForm>
+}
+else
+{
+    <div class="alert-success">
+        Track Updated Successfully......
+    </div>
+}

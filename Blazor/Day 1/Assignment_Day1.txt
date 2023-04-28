@@ -1,0 +1,20 @@
+Create WebAssembly Blazor App, which manages Trainees and thier Tracks:
+	- Create All CRUD operations to manage your application
+	- try different routing for component pages
+	- Use as much Razor Component as you can
+	- Apply DataAnnotations on your classes
+	- Use validation and visulaize errors 
+
+Track shoud have the following properties:
+- ID
+- Name
+- Description
+
+Trainee shoud have the following properties:
+- ID
+- Name
+- Gender
+- email
+- MobileNo
+- Birthdate
+- IsGraduated
