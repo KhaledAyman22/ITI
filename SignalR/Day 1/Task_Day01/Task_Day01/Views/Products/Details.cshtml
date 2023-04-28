@@ -1,0 +1,99 @@
+﻿@model Task_Day01.Models.Product
+@inject MyDbContext context
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class="col-sm-10" id="quantity">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+    
+    <div class="row my-4">
+        <button class="btn btn-primary m-3" onclick="buyProduct()">Buy</button>
+    </div>
+    
+    <div class="row my-4">
+        <input id="usr" class="form-control m-2" type="text" placeholder="Username" />
+        <input id="cmnt" class="form-control m-2" type="text" placeholder="Comment" />
+        <button class="btn btn-primary m-3" onclick="addComment()">Submit</button>
+    </div>
+
+    <div id="cmnts" class="col-12">
+        <h1>Comments:</h1>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts{
+    <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
+    <script>
+        //1- Declare Hub
+        var commentsConnection = new signalR.HubConnectionBuilder().withUrl("/commentsHub").build();
+        var productsConnection = new signalR.HubConnectionBuilder().withUrl("/productsHub").build();
+        
+        //2- Start connection with hub server==> Clients
+        commentsConnection.start().then(function () {
+            console.log("commentsConnection Success!!");
+        });
+
+        productsConnection.start().then(function () {
+            console.log("productsConnection Success!!");
+        });
+        
+        //3- send info to hub server
+        function addComment() {
+            var productId = parseInt(@Model.Id);
+            var username = document.getElementById("usr").value;
+            var comment = document.getElementById("cmnt").value;
+
+            commentsConnection.invoke("AddComment", username, comment, productId);
+        }
+
+        function buyProduct() {
+            var productId = parseInt(@Model.Id)
+            var quant = parseInt(document.getElementById("quantity").innerHTML)
+            productsConnection.invoke("Buy", productId, quant);
+        }
+
+        //4- recive info come from hub server
+        commentsConnection.on("newComment", function (username, comment, productId) {
+            document.getElementById("cmnts").innerHTML +=
+            `<div class='row'> ${username}: ${comment}</div>`;
+        });
+
+        productsConnection.on("newTransaction", function (productId, quantity) {
+                document.getElementById("quantity").innerHTML = quantity
+        });
+    </script>
+}
