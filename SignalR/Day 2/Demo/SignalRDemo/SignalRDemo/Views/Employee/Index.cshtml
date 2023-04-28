@@ -1,0 +1,28 @@
+﻿<div id="div1">
+
+</div>
+
+<input type="button" value="add" onclick="Add()" />
+<input type="button" value="AssignToGroup" onclick="Assign()" />
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js" integrity="sha512-k8WL9L2jG8KyG3pCJA4mHMdg2YSoWrdB5QNqLIhROv69udwp87WvbqzbsiAL65wy7T9jHU7rAoePr1ToPBc0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var connection =
+            new signalR.HubConnectionBuilder().withUrl("/EmployeeHub").build();
+        //2- Start connection with hub server==> Clients
+        connection.start().then(function () {
+            console.log("Connection Success!!");
+        });//online client on hub
+
+        //3- send server
+        function Add(){
+            var obj={"Id":1,"Name":"Ahmed","Salary":8000};
+            connection.invoke("AddNEW", obj);
+        }
+        //4- recive
+        connection.on("NotifyNewEmployee",function(emp){
+            console.log(emp);
+            document.getElementById("div1").innerHTML=emp.name;
+        });
+    </script>
+}

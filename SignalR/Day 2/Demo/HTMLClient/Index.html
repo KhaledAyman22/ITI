@@ -1,0 +1,37 @@
+<input type="text" id="name"/>
+<input type="text" id="msg"/>
+<input type="text" id="rate" />
+
+<input type="button" value="Send" onclick="SendData()"/>
+<ul id="messages">
+</ul>
+<img src="/Image/1.jpg" />
+
+<!--SignalR Client  "JS"-->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js" integrity="sha512-k8WL9L2jG8KyG3pCJA4mHMdg2YSoWrdB5QNqLIhROv69udwp87WvbqzbsiAL65wy7T9jHU7rAoePr1ToPBc0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //1- Declare Hub
+        var connection = 
+            new signalR.HubConnectionBuilder().withUrl("http://localhost:63823/MyChatHub").build();
+        //2- Start connection with hub server==> Clients
+        connection.start().then(function(){
+            console.log("Connection Success!!");
+        });//online client on hub
+        //3- send info to hub server
+        function SendData(){
+            var name = document.getElementById("name").value;
+            var msg = document.getElementById("msg").value;
+            var r =parseInt(document.getElementById("rate").value);
+
+            console.log(name+":"+msg);//--->hub server
+            //RPC from server
+            connection.invoke("NewMessage", name,msg,r);
+        }
+       
+        //4- recive info come from hub server
+        connection.on("NotifyNewMessage",function(n,m){
+            document.getElementById("messages").innerHTML+=
+               "<li>"+ n +":"+ m +"</li>";
+        });
+    </script>

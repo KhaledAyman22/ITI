@@ -1,0 +1,2 @@
+use Producthub outside HubContext "Use it in Insert action"
+test Cors
