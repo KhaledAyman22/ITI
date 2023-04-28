@@ -1,0 +1,37 @@
+﻿@page "/tracks/details/{id}"
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+    public Track? Track { get; set; }
+    public bool Loaded = false;
+    protected override async Task OnInitializedAsync()
+    {
+        Track = await client.GetFromJsonAsync<Track>($"https://localhost:7088/api/Tracks/{Id}");
+
+        await base.OnInitializedAsync();
+    }
+}
+@if (Track is not null)
+{
+    <div class="form-group-row">
+        <div class="col-12 text-center">
+            <p class="h4 fw-bold">Track: @Track.ID Details</p>
+
+        </div>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Name</lable>
+        <lable class="form-control">@Track.Name</lable>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Description</lable>
+        <lable class="form-control">@Track.Description</lable>
+    </div>
+}
+
+else{
+    <h1 class="text-center">Bad request or connection failed</h1>
+}

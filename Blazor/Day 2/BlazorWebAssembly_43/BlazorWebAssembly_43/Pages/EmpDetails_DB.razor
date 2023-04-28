@@ -1,0 +1,58 @@
+﻿@page "/empdetails_DB/{EmployeeId:int}"
+
+@if (CurEmp != null)
+{
+    <h3>EmployeeDetails for @CurEmp.FirstName @CurEmp.LastName </h3>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Employee Id</label>
+        <label class="form-control"> @CurEmp.EmployeeId </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> First Name </label>
+        <label class="form-control"> @CurEmp.FirstName </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Last Name </label>
+        <label class="form-control"> @CurEmp.LastName </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Birthdate </label>
+        <label class="form-control"> @CurEmp.BirthDate.ToShortDateString() </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Email </label>
+        <label class="form-control"> @CurEmp.Email </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Phone Number </label>
+        <label class="form-control"> @CurEmp.PhoneNumber </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> Gender </label>
+        <label class="form-control"> @CurEmp.Gender </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> joinedCompany Date </label>
+        <label class="form-control"> @CurEmp.JoinedDate?.ToShortDateString() </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label"> LeftCompany Date </label>
+        <label class="form-control"> @CurEmp.ExitDate?.ToShortDateString() </label>
+    </div>
+}
+else
+{
+    <div>
+        Still Loading...........................
+    </div>
+}
+

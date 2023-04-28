@@ -1,0 +1,48 @@
+﻿@page "/trainees/details/{id}"
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+    public Trainee? Trainee { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Trainee = await client.GetFromJsonAsync<Trainee>($"https://localhost:7088/api/Trainees/{Id}");
+
+        await base.OnInitializedAsync();
+    }
+
+}
+@if (Trainee is not null)
+{
+    <div class="form-group-row">
+        <div class="col-12 text-center">
+            <p class="h4 fw-bold">Trainee: @Trainee.ID Details</p>
+        </div>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Name</lable>
+        <lable class="form-control">@Trainee.Name</lable>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Gender</lable>
+        <lable class="form-control">@Trainee.Gender</lable>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Mobile</lable>
+        <lable class="form-control">@Trainee.MobileNo</lable>
+    </div>
+
+    <div class="form-group-row">
+        <label class="col-form-label">Email</label>
+        <lable class="form-control">@Trainee.Email</lable>
+    </div>
+
+    <div class="form-group-row">
+        <lable class="col-form-label">Birthdate</lable>
+        <lable class="form-control">@Trainee.Birthdate.ToShortDateString()</lable>
+    </div>
+}

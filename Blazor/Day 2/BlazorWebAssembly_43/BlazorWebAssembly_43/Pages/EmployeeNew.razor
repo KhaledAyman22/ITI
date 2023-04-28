@@ -1,0 +1,132 @@
+﻿@page "/empnew"
+
+<h3>New Employee</h3>
+
+@code {
+
+    [Parameter]
+    public int EmployeeId { get; set; }
+
+    public Employee newEmp { get; set; }
+
+    protected bool Saved;
+
+    //used to show state of form
+    protected string StatusClass;
+    protected string Msg;
+
+    protected override Task OnInitializedAsync()
+    {
+        //add some defaults
+        newEmp = new Employee { EmployeeId = 3, CountryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now };
+
+        return base.OnInitializedAsync();
+    }
+
+    protected void HandleValidSubmit()
+    {
+        //Saved = false;
+
+        MockContext.Employees.Add(newEmp);
+
+        StatusClass = "alert-success";
+        Msg = "New Employee Add Successfully...";
+        Saved = true;
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        StatusClass = "alert-danger";
+        Msg = "There are some validation Errors. Please try again...";
+    }
+}
+
+@if (!Saved)
+{
+    <h1 class="card-title">Details for @newEmp.FirstName @newEmp.LastName</h1>
+
+    <EditForm Model="@newEmp" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+        <DataAnnotationsValidator />
+
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group row">
+            <label for="firstName" class="col-form-label">First name: </label>
+            <InputText id="firstName" class="form-control" @bind-Value="@newEmp.FirstName" placeholder="Enter first name"></InputText>
+            <ValidationMessage For="@(() => newEmp.FirstName)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="lastName" class="col-form-label">Last name: </label>
+            <InputText id="lastName" class="form-control" @bind-Value="@newEmp.LastName" placeholder="Enter last name"></InputText>
+            <ValidationMessage For="@(() => newEmp.LastName)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="birthdate" class="col-form-label">Birthdate: </label>
+            <InputDate id="birthdate" class="form-control" @bind-Value="@newEmp.BirthDate" placeholder="Enter birthdate"></InputDate>
+
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-form-label">Email: </label>
+            <InputText id="email" class="form-control" @bind-Value="@newEmp.Email" placeholder="Enter email"></InputText>
+            <ValidationMessage For="@(() => newEmp.Email)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="country" class="col-form-label">Country: </label>
+            <InputSelect id="country" class="form-control" @bind-Value="@newEmp.CountryId">
+                @foreach (var country in MockContext.Countries)
+                {
+                    <option value="@country.CountryId">@country.Name</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group row">
+            <label for="phonenumber" class="col-form-label">Phone number: </label>
+            <InputText id="phonenumber" class="form-control" @bind-Value="@newEmp.PhoneNumber" placeholder="Enter phone number"></InputText>
+        </div>
+
+        <div class="form-group row">
+            <label for="gender" class="col-form-label">Gender: </label>
+            <InputSelect id="gender" class="form-control" @bind-Value=@newEmp.Gender>
+                <option value="@(Gender.Male)">Male</option>
+                <option value="@(Gender.Female)">Female</option>
+            </InputSelect>
+        </div>
+
+        <div class="form-group row">
+            <label for="maritalstatus" class="col-form-label">Marital status: </label>
+            <InputSelect id="maritalstatus" class="form-control" @bind-Value=@newEmp.MaritalStatus>
+                <option value="@(MaritalStatus.Single)">Single</option>
+                <option value="@(MaritalStatus.Married)">Married</option>
+                <option value="@(MaritalStatus.Other)">Other</option>
+            </InputSelect>
+        </div>
+
+        <div class="form-group row">
+            <label for="joineddate" class="col-form-label">Joined on: </label>
+            <InputDate id="joineddate" class="form-control" @bind-Value="@newEmp.JoinedDate" placeholder="Enter date joined"></InputDate>
+        </div>
+
+        <div class="form-group row">
+            <label for="exitdate" class="col-form-label">Left on: </label>
+            <InputDate id="exitdate" class="form-control" @bind-Value="@newEmp.ExitDate" placeholder="Enter exit date"></InputDate>
+        </div>
+
+        <div class="form-group row">
+            <label for="comment" class="col-form-label">Comment: </label>
+            <InputTextArea id="comment" class="form-control" @bind-Value="@newEmp.Comment" placeholder="Enter comment"></InputTextArea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save employee</button>
+
+    </EditForm>
+}
+else
+{
+    @*<div class="alert-success">Employee updated successfully</div>*@
+    <div class="@StatusClass">@Msg</div>
+}

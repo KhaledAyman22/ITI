@@ -1,0 +1,53 @@
+﻿@page "/tracks"
+@page "/"
+
+@code{
+    IEnumerable<Track>? Tracks;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Tracks = await client.GetFromJsonAsync<IEnumerable<Track>>($"https://localhost:7088/api/Tracks");
+        await base.OnInitializedAsync();
+    }
+
+    public async Task Delete(int id)
+    {
+        var status = await client.DeleteAsync($"https://localhost:7088/api/Tracks/{id}");
+
+        if (status.StatusCode == HttpStatusCode.NoContent)
+            ((List<Track>?)Tracks)?.Remove(Tracks.First(t => t.ID == id));
+
+    }
+}
+
+<a href="tracks/create" class="btn btn-outline-primary">Create Track</a>
+ 
+@if (Tracks == null || Tracks.Count() == 0)
+{
+    <p>No data</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+
+        </tr>
+        @foreach (var track in Tracks)
+        {
+            <tr class=" py">
+                <td>@track.ID</td>
+                <td>@track.Name</td>
+                <td>@track.Description</td>
+                <td>
+                    <a href="@($"tracks/details/{track.ID}")" class="btn btn-outline-primary">Details</a>
+                    <a href="@($"tracks/edit/{track.ID}")" class="btn btn-outline-warning">Edit</a>
+                    <button @onclick="() => Delete(track.ID)" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+}

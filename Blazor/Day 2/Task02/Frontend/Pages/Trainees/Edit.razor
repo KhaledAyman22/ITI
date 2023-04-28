@@ -1,0 +1,97 @@
+﻿@page "/trainees/edit/{id}"
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    public Trainee? Trainee { get; set; }
+
+    public bool Saved, Loaded;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Trainee = await client.GetFromJsonAsync<Trainee>($"https://localhost:7088/api/Trainees/{Id}");
+
+        Loaded = Trainee != null;
+        StateHasChanged();
+
+        await base.OnInitializedAsync();
+    }
+
+    protected async Task HandleValidSubmit()
+    {
+        var status = await client.PutAsJsonAsync($"https://localhost:7088/api/Trainees/{Id}", Trainee);
+
+        if (status.StatusCode == HttpStatusCode.NoContent)
+            Saved = true;
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        Saved = false;
+    }
+}
+
+
+@if (Loaded && !Saved)
+{
+    <EditForm Model="@Trainee" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group row">
+            <label for="name" class="col-form-label">Trainee Name: </label>
+            <InputText id="name" class="form-control" @bind-Value="@Trainee.Name" placeholder="Enter trainee name"></InputText>
+            <ValidationMessage For="@(() => Trainee.Name)" />
+        </div>
+
+
+        <div class="form-group row">
+            <label for="gender" class="col-form-label">Trainee Gender: </label>
+            <InputSelect id="gender" class="form-control" @bind-Value="@Trainee.Gender" placeholder="Enter trainee gender">
+                <option value="@Gender.Male">Male</option>
+                <option value="@Gender.Female">Female</option>
+            </InputSelect>
+            <ValidationMessage For="@(() => Trainee.Gender)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="mobile" class="col-form-label">Trainee Mobile: </label>
+            <InputText id="mobile" class="form-control" @bind-Value="@Trainee.MobileNo" placeholder="Enter trainee mobile"></InputText>
+            <ValidationMessage For="@(() => Trainee.MobileNo)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="email" class="col-form-label">Trainee Email: </label>
+            <InputText id="email" class="form-control" @bind-Value="@Trainee.Email" placeholder="Enter trainee email"></InputText>
+            <ValidationMessage For="@(() => Trainee.Email)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="birthdate" class="col-form-label">Trainee Birthdate: </label>
+            <InputDate id="birthdate" class="form-control" @bind-Value="@Trainee.Birthdate" placeholder="Enter trainee birthdate"></InputDate>
+            <ValidationMessage For="@(() => Trainee.Birthdate)" />
+        </div>
+
+
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success mt-3">Update trainee</button>
+        </div>
+
+    </EditForm>
+}
+else if(Saved)
+{
+    <div class="alert-success">
+        Trainee Updated Successfully......
+    </div>
+}
+else{
+    <div class="alert-primary">
+        Loading......
+    </div>
+}

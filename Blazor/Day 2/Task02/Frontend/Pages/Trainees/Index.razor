@@ -1,0 +1,58 @@
+﻿@page "/trainees"
+
+@code{
+    IEnumerable<Trainee>? Trainees;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Trainees = await client.GetFromJsonAsync<IEnumerable<Trainee>>($"https://localhost:7088/api/Trainees");
+        await base.OnInitializedAsync();
+    }
+
+    public async Task Delete(int id)
+    {
+        var status = await client.DeleteAsync($"https://localhost:7088/api/Trainees/{id}");
+
+        if (status.StatusCode == HttpStatusCode.NoContent)
+            ((List<Trainee>?)Trainees)?.Remove(Trainees.First(t => t.ID == id));
+
+    }
+}
+
+<a href="Trainees/create" class="btn btn-outline-primary">Create trainee</a>
+ 
+@if (Trainees == null || Trainees.Count() == 0)
+{
+    <p>No data</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>MobileNo</th>
+            <th>Birthdate</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var trainee in Trainees)
+        {
+            <tr class=" py">
+                <td>@trainee.ID</td>
+                <td>@trainee.Name</td>
+                <td>@(trainee.Gender == 0? "Male" : "Female")</td>
+                <td>@trainee.Email</td>
+                <td>@trainee.MobileNo</td>
+                <td>@trainee.Birthdate.ToShortDateString()</td>
+                <td>
+                    <a href="@($"Trainees/details/{trainee.ID}")" class="btn btn-outline-primary">Details</a>
+                    <a href="@($"Trainees/edit/{trainee.ID}")" class="btn btn-outline-warning">Edit</a>
+                    <button @onclick="() => Delete(trainee.ID)" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+}
