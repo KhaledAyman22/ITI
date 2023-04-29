@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "ITI.GrpcDemo.Server": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5170;https://localhost:7105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

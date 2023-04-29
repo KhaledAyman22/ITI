@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "InventoryService";
+
+package checkInventory;
+
+service InventoryChecker{
+	rpc CheckInventory (CheckInventoryRequest) returns (CheckInventoryReply);
+}
+
+message CheckInventoryRequest {
+	int32 id = 1;
+	int32 quantity = 2;
+}
+
+message CheckInventoryReply {
+	bool approved = 1;
+	double due = 2;
+}

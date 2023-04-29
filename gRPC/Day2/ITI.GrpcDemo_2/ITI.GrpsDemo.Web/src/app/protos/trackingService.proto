@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option csharp_namespace = "ITI.GrpcDemo.Server.Protos";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+message TrackingMessage {
+	int32 deviceId = 1;
+	Location location = 2;
+	int32 speed = 3;
+	google.protobuf.Timestamp stamp = 4;
+	repeated Sensor sensors = 5;
+	//reserved 3;
+	//reserved 3 to 5;
+	//reserved "speed";
+}
+
+message Location {
+	double lat = 1;
+	double long = 2;
+}
+
+message Sensor {
+	string name = 1;
+	double value = 2;
+}
+
+message TrackingResponse {
+	bool success = 1;
+}
+
+message PulseMessage {
+	int32 deviceId = 1;
+	DeviceStatus status = 2;
+	google.protobuf.Timestamp stamp = 3;
+}
+
+enum DeviceStatus {
+	UNKNOWN = 0;
+	WORKING = 1;
+	FAILED = 2;
+}
+
+message SubscriptionRequest {
+	int32 deviceId = 1;
+}
+
+message NotificationMessage {
+	string text = 1;
+	google.protobuf.Timestamp stamp = 2;
+}
+
+
+service TrackingService {
+	rpc SendMessage(TrackingMessage) returns (TrackingResponse);
+	rpc KeepAlive(stream PulseMessage) returns (google.protobuf.Empty);
+	rpc SubscribeNotification(SubscriptionRequest) returns (stream NotificationMessage);
+}

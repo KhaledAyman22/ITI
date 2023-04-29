@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ITI.GrpcDemo.Client-49119134-d6e2-4a69-8fff-4c9e8af728a1</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.21.5" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.49.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.49.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\ITI.GrpcDemo.Server\Protos\models.proto" GrpcServices="Client">
+      <Link>Protos\models.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\ITI.GrpcDemo.Server\Protos\trackingService.proto" GrpcServices="Client">
+      <Link>Protos\trackingService.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+</Project>

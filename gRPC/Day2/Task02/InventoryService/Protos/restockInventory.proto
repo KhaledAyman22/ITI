@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "InventoryService";
+
+package restockInventory;
+
+service InventoryRestocker{
+	rpc RestockInventory (RestockInventoryRequest) returns (RestockInventoryReply);
+}
+
+message RestockInventoryRequest {
+	int32 id = 1;
+	int32 quantity = 2;
+}
+
+message RestockInventoryReply {
+	bool approved = 1;
+}

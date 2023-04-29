@@ -1,0 +1,25 @@
+<div class="d-flex flex-column justify-content-center m-4">
+  <div>
+    <div class="form-group mt-3">
+      <label for="userId">User ID:</label>
+      <input #userId type="text" class="form-control" id="userId" placeholder="Enter user ID">
+    </div>
+    <div class="form-group mt-3">
+      <label for="productId">Product ID:</label>
+      <input #productId type="text" class="form-control" id="productId" placeholder="Enter product ID">
+    </div>
+    <div class="form-group mt-3">
+      <label for="quantity">Quantity:</label>
+      <input #quantity type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+    </div>
+    <div class="mt-4 col-12 text-center">
+      <button type="button" class="btn btn-primary" (click)="placeOrder(userId, productId, quantity)">Place Order
+      </button>
+
+    </div>
+  </div>
+
+  <div *ngIf="message != ''" class="alert alert-primary mt-5 text-center" role="alert">
+    {{message}}
+  </div>
+</div>

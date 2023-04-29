@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentService";
+
+package checkPayment;
+
+service PaymentChecker {
+	rpc CheckPayment (CheckPaymentRequest) returns (CheckPaymentReply);
+}
+
+message CheckPaymentRequest {
+	int32 id = 1;
+	double due = 2;
+}
+
+message CheckPaymentReply {
+	bool approved = 1;
+}
