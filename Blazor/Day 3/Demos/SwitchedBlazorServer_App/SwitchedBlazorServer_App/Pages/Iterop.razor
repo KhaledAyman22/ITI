@@ -1,0 +1,76 @@
+﻿@page "/interop"
+
+<h3>Iterop</h3>
+
+@*Calling javaScript function from C#:*@
+
+@inject IJSRuntime JsRuntime
+
+<button @onclick="OnButtonClicked">Alert Me</button>
+
+<button @onclick="CallJSMethod"> Call JS From BlazorRazor </button>
+
+<p>@favoriteMovie</p>
+
+@code {
+    string favoriteMovie;
+
+    async Task OnButtonClicked()
+    {
+        await JsRuntime.InvokeVoidAsync("console.log", "C# says hello");
+        await JsRuntime.InvokeVoidAsync("alert", "Hello from JS");
+
+        favoriteMovie = await JsRuntime.InvokeAsync<string>("prompt", "What is your favorite movie?");
+
+        await JsRuntime.InvokeVoidAsync("alert", favoriteMovie);
+    }
+}
+
+
+
+<button @onclick="Check"> Call JS From BlazorCode </button>
+
+<div>@msg</div>
+
+@code{
+    [Inject]
+    public IJSRuntime jsRuntime2 { get; set; }
+
+    public string msg { get; set; }
+    async Task Check()
+    {
+        bool confirmed = await jsRuntime2.InvokeAsync<bool>("confirm", "Are you hungry?");
+        if (confirmed)
+        {
+            msg = "Let's order somethig to eat :D";
+        }
+        else
+        {
+            msg = "Good for you,, I am starving!";
+        }
+    }
+}
+
+@code
+{
+    //GetName function defined in myjs.js file, so should refrence it inside _Host.cshtml
+    private async Task CallJSMethod()
+    {
+        await JsRuntime.InvokeVoidAsync("GetName");
+    }
+}
+
+
+
+@*Calling C# function from javaScript:*@
+
+<button onclick="giveMeRandomInt()">Randomize</button>
+<div> the random number is: <span id="randomNumSpan"></span> </div>
+@code
+{
+    [JSInvokable]
+    public static Task<int> GenerateRandomInt() //we need to call this function from js function
+    {
+        return Task.FromResult(new Random().Next());
+    }
+}

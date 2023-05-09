@@ -1,0 +1,13 @@
+- Create Server-side Blazor Apps:
+ 
+	- Create a Razor Class Library, it should contain 2 "Non-routable" custom component of your choice
+		, use them in your application
+
+	- Implement JSInterop in your application, (Call java function from C#, and visa versa)
+
+	- Implement Identity in your blazor application, Show/Hide application parts based on
+		user state  -  Don't allow anonymouse users to access pages via url
+
+
+ 
+

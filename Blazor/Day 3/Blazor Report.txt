@@ -1,0 +1,29 @@
+Everyone need to do a Report "Create a video of yourself explaining your idea with a demo" 
+
+Notes: 
+- Video should be "15 min" max.
+- Deadline: Wednesday 7 May 2023
+- Report idea could be from the following points "or any idea of your choice (NOT covered in course)"
+
+
+Report idea examples:
+---------------------
+1- Blazor lifecycle
+2- Blazor component rendering
+3- Blazor component virtualization
+4- Blazor templated components
+5- Blazor globalization and localization
+6- Blazor layouts
+7- Blazor file uploads
+8- Lazy load assemblies in ASP.NET Core Blazor WebAssembly
+9- Prerender and integrate ASP.NET Core Razor components
+10- Host and deploy ASP.NET Core Blazor WebAssembly
+11- Host and deploy Blazor Server
+12- Routing in Blazor
+13- Using Roles in authorizing Blazor Apps
+14- Using Policies in authorizing Blazor Apps
+15- Parameters: Cascading
+16- Parameters: Event Callback
+17- Parameters: Sending Parameters from parent to child component and visa versa
+18- Securing webAssembly blazor apps
+19- 

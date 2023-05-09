@@ -1,0 +1,19 @@
+﻿<div class="product-card">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@imageUrl" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@productName</h5>
+            <p class="card-text">@productDescription</p>
+            <a href="" class="btn btn-primary">Add to cart</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string imageUrl =
+        "https://dummyimage.com/286x180/8EB1C7/FEFDFF.png&text=Awesome+Product";
+    private string productName =
+    "Awesome Product";
+    private string productDescription =
+        "You won't believe how great this product is until you actually use it yourself.";
+}

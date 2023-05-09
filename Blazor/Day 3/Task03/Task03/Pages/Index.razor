@@ -1,0 +1,35 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+@inject SignInManager<IdentityUser> SignInManager
+@inject NavigationManager NavigationManager
+@using ClassLibrary;
+@using Microsoft.AspNetCore.Identity;
+
+<PageTitle>Index</PageTitle>
+
+@code {
+
+    [JSInvokable]
+    public static Task<string> SayHiFromJs()
+    {
+        return Task.FromResult("Hi from JS!");
+    }
+
+    public async Task HandleNewUser(User user)
+    {
+        DummyDb.Users.Add(user);
+
+        await JSRuntime.InvokeVoidAsync("showMessage", "Hi from C#!");
+    }
+}
+
+
+@if (SignInManager.IsSignedIn(this.SignInManager.Context.User))
+{
+    <Component1 SubmitClicked="@HandleNewUser"></Component1>
+    <Component2 Users="DummyDb.Users"></Component2>
+}
+else
+{
+    NavigationManager.NavigateTo("/Identity/Account/Login");
+}

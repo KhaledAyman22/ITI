@@ -1,0 +1,48 @@
+﻿@page "/empoverview_DB"
+
+<h3>EmployeeOverview_Db</h3>
+
+@code {
+
+    IEnumerable<Employee> AllEmployees;
+
+    [Inject]
+    public BlazorWebAssembly_43.Services.IEmployeeDataService empDataService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllEmployees = await empDataService.GetAllEmployees();
+    }
+}
+
+@if (AllEmployees == null)
+{
+    <p> Loading......... </p>
+}
+else
+{
+    <a href="@($"empnew_DB")" class="btn btn-outline-primary"> New </a>
+
+    <table class="table">
+        <tr>
+            <th> Employee-ID </th>
+            <th> FirstName </th>
+            <th> LastName </th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+
+        </tr>
+        @foreach (var item in AllEmployees)
+        {
+            <tr>
+                <td> @item.EmployeeId </td>
+                <td> @item.FirstName </td>
+                <td> @item.LastName </td>
+                <td> <a href="@($"empdetails_DB/{item.EmployeeId}")" class="btn btn-outline-primary"> Details </a> </td>
+                <td> <a href="@($"empedit_DB/{item.EmployeeId}")" class="btn btn-outline-primary"> Edit </a> </td>
+                <td> <a href="@($"empdelt_DB/{item.EmployeeId}")" class="btn btn-outline-primary"> Delete </a> </td>
+            </tr>
+        }
+    </table>
+}

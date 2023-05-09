@@ -1,0 +1,45 @@
+﻿@page "/testbinding"
+@page "/test"
+
+<h1>testBinding</h1>
+
+@code {
+
+    Employee employee = new Employee()
+        {
+            EmployeeId = 1,
+            FirstName = "Basma",
+            LastName = "Hussien"
+        };
+
+    public void Button_Click()
+    {
+        employee.FirstName = "testValue";
+    }
+}
+
+<div>
+    <h3>One way data-binding</h3>
+    Employee Name: @employee.FirstName
+</div>
+
+<div>
+    <h3>One way data-binding on form controls</h3>
+    Employee Name: <input value="@employee.FirstName" />
+</div>
+
+<div>
+    <h3>Two way data-binding</h3>
+    Employee Name: <input @bind="@employee.FirstName" />
+</div>
+
+<div>
+    <h3>Two way data-binding on a different event</h3>
+    Employee Name: <input @bind-value="@employee.FirstName" @bind-value:event="oninput" />
+</div>
+
+<div>
+    <button @onclick="Button_Click"> Click Me </button>
+</div>
+
+

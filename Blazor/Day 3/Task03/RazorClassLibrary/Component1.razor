@@ -1,0 +1,32 @@
+﻿@using ClassLibrary;
+@using Microsoft.AspNetCore.Components.Forms
+@code {
+    [Parameter]
+    public EventCallback<User> SubmitClicked { get; set; }
+
+    public User User { get; set; } = new();
+
+    protected async void HandleValidSubmit()
+    {
+        await SubmitClicked.InvokeAsync(User);
+        User = new();
+        StateHasChanged();
+    }
+}
+
+
+<EditForm Model="@User" OnValidSubmit="@HandleValidSubmit">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" @bind-Value="@User.Name" @bind-Value:event="oninput" id="name" name="Name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" @bind-Value="@User.Email" @bind-Value:event="oninput" id="email" name="Email" placeholder="Enter your email">
+    </div>
+
+    <button type="submit" class="btn btn-primary my-3">
+        Submit
+    </button>
+</EditForm>
+
