@@ -1,0 +1,72 @@
+﻿<Window x:Class="WpfWithMvvM.View.FirstWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWithMvvM.View"
+        xmlns:Conv="clr-namespace:WpfWithMvvM.Converters"
+        mc:Ignorable="d"
+        Title="FirstWindow" Height="450" Width="800"
+        DataContext="{StaticResource ResourceKey=FirstVM}"
+        >
+    <Window.Resources>
+        <Conv:BackgroundConverter x:Key="BGConv"></Conv:BackgroundConverter>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListView Width="200"  Background="LightGray" Name="lst" ItemsSource="{Binding EmployeeList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="100" Text="{Binding Id}"></TextBlock>
+                            <TextBlock Width="100" Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Width="100" Text="{Binding Salary}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Column="1">
+            <StackPanel Width="200"
+                    Height="100"
+                    Background="{Binding Gender,Converter={StaticResource ResourceKey=BGConv}}" DataContext="{Binding ElementName=lst,Path=SelectedItem}" >
+                <TextBlock Width="100" Text="{Binding Id}" Height="30" Margin="5"></TextBlock>
+                <TextBlock Width="100" Text="{Binding Name}" Height="30" Margin="5"></TextBlock>
+                <TextBlock Width="100" Text="{Binding Salary}" Height="30" Margin="5"></TextBlock>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <StackPanel DataContext="{Binding NewEmployee}"  >
+
+                    <TextBox Width="150"
+                         Height="30"
+                         Margin="5"
+                         Text="{Binding Id}"
+                         ></TextBox>
+                    <TextBox Width="150"
+                         Height="30"
+                         Margin="5"
+                         Text="{Binding Name}"
+                         ></TextBox>
+                    <TextBox Width="150"
+                         Height="30"
+                         Text="{Binding Salary}"
+                         ></TextBox>
+                </StackPanel>
+                <Button Margin="5"
+                        Width="100"
+                        Height="40"
+                        Content="Add"
+                        Command="{Binding AddCommand}"
+                        CommandParameter="{Binding NewEmployee }"
+                        ></Button>
+            </StackPanel>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,45 @@
+﻿<Window x:Class="MVVMDay23.View.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMDay23.View"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="TestWindow" Height="450" Width="800"
+        
+        >
+    <!--#region Behavior -->
+    <!--<Grid>
+        <ListView   x:Name="lst"  >
+            <ListViewItem> Item1</ListViewItem>
+            <ListViewItem>Item2</ListViewItem>
+            <ListViewItem>Item3</ListViewItem>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction
+                        CommandParameter="{Binding ElementName=lst,Path=SelectedItem.Content}"
+                        Command="{Binding NewCommand}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+        </ListView>
+        -->
+    <!--<Button Width="100" Height="30" Command="{Binding NewCommand}"></Button>-->
+    <!--
+    </Grid>-->
+    <!--#endregion-->
+    <!--#region Binding -->
+    <!--<TextBox
+             FontSize="{Binding RelativeSource={RelativeSource self},Path=Text}">
+        
+    </TextBox>-->
+    <!--<StackPanel DataContext="{Binding TestProp}">
+        <Button Width="100" 
+                Height="50"
+                Command="{Binding Path=DataContext.NewCommand, RelativeSource={RelativeSource FindAncestor,AncestorType=Window }   }"></Button>
+    </StackPanel>-->
+    <!--#endregion-->
+    
+
+</Window>

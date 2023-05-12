@@ -1,0 +1,26 @@
+﻿<Window x:Class="MVVMDay23.View.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMDay23.View"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <ListView x:Name="lst" ItemsSource="{Binding UserList}" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding name}"></TextBlock>
+            </DataTemplate>
+            
+        </ListView.ItemTemplate>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="SelectionChanged">
+                <i:InvokeCommandAction
+                        CommandParameter="{Binding ElementName=lst,Path=SelectedItem}"
+                        Command="{Binding NewCommand}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+    </ListView>
+</Window>

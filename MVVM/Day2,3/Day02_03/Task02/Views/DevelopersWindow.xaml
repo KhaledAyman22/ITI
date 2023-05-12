@@ -1,0 +1,70 @@
+﻿<Window x:Class="Task02.Views.DevelopersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task02.Views"
+        mc:Ignorable="d"
+        Title="DevelopersWindow" Height="450" Width="800">
+    <StackPanel>
+
+        <StackPanel>
+            <GroupBox>
+                <StackPanel DataContext="{Binding DeveloperData}">
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <TextBlock Width="50" Text="Name: "></TextBlock>
+                        <TextBox Width="200" Text="{Binding Name}" Height="20"></TextBox>
+
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+         
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,20">
+                <Button Margin="5" Content="Save"
+                    Width="70"
+                    Height="20"
+                    Command="{Binding SaveCommand}"></Button>
+                <Button Margin="5" Content="Cancel"
+                    Width="70"
+                    Height="20"
+                    Command="{Binding ResetCommand}"></Button>
+        </StackPanel>
+
+
+
+        <DataGrid
+            CanUserAddRows="False"
+            ItemsSource="{Binding DeveloperList}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100" Header="Id" Binding="{Binding Id}" Visibility="Hidden">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100" Header="Name" Binding="{Binding Name}">
+
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" 
+                                    CommandParameter="{Binding Id}"
+                                    Command="{Binding Path=DataContext.DeleteCommand,
+                                RelativeSource={RelativeSource FindAncestor,AncestorType=Window} }"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Select" 
+                                    CommandParameter="{Binding }"
+                                    Command="{Binding Path=DataContext.SelectCommand,
+                                RelativeSource={RelativeSource FindAncestor,AncestorType=Window} }"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </StackPanel>
+</Window>

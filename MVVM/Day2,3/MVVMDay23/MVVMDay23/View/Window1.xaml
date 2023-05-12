@@ -1,0 +1,86 @@
+﻿<Window x:Class="MVVMDay23.View.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMDay23.View"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <StackPanel>
+
+        <StackPanel>
+            <GroupBox>
+                <StackPanel DataContext="{Binding StudentData}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name"></TextBlock>
+                        <TextBox Width="100" Text="{Binding Name}" Height="30"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Age"></TextBlock>
+                        <TextBox Width="100" Text="{Binding Age}"  Height="30"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Address"></TextBlock>
+                        <TextBox Width="100" Text="{Binding Address}"  Height="30"></TextBox>
+
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal">
+
+                <Button Content="Save"
+                    Width="100"
+                    Height="40"
+                    Command="{Binding SaveCommand}"></Button>
+                <Button Content="Cancel"
+                    Width="100"
+                    Height="40"
+                    Command="{Binding ResetCommand}"></Button>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <DataGrid
+            CanUserAddRows="False"
+            ItemsSource="{Binding StudentList}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}">
+
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" 
+                                    CommandParameter="{Binding Id}"
+                                    Command="{Binding Path=DataContext.DeleteCommand,
+                                RelativeSource={RelativeSource FindAncestor,AncestorType=Window} }"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Select" 
+                                    CommandParameter="{Binding }"
+                                    Command="{Binding Path=DataContext.SelectCommand,
+                                RelativeSource={RelativeSource FindAncestor,AncestorType=Window} }"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </StackPanel>
+</Window>
