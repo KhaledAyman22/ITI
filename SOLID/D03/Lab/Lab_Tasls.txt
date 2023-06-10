@@ -1,0 +1,17 @@
+D03: Tasks
+
+Using Shopping Module from lecture demo
+
+1. Create a separate class or project for each ioc container, 
+then use the following ioc containers with the same structure as lecture 
+(Container Creation, Registration, Resolution, LifeStyle) by Code   
+
+1. StructureMap
+2. Ninject
+3. Autofac
+4. DryIoc
+5. Simple Injector
+6. Light Inject
+7. .......
+
+3. Select 2 from the previous IOC Containers and use them by configuration file not code. 
