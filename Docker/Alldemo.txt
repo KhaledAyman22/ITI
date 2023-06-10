@@ -1,0 +1,72 @@
+---- images----
+list images 
+sudo docker images
+delete image
+sudo docker image rm imagid1 imageid2 
+force delete
+sudo docker image rm -f imagid1 
+
+------------ containers ------------
+list runinnig
+sudo docker container ls
+sudo docker container ps
+list all
+sudo docker container ps -s
+start/stop/restart
+sudo docker container start conainerid
+
+sudo docker container stop conainerid
+
+sudo docker container restart conainerid
+delete  stopped
+sudo docker container rm conainerid
+delet running
+sudo docker container rm -f conainerid
+
+sudo docker container start 2ea8258d9440
+sudo docker attach 2ea8258d9440
+-------------------------
+docker pull wordpress
+sudo docker run --name some-wordpress2 -p 80:80 -d wordpress
+
+
+++++++++++++ docker commit +++++++++++++++++
+docker login
+sudo docker pull phuti/rhel-httpd
+sudo docker run phuti/rhel-httpd
+sudo docker container commit id 
+sudo docker  tag phuti/rhel-httpd jospheenboles/ubuntuminia
+docker image push jospheenboles/ubuntuminia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"Hello, World!" Demo:
+
+Create a new directory for your project: mkdir docker-demo
+Navigate to the project directory: cd docker-demo
+Create a new file named Dockerfile (no file extension) and open it in a text editor.
+Add the following content to the Dockerfile:
+Dockerfile
+Copy code
+FROM alpine
+CMD echo "Hello, World!"
+Save and close the Dockerfile.
+Build the Docker image: docker build -t hello-world .
+Run a container from the image: docker run hello-world
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MySQL Database Demo:
+
+Pull the MySQL Docker image: docker pull mysql:latest
+Run a MySQL container:
+shell
+Copy code
+docker run --name mysql-demo -e MYSQL_ROOT_PASSWORD=mysecretpassword -p 3306:3306 -d mysql:latest
+Connect to the MySQL container: docker exec -it mysql-demo mysql -u root -p
+Enter the password (mysecretpassword in this example) when prompted.++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MySQL Database Demo:
+
+Pull the MySQL Docker image: docker pull mysql:latest
+Run a MySQL container:
+shell
+Copy code
+docker run --name mysql-demo -e MYSQL_ROOT_PASSWORD=mysecretpassword -p 3306:3306 -d mysql:latest
+Connect to the MySQL container: docker exec -it mysql-demo mysql -u root -p
+Enter the password (mysecretpassword in this example) when prompted.
